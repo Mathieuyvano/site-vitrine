@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/others_page.css">
+    <link rel="shortcut icon" href="../image/original.png" type="image/x-icon">
+    <title>A propos</title>
+</head>
+<body>
+    <div id="content">
+        <nav class="navbar ">
+            <div class="logo_nom "> 
+                <span class="nom_entreprise " id="entreprise">AcynSteek Inc</span>
+               
+            </div>
+            
+            <div class="navigation " >
+                <ul >
+                    <li> <a href="../index.html"  >accueil</a></li>
+                    <li> <a href="propos.html" class="active" >à propos</a></li>
+                    <li id="service_p">
+                        <div class="allservices">
+                            <a href="services.html" >services</a>
+                            <ion-icon name="chevron-forward-outline" onclick="serviceslink()"></ion-icon>
+                        </div>
+                        <ul>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/assistant virtuelle.jpg"
+                                data-title="Assistant virtuelle"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle">Assistant virtuel & Administrative</a></li>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/assistant_client.jpg"
+                                data-title="Assistant commerciale & service client"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle">Assistant commerciale & service client</a></li>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/compta.jpg"
+                                data-title="Externalisation comptable"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle">Externalisation compta</a></li>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/salla.png"
+                                data-title="Salle représentative"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle">Salle représentative</a></li>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/devsweb.jpg"
+                                data-title="Développeur & SEO"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle">Développeur web</a></li>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/desgin_uxui.jpg"
+                                data-title="Design UI/UX"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle">Design UI/UX</a></li>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/teleconseiller.jpg"
+                                data-title="Téléconseiller"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle">Téléconseiller</a></li>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/teleoperateur.jpg"
+                                data-title="Téléoperateur"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle">Téléoperateur</a></li>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/prestatair.jpg"
+                                data-title="Prestataire"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle">Prestataire</a></li>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/testeur_qa.jpg"
+                                data-title="Testeur QA"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle">Testeur QA</a></li>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/redaction web.jpg"
+                                data-title="Rédaction web"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle">Rédaction web</a></li>
+                            <li><a onclick="openmodal(this)"
+                                data-img="../image/support_client.jpg"
+                                data-title="Support client"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de assistant virtuelle"
+                                data-p2="plus details de assistant virtuelle"
+                                >Support client</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html"  >contact</a></li>
+                </ul>    
+            </div>
+            <div class="btn_burger">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>   
+        </nav>
+
+          <div class="propos_content hidden">
+                <div class="propos">
+                    <img src="../image/backoffice.jpg" alt="about_us">
+                    <div class="more_propos">
+                        <h1>À propos de nous</h1>
+                        <div class="info_propos">
+                            <div class="all_info">
+                                <ion-icon name="stats-chart-outline"></ion-icon>
+                                <aside>
+                                    <h2>Notre mission</h2>
+                                    <p>Accompagner les entreprises et entrepreneurs avec des services de qualité pour optimiser leur productivité et leur croissance.</p>
+                                </aside>
+                            </div>
+                            <div class="all_info">
+                                <ion-icon name="heart-outline"></ion-icon>
+                                <aside>
+                                    <h2>Notre vision</h2>
+                                    <p>Devenir le partenaire de référence, en offrant des solutions personnalisées et adaptées à chaque besoin, avec écoute et engagement.</p>
+                                </aside>
+                            </div>
+                            <div class="all_info">
+                                <ion-icon name="bulb-outline"></ion-icon>
+                                <aside>
+                                    <h2>Notre engagement</h2>
+                                    <p>Fournir des services professionnels et fiables avec une disponibilité optimale et un accompagnement sur mesure pour chaque client.</p>
+                                </aside>
+                            </div>
+                            <div class="all_info">
+                                <ion-icon name="people-outline"></ion-icon>
+                                <aside>
+                                    <h2>Notre équipe</h2>
+                                    <p>Une équipe d'experts qualifiés et passionnés, dédiée à vous offrir le meilleur service, avec professionnalisme, écoute et innovation.</p>
+                                </aside>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="questions_content">
+                    <div class="questions hidden">
+                        <h1>Une question ? Besoin d'aide ?</h1>
+                        <p>Nous sommes là pour vous écouter, vous conseiller et vous accompagner à chaque étape de votre projet.</p>
+                        <button><a href="contact.html">Nous contacter</a></button>
+                    </div>
+                </div>
+          </div>
+        <!-- footer -->
+        <footer>
+            <div class="footer_content">
+                <section class="sections-1">
+                    <h1>AcySteek Inc</h1>
+                    <p>Créer des projets innovantes</p>
+                </section>
+                <section class="sections-2">
+                    <h1>Navigation</h1>
+                    <ul>
+                        <li><a href="../index.html">accueil</a></li>
+                        <li><a href="services.html " >services</a></li>
+                        <li><a href="contact.html" >contact</a></li>
+                
+                    </ul>
+                </section>
+                <section class="section-3">
+                    <h1>services</h1>
+                    <ul>
+                        <li><a  class="openlink"
+                                data-img="../image/assistant virtuelle.jpg"
+                                data-title="Assistant virtuel & administrative"
+                                data-price="120€ à 250€ HT"
+                                data-p="Vous passez des heures sur des tâches administratives qui vous éloignent de votre cœur de métier ? Factures, relances clients, prise de RDV, gestion des mails, suivi des fournisseurs, classement… tout ça vous coûte du temps et de l’énergie. En déléguant à un assistant virtuel expérimenté, vous retrouvez jusqu’à 20-30 h par mois pour vous concentrer sur le développement commercial, les projets stratégiques ou simplement respirer un peu."
+                                data-p2="Et si c’était plus simple ? On s’adapte totalement à votre façon de travailler : vous nous donnez vos priorités, on prend le relais en français impeccable, avec réactivité et discrétion. Beaucoup de dirigeants et indépendants hésitent au début, puis se demandent comment ils faisaient sans avant."
+                                onclick="openmodal(this)">Assistant virtuel & administrative
+                            </a>
+                        </li>
+                        <li><a  class="openlink" 
+                                data-img="../image/teleoperateur.jpg"
+                                data-title="Téléoperateur"
+                                data-price="120€ à 250€ HT"
+                                data-p="plus details de teleoperateur"
+                                data-p2="plus details de teleoperateur"
+                                onclick="openmodal(this)">Téléoperateur
+                            </a>
+                        </li>
+                        <li><a  class="openlink" 
+                                data-img="../image/devsweb.jpg"
+                                data-title="developpeur web & SEO"
+                                data-price="120€ à 250€ HT"
+                                data-p="Développement fullstack <span>React / Vue.js</span>, backend robuste en <span>PHP, Java ou Python</span>, intégration API, design responsive, optimisation vitesse + pack SEO de base. Vous obtenez un site qui charge vite, convertit et se positionne naturellement. "
+                                data-p2="Prêt à lancer ou refondre ? Dites-nous simplement votre besoin (vitrine, e-commerce, budget approx., délai) et on vous envoie une proposition claire sans engagement."
+                                onclick="openmodal(this)"
+                            >developpeur web & SEO
+                            </a>
+                        </li>
+                        <li><a  class="openlink" 
+                            data-img="../image/salla.png"
+                            data-title="Salle représentative"
+                            data-price="120€ à 250€ HT"
+                            data-p="plus details de salle représentative"
+                            data-p2="plus details de salle représentative"
+                            onclick="openmodal(this)"
+                            >salle représentative
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="politique" >
+                <p>&copy;<span id="droit"></span>Tous droits réservés</p>
+            </div>      
+        </footer>
+           <!-- chat -->
+        <div class="chat">
+            <button class="button_chat" id="button_chat">
+                <ion-icon name="chatbubble-ellipses-outline" ></ion-icon>
+              
+            </button>
+            <main id="chat_main">
+                <div  class="chat_content" id="chats_content">
+                    <div class="header_chat">
+                        <h4>Avez-vous des questions ?</h4>
+                        <div class="online">
+                            <div class="point"></div>
+                            <h4>En ligne</h4>
+                        </div>
+                    </div>
+                    <div class="message" id="content_mes">
+                        <div class="mes">
+                            <p>Bonjour, que pouvons-nous faire pour vous ?</p>
+                        </div>
+                        <div id="user_message" class="user_mes"></div>
+                        <div class="first_mes" style="display: none;" id="first_mes">
+                            <p>Veuillez remplir les champs afin que nous puissions vous répondre </p>
+                        </div>
+                        <div class="second_mes" id="seconds_m" style="display: none;">
+                            <form action="">
+                                <label >Nom Complet</label>
+                                <input type="text" placeholder="Nom et prénom" required>
+                                <label >email</label>
+                                <input type="email" placeholder="email" required>
+                                <label >Messages</label>
+                                <textarea name="message" id="id_message" maxlength="100" required></textarea>
+                                <button id="envoie_button" type="submit" >Envoyer</button>
+                            </form>
+    
+                        </div>
+                    </div>
+                    <div class="send_chat">
+                        <input type="text" placeholder="Ecrivez votre message..." id="input_message">
+                        <button class="send_button" id="button_send"><ion-icon name="send-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </main>
+          
+        </div>   
+        
+        <div class="modal" id="mymodal">
+            <div class="modal_content ">
+                <div class="about_modal hidden" >
+                    <img src="" alt="" id="modalimg" class="myimgmodal">
+                    <div class="text_modal">
+                        <h2 id="modaltitres"></h2>
+                        <h3 id="prix"></h3>
+                        <p id="paragraphes_content"></p>
+                        <p id="paragraphes_content2"></p>
+                    </div>
+                      
+                </div>
+                <div class="buttons_modal">
+                    <button class="close">close</button>
+                    <button class="contact_modal" id="buttons_modal" >contactez</button>
+                </div>
+            </div>
+           
+        </div>  
+    
+    </div>
+     
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../app.js"></script>
+</body>
+</html>
