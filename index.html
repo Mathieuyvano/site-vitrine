@@ -351,13 +351,16 @@
                             <p>Veuillez remplir les champs afin que nous puissions vous répondre </p>
                         </div>
                         <div class="second_mes" id="seconds_m" style="display: none;">
-                            <form action="" id="chat_form">
+                            <form action="" id="formchat">
                                 <label >Nom Complet</label>
                                 <input type="text" placeholder="Nom et prénom" id="id_noms" required>
+                                <p class="errors" style="display: none;"></p>
                                 <label >email</label>
                                 <input type="email" placeholder="email" id="id_email" required>
+                                <p class="errors" style="display: none;"></p>
                                 <label >Messages</label>
-                                <textarea name="message" id="id_message" maxlength="100" required></textarea>
+                                <textarea name="message" id="id_message" placeholder="Entrer votre message..." maxlength="100" required></textarea>
+                                <p class="errors" style="display: none;"></p>
                                 <button id="envoie_button" type="submit" >Envoyer</button>
                             </form>
     

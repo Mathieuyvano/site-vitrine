@@ -192,8 +192,10 @@ function chat(){
     const user_message = document.getElementById("user_message");
     const chat_form = document.getElementById("chat_form");
     const email = document.getElementById("id_email");
-    const noms = document.getElementById("id_noms");
+    const noms = document.getElementById("chat_nom");
     const mes = document.getElementById("id_message");
+    const form = document.getElementById("formchat");
+    const error = document.querySelectorAll("#formchat .errors")
     let Iserror = false;
     buttons.addEventListener('click',()=>{
         const chatbox = document.getElementById("chat_main");
@@ -235,6 +237,77 @@ function chat(){
         }
 
     })
+    document.querySelectorAll("#formchat input[required],#formchat textarea[required] ").forEach((elt,index) =>{
+        elt.addEventListener("input",function(){
+          if(elt.checkVisibility()){
+            elt.classList.remove("invalid");
+            elt.classList.add("valid");
+          }
+          if(error[index]){
+            error[index].style.display = "none";
+            error[index].textContent = "";
+          }
+          else{
+            elt.classList.add("invalid");
+            elt.classList.remove("valid");
+        }
+        })
+        elt.addEventListener("blur",function(){
+            if(elt.value.trim() == ""){
+                elt.classList.add("invalid");
+                elt.classList.remove("valid");
+                error[index].style.display = "block";
+                error[index].textContent = "Veuillez remplir le champ";
+            
+            }else{
+                elt.classList.remove("invalid");
+                elt.classList.add("valid");
+                error[index].style.display = "none";
+                error[index].textContent = "";
+            }
+        })
+       
+    })
+    if(form){
+        form.addEventListener("submit", (e) =>{
+            e.preventDefault();
+            error.forEach(block =>{
+                block.style.display = "none";
+                block.textContent = "";
+            })
+            if( noms.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(noms.value.trim())){
+                error[0].style.display = "block";
+                error[0].textContent = "nom invalide";
+                Iserror = true;
+    
+            }
+            if(email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
+                error[1].style.display = "block";
+                error[1].textContent = "Email requise ou invalide";
+                Iserror = true;
+            }
+            if(mes.value.trim() === "" || mes.value.trim().length < 10){
+                error[2].style.display = "block";
+                error[2].textContent = "Message invalide ou vide";
+                Iserror = true;
+            }
+            if(!Iserror){
+                alert("message envoyé avec succès");
+                form.reset();
+                form.addEventListener("reset",function(){
+                    error.forEach(block =>{
+                        block.style.display = "none";
+                        block.textContent = "";
+                    })
+                    document.querySelectorAll("#formchat input[required], textarea[required]").forEach(l =>{
+                        l.classList.remove("invalid","valid");
+                    })
+                })
+            }   
+    
+        })
+    }
+    
     if(chat_form){
         chat_form.addEventListener("submit",(e)=>{
             e.preventDefault();
@@ -287,62 +360,79 @@ function contact(){
                 error[index].textContent = "";
              }
             }
+           
             else{
                 elmt.classList.add("invalid");
                 elmt.classList.remove("valid");
             }  
         })
+        elmt.addEventListener("blur",function(){
+            if(elmt.value.trim() == ""){
+                elmt.classList.add("invalid");
+                elmt.classList.remove('valid');
+                error[index].style.display = "block";
+                error[index].textContent = "Veuillez remplir le champ";
+            }else{
+                elmt.classList.remove("invalid");
+                elmt.classList.add("valid");
+                error[index].style.display = "none";
+                error[index].textContent = "";
+            }
+        })
     })
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        error.forEach(block => {
-            block.style.display = "none";
-            block.textContent = "";
+    if(form){
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            error.forEach(block => {
+                block.style.display = "none";
+                block.textContent = "";
+                
+            } )
             
-        } )
-        
-        if( nom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(nom.value.trim())){
-                error[0].style.display = "block";
-                error[0].textContent = "nom invalide";
+            if( nom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(nom.value.trim())){
+                    error[0].style.display = "block";
+                    error[0].textContent = "nom invalide";
+                    Iserror = true;
+    
+            }
+            if( prenom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(prenom.value.trim())){
+                error[1].style.display = "block";
+                error[1].textContent = "prenom invalide";
                 Iserror = true;
-
-        }
-        if( prenom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(prenom.value.trim())){
-            error[1].style.display = "block";
-            error[1].textContent = "prenom invalide";
-            Iserror = true;
-        }
-        if(email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-          error[2].style.display = "block";
-          error[2].textContent = "Email requise ou invalide";
-          Iserror = true;
-        }
-       
-        if(subject.value.trim() === "" || subject.value.trim().length < 5){
-            error[3].style.display = "block";
-            error[3].textContent = "Sujet invalide ou vide";
-            Iserror = true;
-        }
-        if(message.value.trim() === "" || message.value.trim().length < 10){
-            error[4].style.display = "block";
-            error[4].textContent = "Message invalide ou vide";
-            Iserror = true;
-        }
-        if(!Iserror){
-            alert("message envoyé avec succès");
-            form.reset();
-            form.addEventListener("reset", function(){
-                error.forEach(block =>{
-                    block.style.display = "none";
-                    block.textContent = "";
+            }
+            if(email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
+              error[2].style.display = "block";
+              error[2].textContent = "Email requise ou invalide";
+              Iserror = true;
+            }
+           
+            if(subject.value.trim() === "" || subject.value.trim().length < 5){
+                error[3].style.display = "block";
+                error[3].textContent = "Sujet invalide ou vide";
+                Iserror = true;
+            }
+            if(message.value.trim() === "" || message.value.trim().length < 10){
+                error[4].style.display = "block";
+                error[4].textContent = "Message invalide ou vide";
+                Iserror = true;
+            }
+            if(!Iserror){
+                alert("message envoyé avec succès");
+                form.reset();
+                form.addEventListener("reset", function(){
+                    error.forEach(block =>{
+                        block.style.display = "none";
+                        block.textContent = "";
+                    })
+                    document.querySelectorAll("#form_contact  input[required], #form_contact  textarea[required]").forEach(elmt =>{
+                        elmt.classList.remove("invalid","valid");
+                    })    
                 })
-                document.querySelectorAll("#form_contact  input[required], #form_contact  textarea[required]").forEach(elmt =>{
-                    elmt.classList.remove("invalid","valid");
-                })    
-            })
-        }
-
-    })
+            }
+    
+        })
+    }
+   
    
 }   
 // footer

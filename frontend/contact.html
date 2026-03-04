@@ -137,7 +137,7 @@
                             <input type="text" placeholder="assistant virtuelle" id="sujet" required>
                             <p class="errors" style="display: none;"></p>
                             <label >message ou commentaire</label>
-                            <textarea name="message" id="messages" required ></textarea>
+                            <textarea name="message" id="messages" placeholder="Entrer votre message..." required ></textarea>
                             <p class="errors" style="display: none;"></p>
                             <div class="contact_button">
                                 <button  type="submit" onclick="contact()" >envoyer le message</button>
@@ -239,13 +239,16 @@
                             <p>Veuillez remplir les champs afin que nous puissions vous répondre </p>
                         </div>
                         <div class="second_mes" id="seconds_m" style="display: none;">
-                            <form action="">
+                            <form action="" id="formchat">
                                 <label >Nom Complet</label>
-                                <input type="text" placeholder="Nom et prénom" required>
+                                <input type="text" placeholder="Nom et prénom"  id="chat_nom" required>
+                                <p class="errors" style="display: none;"></p>
                                 <label >email</label>
-                                <input type="email" placeholder="email" required>
+                                <input type="email" placeholder="email" id="id_email" required>
+                                <p class="errors" style="display: none;"></p>
                                 <label >Messages</label>
-                                <textarea name="message" id="id_message" maxlength="100" required></textarea>
+                                <textarea name="message" id="id_message" maxlength="100" placeholder="Entrer votre message..." required></textarea>
+                                <p class="errors" style="display: none;"></p>
                                 <button id="envoie_button" type="submit" >Envoyer</button>
                             </form>
     

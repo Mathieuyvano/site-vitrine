@@ -350,14 +350,14 @@ nav .navigation ul li a:hover{
     margin-bottom: 0;
 }
 .contact_content form input{
-     padding: 15px 5px; 
-     border: none;
-     border-bottom: 1px solid black;
+    padding: 15px 5px; 
+    border: none;
+    border-bottom: 1px solid black;
      
 }
 .contact_content form textarea:focus{
     outline: none;
-     border: 2px solid #4CB8C4; 
+    border: 2px solid #4CB8C4; 
 }
 .contact_content form input:focus{
     outline: none;
@@ -370,7 +370,7 @@ nav .navigation ul li a:hover{
     border: 2px solid red;
 }
 .contact_content form input.valid {
-    border-bottom: 2px solid #4CB8C4;
+    border-bottom: 2px solid green;
 }
 .contact_content form textarea.valid{
     border: 2px solid #4CB8C4;
@@ -407,6 +407,7 @@ nav .navigation ul li a:hover{
 .contact_content form .errors{
     color: red;
     font-size: 1rem;
+    margin: 10px 10px;
 
 }
 /* chat */
@@ -541,6 +542,8 @@ main{
     width: auto;
     outline: none;
     margin: 10px 10px;
+    border: 0;
+    border-bottom: 1px solid black;
 }
 .chat .chat_content .message .second_mes form button{
     background-color: var(--blue-primary);
@@ -552,6 +555,18 @@ main{
     cursor: pointer;
     transition: all 0.5s ease;
 }
+.chat .chat_content .message .second_mes form input.valid,textarea.valid{
+    border-bottom: 2px solid green;
+}
+.chat .chat_content .message .second_mes form input.invalid, textarea.invalid{
+    border-bottom: 2px solid red;
+}
+
+.chat .chat_content .message .second_mes form .errors{
+    color: red;
+    font-size: 0.7rem;
+    margin:0 10px 10px 10px;
+}
 .chat .chat_content .message .second_mes form button:hover{
     transform: scale(1.1);
     box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.4);
@@ -560,7 +575,7 @@ main{
     border-bottom: 1px solid var(--blue-primary);
 }
 .chat .chat_content .message .second_mes form textarea:focus{
-    border: 1px solid var(--blue-primary);
+    border-bottom: 1px solid var(--blue-primary);
 }
 .chat .chat_content .message .first_mes{
     text-align: left;

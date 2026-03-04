@@ -671,6 +671,18 @@ main{
     cursor: pointer;
     transition: all 0.5s ease;
 }
+.chat .chat_content .message .second_mes form input.valid,textarea.valid{
+    border-bottom: 2px solid green;
+}
+.chat .chat_content .message .second_mes form input.invalid, textarea.invalid{
+    border-bottom: 2px solid red;
+}
+
+.chat .chat_content .message .second_mes form .errors{
+    color: red;
+    font-size: 0.7rem;
+    margin:0 10px 10px 10px;
+}
 .chat .chat_content .message .second_mes form button:hover{
     transform: scale(1.1);
     box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.4);
