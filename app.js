@@ -309,22 +309,24 @@ function chat(){
     }
     
     if(chat_form){
-        chat_form.addEventListener("submit",(e)=>{
+        chat_form.addEventListener("submit",(e,id)=>{
             e.preventDefault();
-            if(noms.value.trim()==="" || !/^[a-zA-Z]+$/.test(noms.value.trim())){
-                alert("nom invalide");
+            if( !/^[a-zA-Z]+\s+[a-zA-Z]+$/.test(noms.value.trim())){
+                error[id].style.display = "block";
+                error[id].textContent =  "noms incomplet";
                 Iserror = true;
-                return;
+           
             }
-            if(email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-                alert("Email requise ou invalide");
+            if( !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
+                error[id].style.display = "block";
+                error[id].textContent = "email non valide";
                 Iserror = true;
-                return;
+                
             }
-            if(mes.value.trim() === "" || mes.value.trim().length < 10){
-                alert("Message invalide");
+            if(!/^[a-zA-Z]+$/.test(mes.value.trim()) || mes.value.trim().length < 10){
+                error[id].style.display = "block";
+                error[id].textContent = "message non valide"
                 Iserror = true
-                return;
             }
             if(!Iserror){
                 alert("Données envoyés avec succès");
@@ -381,7 +383,7 @@ function contact(){
         })
     })
     if(form){
-        form.addEventListener("submit", function (e) {
+        form.addEventListener("submit", function (e,id) {
             e.preventDefault();
             error.forEach(block => {
                 block.style.display = "none";
@@ -390,30 +392,30 @@ function contact(){
             } )
             
             if( nom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(nom.value.trim())){
-                    error[0].style.display = "block";
-                    error[0].textContent = "nom invalide";
-                    Iserror = true;
+                error[id].style.display = "block";
+                error[id].textContent = "nom invalide";
+                Iserror = true;
     
             }
             if( prenom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(prenom.value.trim())){
-                error[1].style.display = "block";
-                error[1].textContent = "prenom invalide";
+                error[id].style.display = "block";
+                error[id].textContent = "prenom invalide";
                 Iserror = true;
             }
             if(email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-              error[2].style.display = "block";
-              error[2].textContent = "Email requise ou invalide";
+                error[id].style.display = "block";
+                error[id].textContent = "Email requise ou invalide";
               Iserror = true;
             }
            
             if(subject.value.trim() === "" || subject.value.trim().length < 5){
-                error[3].style.display = "block";
-                error[3].textContent = "Sujet invalide ou vide";
+                error[id].style.display = "block";
+                error[id].textContent = "Sujet invalide ou vide";
                 Iserror = true;
             }
             if(message.value.trim() === "" || message.value.trim().length < 10){
-                error[4].style.display = "block";
-                error[4].textContent = "Message invalide ou vide";
+                error[id].style.display = "block";
+                error[id].textContent = "Message invalide ou vide";
                 Iserror = true;
             }
             if(!Iserror){
