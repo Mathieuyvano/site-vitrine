@@ -8,15 +8,12 @@ const h2 = document.getElementById("modaltitres");
 const p = document.getElementById("paragraphes_content");
 const p2 = document.getElementById("paragraphes_content2");
 const modalImg = document.getElementById("modalimg");
-const closebtn  =document.querySelector(".close");
+const closebtn  =document.querySelector(".icon_close");
 const prix = document.getElementById("prix");
-const actualise = document.getElementById("entreprise");
+const accueil = document.getElementById("entreprise");
 
 
-// actualisation de la page
-actualise.addEventListener('click',()=>{
-    window.location.reload();
-})
+
 // makany page hafa
 function navigation(){
     const links = {
@@ -33,7 +30,14 @@ function navigation(){
                 window.location.href = links[i];
             })
         }
-    }   
+    }
+    if(accueil){
+        accueil.addEventListener("click", () =>{
+           window.location.href = "/index.html";
+
+        })
+    } 
+    
 }
  document.addEventListener("DOMContentLoaded",navigation)
 // menu deroulalnt
@@ -54,11 +58,13 @@ function serviceslink(){
     })
 }
 function scrolls(){
-    const services = document.getElementById("services")
-    // const buttons1 = document.getElementById("services_abouts");
-    services.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
+    const services = document.getElementById("services");
+    const nav = document.getElementById("navbars");
+    const navheight = nav.offsetHeight;
+    const top = services.getBoundingClientRect().top + window.scrollY - navheight;
+    window.scrollTo({
+        top:top,
+        behavior:"smooth"
     })
 } 
 
@@ -99,24 +105,14 @@ abouts.forEach(about =>{
 
 })
 // misokatra ny modal
-function openmodal(btn){
+function openmodal(btn,event){
+    if(event) event.stopPropagation();
     document.getElementById("buttons_modal").addEventListener('click', function(){
         const service = h2.textContent.trim();
-        fetch("frontend/contact.html")
-        .then(response =>{
-            if(response.ok){
-                window.location.href = "frontend/contact.html?service=" + encodeURIComponent(service) ;
-            }else{
-                window.location.href = "contact.html?service=" + encodeURIComponent(service);
-            }
-        }).catch(() =>{
-            window.location.href = "contact.html" + encodeURIComponent(service);
-        })
-        
+        window.location.href = "/frontend/contact.html?service=" + encodeURIComponent(service) ;    
     })
     const card = btn.closest(".card");
             if(card){
-                menu.classList.toggle("active");
                 const image = card.querySelector("img")?.src;
                 const texttitres = card.querySelector("h2")?.textContent;
                 const paragraphestext = card.querySelector("div > #p_content1 ")?.innerHTML;
@@ -171,7 +167,8 @@ function closemodal(){
                 l.classList.remove("active");
             })
             
-            modal.style.display ="none";    
+            modal.style.display ="none";
+                    
         });
     }
     window.addEventListener('click',(e) =>{
@@ -237,7 +234,7 @@ function chat(){
         }
 
     })
-    document.querySelectorAll("#formchat input[required],#formchat textarea[required] ").forEach((elt,index) =>{
+    document.querySelectorAll("#formchat input,#formchat textarea ").forEach((elt,index) =>{
         elt.addEventListener("input",function(){
           if(elt.checkVisibility()){
             elt.classList.remove("invalid");
@@ -351,7 +348,7 @@ function contact(){
     const subject = document.getElementById("sujet");
     let Iserror = false;  
  
-    document.querySelectorAll("#form_contact input[required],#form_contact textarea[required]").forEach((elmt,index) =>{
+    document.querySelectorAll("#form_contact input,#form_contact textarea").forEach((elmt,index) =>{
         elmt.addEventListener("input", function(){
             if(elmt.checkValidity()){
                 elmt.classList.remove("invalid");
@@ -382,42 +379,45 @@ function contact(){
             }
         })
     })
+    
     if(form){
-        form.addEventListener("submit", function (e,id) {
+        form.addEventListener("submit", function (e) {
             e.preventDefault();
             error.forEach(block => {
                 block.style.display = "none";
                 block.textContent = "";
                 
             } )
+           
             
             if( nom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(nom.value.trim())){
-                error[id].style.display = "block";
-                error[id].textContent = "nom invalide";
+                error[0].style.display = "block";
+                error[0].textContent = "nom invalide ou vide";
                 Iserror = true;
     
             }
             if( prenom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(prenom.value.trim())){
-                error[id].style.display = "block";
-                error[id].textContent = "prenom invalide";
+                error[1].style.display = "block";
+                error[1].textContent = "prenom invalide";
                 Iserror = true;
             }
             if(email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-                error[id].style.display = "block";
-                error[id].textContent = "Email requise ou invalide";
+                error[2].style.display = "block";
+                error[2].textContent = "Email requise ou invalide";
               Iserror = true;
             }
            
             if(subject.value.trim() === "" || subject.value.trim().length < 5){
-                error[id].style.display = "block";
-                error[id].textContent = "Sujet invalide ou vide";
+                error[3].style.display = "block";
+                error[3].textContent = "Sujet invalide ou vide";
                 Iserror = true;
             }
             if(message.value.trim() === "" || message.value.trim().length < 10){
-                error[id].style.display = "block";
-                error[id].textContent = "Message invalide ou vide";
+                error[4].style.display = "block";
+                error[4].textContent = "Message invalide ou vide";
                 Iserror = true;
             }
+           const verif =  document.querySelectorAll("#form_contact  input, #form_contact  textarea")
             if(!Iserror){
                 alert("message envoyé avec succès");
                 form.reset();
@@ -426,9 +426,16 @@ function contact(){
                         block.style.display = "none";
                         block.textContent = "";
                     })
-                    document.querySelectorAll("#form_contact  input[required], #form_contact  textarea[required]").forEach(elmt =>{
-                        elmt.classList.remove("invalid","valid");
-                    })    
+                    verif.forEach(el =>{
+                        el.classList.remove('invalid');
+                        el.classList.add("valid");
+                    })
+                      
+                })
+            }else{
+                verif.forEach(el =>{
+                    el.classList.add("invalid");
+                    el.classList.remove("valid");
                 })
             }
     

@@ -113,8 +113,11 @@
                         <div class="coordonnees">
                             <h1>Nos contacts</h1>
                             <div class="coordonnees_item">
-                                <ion-icon name="mail-outline" class="email_icon"></ion-icon>
-                                <p>AcysteekInc@example.com</p>
+                                <a href="https://mail.google.com/">
+                                    <ion-icon name="mail-outline" class="email_icon"></ion-icon>
+                                    <p>AcysteekInc@example.com</p>
+                                </a>
+                                
                             </div>
                         </div>
                     </div>
@@ -125,19 +128,19 @@
                         
                         <form action="" class="hidden" id="form_contact">
                             <label >Nom</label>
-                            <input type="text" placeholder=" ex: Jean" id="nom" required>
+                            <input type="text" placeholder=" ex: Jean" id="nom" >
                             <p class="errors" style="display: none;"></p>
                             <label >Prenom</label>
-                            <input type="text" placeholder=" ex: Luis" id="prenom" required>
+                            <input type="text" placeholder=" ex: Luis" id="prenom">
                             <p class="errors" style="display: none;"></p>
                             <label >E-mail</label>
-                            <input type="email" placeholder="jeanluis@example.com" id="email" required>
+                            <input type="text" placeholder="jeanluis@example.com" id="email" >
                             <p class="errors" style="display: none;"></p>
                             <label >Sujet</label>
-                            <input type="text" placeholder="assistant virtuelle" id="sujet" required>
+                            <input type="text" placeholder="assistant virtuelle" id="sujet" >
                             <p class="errors" style="display: none;"></p>
                             <label >message ou commentaire</label>
-                            <textarea name="message" id="messages" placeholder="Entrer votre message..." required ></textarea>
+                            <textarea name="message" id="messages" placeholder="Entrer votre message..."  ></textarea>
                             <p class="errors" style="display: none;"></p>
                             <div class="contact_button">
                                 <button  type="submit" onclick="contact()" >envoyer le message</button>
@@ -241,13 +244,13 @@
                         <div class="second_mes" id="seconds_m" style="display: none;">
                             <form action="" id="formchat">
                                 <label >Nom Complet</label>
-                                <input type="text" placeholder="Nom et prénom"  id="chat_nom" required>
+                                <input type="text" placeholder="Nom et prénom"  id="chat_nom" >
                                 <p class="errors" style="display: none;"></p>
                                 <label >email</label>
-                                <input type="email" placeholder="email" id="id_email" required>
+                                <input type="text" placeholder="email" id="id_email" >
                                 <p class="errors" style="display: none;"></p>
                                 <label >Messages</label>
-                                <textarea name="message" id="id_message" maxlength="100" placeholder="Entrer votre message..." required></textarea>
+                                <textarea name="message" id="id_message" maxlength="100" placeholder="Entrer votre message..." ></textarea>
                                 <p class="errors" style="display: none;"></p>
                                 <button id="envoie_button" type="submit" >Envoyer</button>
                             </form>
@@ -265,6 +268,9 @@
            <!-- modal -->
            <div class="modal" id="mymodal">
                 <div class="modal_content ">
+                    <div class="icon_close" >
+                        <ion-icon name="close-outline"></ion-icon>
+                    </div>
                     <div class="about_modal hidden" >
                         <img src="" alt="" id="modalimg" class="myimgmodal">
                         <div class="text_modal">
@@ -275,9 +281,8 @@
                         </div>
                         
                     </div>
-                    <div class="buttons_modal">
-                        <button class="close">close</button>
-                        <button class="contact_modal" id="buttons_modal" >contactez</button>
+                    <div class="buttons_modal">   
+                        <button class="contact_modal" id="buttons_modal" >Demander un devis</button>
                     </div>
                 </div>
            

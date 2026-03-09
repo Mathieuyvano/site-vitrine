@@ -112,7 +112,7 @@
                 <div class="propos">
                     <img src="../image/backoffice.jpg" alt="about_us">
                     <div class="more_propos">
-                        <h1>À propos de nous</h1>
+                        <h1>À propos</h1>
                         <div class="info_propos">
                             <div class="all_info">
                                 <ion-icon name="stats-chart-outline"></ion-icon>
@@ -244,13 +244,13 @@
                         <div class="second_mes" id="seconds_m" style="display: none;">
                             <form action="" id="formchat">
                                 <label >Nom Complet</label>
-                                <input type="text" placeholder="Nom et prénom" id="chat_nom" required>
+                                <input type="text" placeholder="Nom et prénom" id="chat_nom" >
                                 <p class="errors" style="display: none;"></p>
                                 <label >email</label>
-                                <input type="email" placeholder="email" id="id_email" required>
+                                <input type="text" placeholder="email" id="id_email" >
                                 <p class="errors" style="display: none;"></p>
                                 <label >Messages</label>
-                                <textarea name="message" id="id_message" maxlength="100" placeholder="Entrer votre message..." required></textarea>
+                                <textarea name="message" id="id_message" maxlength="100" placeholder="Entrer votre message..." ></textarea>
                                 <p class="errors" style="display: none;"></p>
                                 <button id="envoie_button" type="submit" >Envoyer</button>
                             </form>
@@ -268,6 +268,9 @@
         
         <div class="modal" id="mymodal">
             <div class="modal_content ">
+                <div class="icon_close" >
+                    <ion-icon name="close-outline"></ion-icon>
+                </div>
                 <div class="about_modal hidden" >
                     <img src="" alt="" id="modalimg" class="myimgmodal">
                     <div class="text_modal">
@@ -279,7 +282,7 @@
                       
                 </div>
                 <div class="buttons_modal">
-                    <button class="close">close</button>
+                   
                     <button class="contact_modal" id="buttons_modal" >contactez</button>
                 </div>
             </div>

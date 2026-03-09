@@ -100,7 +100,7 @@
                             </ul>
                         </li>
         
-                        <li><a href="contact.html"  >contact</a></li>
+                        <li><a href="contact.html">contact</a></li>
                     </ul>    
                 </div>
                 <div class="btn_burger">
@@ -115,7 +115,7 @@
                     <p>Des solutions d'externalisation adaptés à vos besoins</p>
                 </div>
                 <main class="main_services">
-                    <div class="card hidden">
+                    <div class="card hidden" onclick="openmodal(this)">
                         <img src="../image/assistant virtuelle.jpg" alt="">
                         <h2>Assistant virtuel & Administrative</h2>
                         <p>Déléguez vos taches administratives et gagnez en efficacité</p>
@@ -130,7 +130,7 @@
                         </div>
                         
                     </div>
-                    <div class="card hidden">
+                    <div class="card hidden" onclick="openmodal(this)">
                         <img src="../image/assistant_client.jpg" alt="assistant_commerciale"  >
                         <h2>Assistant commerciale & service client</h2>
                         <p>Offrez à vos clients un accompagnement professionnel et constant</p>
@@ -145,7 +145,7 @@
                         </div>
                         
                     </div>
-                    <div class="card hidden">
+                    <div class="card hidden" onclick="openmodal(this)">
                         <img src="../image/compta.jpg" alt="">
                         <h2>Externalisation comptable</h2>
                         <p>Externalisez votre compta pour plus de temps et rentabilité boostée</p>
@@ -207,7 +207,7 @@
                         </div>
                         
                     </div>
-                    <div class="card hidden">
+                    <div class="card hidden" onclick="openmodal(this)">
                         <img src="../image/teleconseiller.jpg" alt="">
                         <h2>Téléconseiller</h2>
                         <p>Téléconseiller attentif, plus de temps et des clients qui restent.</p>
@@ -222,7 +222,7 @@
                         </div>
                         
                     </div>
-                    <div class="card hidden">
+                    <div class="card hidden" onclick="openmodal(this)">
                         <img src="../image/teleoperateur.jpg" alt="">
                         <h2>Téléoperateur</h2>
                         <p>Téléopérateur professionnel, moins d’appels, plus de confiance</p>
@@ -237,7 +237,7 @@
                         </div>
                         
                     </div> 
-                    <div class="card hidden">
+                    <div class="card hidden" onclick="openmodal(this)">
                         <img src="../image/prestataire.jpg" alt="">
                         <h2>Prestataire</h2>
                         <p>Un prestataire compétent et disponible, des résultats qui comptent.</p>
@@ -252,7 +252,7 @@
                         </div>
                         
                     </div> 
-                    <div class="card hidden">
+                    <div class="card hidden" onclick="openmodal(this)">
                         <img src="../image/testeur_qa.jpg" alt="">
                         <h2>Testeur QA</h2>
                         <p>Avec un QA attentif, libérez-vous des bugs et gagnez en fiabilité.</p>
@@ -267,7 +267,7 @@
                         </div>
                         
                     </div> 
-                    <div class="card hidden">
+                    <div class="card hidden" onclick="openmodal(this)">
                         <img src="../image/redaction web.jpg" alt="">
                         <h2>Rédaction web</h2>
                         <p>Un rédacteur web dédié, du temps gagné et des textes qui engagent.</p>
@@ -282,7 +282,7 @@
                         </div>
                         
                     </div> 
-                    <div class="card hidden">
+                    <div class="card hidden" onclick="openmodal(this)">
                         <img src="../image/support_client.jpg" alt="">
                         <h2>Support client</h2>
                         <p>Un support client efficace, service fiable et satisfaction garantie.</p>
@@ -413,6 +413,9 @@
                 <!--modal  -->
             <div class="modal" id="mymodal">
                 <div class="modal_content hidden">
+                    <div class="icon_close" >
+                        <ion-icon name="close-outline"></ion-icon>
+                    </div>
                     <div class="about_modal hidden" >
                         <img src="" alt="" id="modalimg" class="myimgmodal">
                         <div class="text_modal">
@@ -425,7 +428,6 @@
                         
                     </div>
                     <div class="buttons_modal">
-                        <button class="close"onclick="closemodal()">close</button>
                         <button class="contact_modal" id="buttons_modal">demander un devis</button>
                     </div>
                 </div>

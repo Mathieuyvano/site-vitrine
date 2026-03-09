@@ -195,9 +195,10 @@ nav .navigation ul li a:hover{
 .services_content .main_services .card {
     border-radius: 12px;
     box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.2);
-    margin: 10px auto;
+    margin: 15px auto;
     width: 250px;
     height: auto;
+    cursor: pointer;
 }
 
 .services_content .main_services .card:hover{
@@ -293,11 +294,14 @@ nav .navigation ul li a:hover{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border-radius: 15px;
 }
-.contact_content .image_contact .coordonnees .coordonnees_item{
+.contact_content .image_contact .coordonnees .coordonnees_item a{
     display: flex;
     align-items: center;
     margin: 10px 0;
     padding: 0 10px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
 
 }
 .contact_content .image_contact .coordonnees h1{
@@ -310,7 +314,7 @@ nav .navigation ul li a:hover{
     color: transparent;
     border-bottom: 1px solid rgba(10, 10, 10, 0.898);
 }
-.contact_content .image_contact .coordonnees .coordonnees_item .email_icon{
+.contact_content .image_contact .coordonnees .coordonnees_item  a .email_icon{
     color: #4CB8C4;
     font-size: 2rem;
     margin: 0 10px 0 0;
@@ -826,6 +830,7 @@ footer .politique span{
     /* width: 100%; */
    text-align: start;
    margin: 20px 0 0 0;
+   padding: 0 20px;
 }
 .modal .modal_content .about_modal .text_modal p span{
    font-weight: bold;
@@ -834,7 +839,7 @@ footer .politique span{
 
 .modal .modal_content .buttons_modal{
    display: flex;
-   justify-content: space-between;
+   justify-content: flex-end;
    padding: 10px 20px;
    margin: 20px 20px;
 
@@ -864,7 +869,7 @@ footer .politique span{
    margin: 10px auto;
 
 }
-.modal .modal_content .buttons_modal .close,.contact_modal{
+.modal .modal_content .contact_modal{
    /* font-size: 40px; */
    cursor: pointer;
    border: none;
@@ -879,9 +884,17 @@ footer .politique span{
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
    
 }
-.modal .modal_content .buttons_modal .close{
-   background-color: #B4D334;
-}
+.modal .modal_content .icon_close{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 35px;
+    margin: 10px 10px 0 0;
+    cursor: pointer;
+ }
+
+ .modal .modal_content .icon_close ion-icon:hover{
+    color: var(--green-primary);
+ }
 .modal .modal_content .buttons_modal .contact_modal{
    background-color: #4CB8C4;
  
@@ -1045,8 +1058,15 @@ footer .politique span{
         font-size: 1rem;
     }
     /* contact page */
-    .contact_content .image_contact{
+    .contact_content{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .contact_content .image_contact img{
         display: none;
+    }
+    .contact_content .image_contact .coordonnees{
+        width: 300px;
     }
     .contact_content .form_contact h1{
         font-size: 1.2rem;
@@ -1092,6 +1112,15 @@ footer .politique span{
         flex-direction: column;
         row-gap: 10px;
     }
+    @keyframes translatetext {
+        from{
+            opacity: 0;
+            transform: translateY(-20px);
+        }to{
+            opacity: 1;
+            transform: translateX(0);
+        }
+     }
     footer{
         width: 100%;
     }
