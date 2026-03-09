@@ -319,6 +319,9 @@ nav .navigation ul li a:hover{
     font-size: 2rem;
     margin: 0 10px 0 0;
 }
+.contact_content .image_contact .coordonnees .coordonnees_item  a p:hover{
+    color:  var(--green-primary);
+}
 .contact_content .form_contact{
     width: auto;
 }
