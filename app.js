@@ -296,7 +296,7 @@ function chat(){
                         block.style.display = "none";
                         block.textContent = "";
                     })
-                    document.querySelectorAll("#formchat input[required], textarea[required]").forEach(l =>{
+                    document.querySelectorAll("#formchat input, textarea").forEach(l =>{
                         l.classList.remove("invalid","valid");
                     })
                 })
@@ -306,23 +306,23 @@ function chat(){
     }
     
     if(chat_form){
-        chat_form.addEventListener("submit",(e,id)=>{
+        chat_form.addEventListener("submit",(e)=>{
             e.preventDefault();
             if( !/^[a-zA-Z]+\s+[a-zA-Z]+$/.test(noms.value.trim())){
-                error[id].style.display = "block";
-                error[id].textContent =  "noms incomplet";
+                error[0].style.display = "block";
+                error[0].textContent =  "noms incomplet";
                 Iserror = true;
            
             }
             if( !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-                error[id].style.display = "block";
-                error[id].textContent = "email non valide";
+                error[1].style.display = "block";
+                error[1].textContent = "email non valide";
                 Iserror = true;
                 
             }
             if(!/^[a-zA-Z]+$/.test(mes.value.trim()) || mes.value.trim().length < 10){
-                error[id].style.display = "block";
-                error[id].textContent = "message non valide"
+                error[2].style.display = "block";
+                error[2].textContent = "message non valide"
                 Iserror = true
             }
             if(!Iserror){
