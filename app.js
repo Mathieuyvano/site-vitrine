@@ -105,8 +105,8 @@ abouts.forEach(about =>{
 
 })
 // misokatra ny modal
-function openmodal(btn,event){
-    if(event) event.stopPropagation();
+function openmodal(btn){
+   
     document.getElementById("buttons_modal").addEventListener('click', function(){
         const service = h2.textContent.trim();
         window.location.href = "/frontend/contact.html?service=" + encodeURIComponent(service) ;    
