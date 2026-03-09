@@ -1075,8 +1075,7 @@ footer .politique span{
         font-size: 1.2rem;
     }
     .contact_content .form_contact{
-        margin: 10px 20px;
-        width: 100%;
+        margin: 0 25px;
     }
     .contact_content .form_contact form{
         width: auto;
