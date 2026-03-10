@@ -109,8 +109,8 @@ function openmodal(btn){
    
     document.getElementById("buttons_modal").addEventListener('click', function(){
         const service = h2.textContent.trim();
-        const racine = window.location.origin + window.location.pathname.replace(/\/[^/]*$/,"/");
-        window.location.href = racine + "/contact.html?service=" + encodeURIComponent(service) ;    
+        const racine = window.location.origin + window.location.pathname.replace(/\/[^/]*$/);
+        window.location.href = racine + "contact.html?service=" + encodeURIComponent(service) ;    
     })
     const card = btn.closest(".card");
             if(card){
