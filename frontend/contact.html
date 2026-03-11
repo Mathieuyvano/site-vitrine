@@ -136,7 +136,21 @@
                             <input type="text" placeholder="jeanluis@example.com" id="email" >
                             <p class="errors" style="display: none;"></p>
                             <label >Sujet</label>
-                            <input type="text" placeholder="assistant virtuelle" id="sujet" >
+                            <input type="text" placeholder="assistant virtuelle" id="sujet" list="data_services" >
+                            <datalist id="data_services">
+                                <option value="Assistant virtuelle & administrative">
+                                <option value="Assistant commerciale & service client">
+                                <option value="Externalisation comptable">
+                                <option value="Salle représentative">
+                                <option value="Développeur web & SEO">
+                                <option value="Design UX/UX">
+                                <option value="Téléoperateur">
+                                <option value="Téléconseiller">
+                                <option value="Prestataire">
+                                <option value="Testeur QA">
+                                <option value="Rédaction web">
+                                <option value="Support client">             
+                            </datalist>
                             <p class="errors" style="display: none;"></p>
                             <label >message ou commentaire</label>
                             <textarea name="message" id="messages" placeholder="Entrer votre message..."  ></textarea>
