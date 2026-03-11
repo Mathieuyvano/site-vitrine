@@ -207,6 +207,7 @@ function chat(){
     buttons.addEventListener('click',()=>{
         const chatbox = document.getElementById("chat_main");
         const icons = document.querySelector(".button_chat ion-icon");
+        const close = document.getElementById("close_chat");
         if(chatbox.style.display === "block"){
             chatbox.style.display = "none";
             icons.setAttribute('name','chatbubble-ellipses-outline');
@@ -217,6 +218,14 @@ function chat(){
             document.body.classList.add('no_scroll');
 
         }
+        if(close){
+            close.addEventListener("click",() =>{
+                chatbox.style.display = "none";
+                icons.setAttribute('name','chatbubble-ellipses-outline');
+    
+            })
+        }
+      
     })
     function sendmessage(){
         const message = messageinput.value.trim();
@@ -429,7 +438,7 @@ function contact(){
             }
            const verif =  document.querySelectorAll("#form_contact  input, #form_contact  textarea")
             if(!Iserror){
-                alert("message envoyé avec succès");
+                alert(`${nom }${prenom}`);
                 form.reset();
                 form.addEventListener("reset", function(){
                     error.forEach(block =>{

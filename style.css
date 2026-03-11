@@ -392,7 +392,7 @@ nav .navigation ul li a:hover{
     justify-content: center;
     grid-template-columns: repeat(auto-fit,minmax(280px,auto));
     margin: 0 auto;
-    padding: 50px 0 25px 0;
+    padding: 25px 0 25px 0;
     /* border: 1px solid black;  */
 
     
@@ -589,6 +589,13 @@ main{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     padding: 20px;
+}
+.chat .chat_content .header_chat ion-icon{
+    position: absolute;
+    display: none;
+    top: 10px;
+    right: 0;
+    font-size: 40px;
 }
 .chat .chat_content .header_chat .online{
     display: inline-flex;
@@ -1091,11 +1098,12 @@ footer .politique span{
         font-size: 1rem;
     }
     .chat .chat_content{
-        width:80%;
-        height: 450px;
-        right: 10%;
-        bottom: 100px;
-        z-index:2 ;
+        width:100%;
+        height: 100%;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+        z-index: 2;
     }
     @keyframes chat {
         from{
@@ -1106,6 +1114,9 @@ footer .politique span{
             opacity: 1;
             transform: translateY(0);
         }
+    }
+    #close_chat{
+        display: block;
     }
 
     .modal .modal_content{
