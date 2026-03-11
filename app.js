@@ -109,16 +109,17 @@ function openmodal(btn){
    
     document.getElementById("buttons_modal").addEventListener('click', function(){
         const service = h2.textContent.trim();
-        fetch("frontend/contact.html")
-        .then(res =>{
-            if(res.ok){
-                window.location.href = "frontend/contact.html?service=" + encodeURIComponent(service);
-            }else{
-                window.location.href = "contact.html?service=" + encodeURIComponent(service);
-            }
-        }).catch(() =>{
-            window.location.href = "frontend/contact.html" +  encodeURIComponent(service);
-        })   
+        // fetch("frontend/contact.html")
+        // .then(res =>{
+        //     if(res.ok){
+        //         window.location.href = "frontend/contact.html?service=" + encodeURIComponent(service);
+        //     }else{
+        //         window.location.href = "contact.html?service=" + encodeURIComponent(service);
+        //     }
+        // }).catch(() =>{
+        //     window.location.href = "frontend/contact.html" +  encodeURIComponent(service);
+        // }) 
+        window.location.href = window.location.origin + "/frontend/contact.html?service=" + encodeURIComponent(service);  
     })
     const card = btn.closest(".card");
             if(card){
