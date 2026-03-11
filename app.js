@@ -329,19 +329,19 @@ function chat(){
             e.preventDefault();
             if( !/^[a-zA-Z]+\s+[a-zA-Z]+$/.test(noms.value.trim())){
                 error[0].style.display = "block";
-                error[0].textContent =  "noms incomplet";
+                error[0].textContent =  "Noms incomplet";
                 Iserror = true;
            
             }
             if( !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
                 error[1].style.display = "block";
-                error[1].textContent = "email non valide";
+                error[1].textContent = "E-mail non valide";
                 Iserror = true;
                 
             }
             if(!/^[a-zA-Z]+$/.test(mes.value.trim()) || mes.value.trim().length < 10){
                 error[2].style.display = "block";
-                error[2].textContent = "message non valide"
+                error[2].textContent = "Message non valide"
                 Iserror = true
             }
             if(!Iserror){
@@ -365,6 +365,7 @@ function contact(){
     const message = document.getElementById("messages");
     const error = document.querySelectorAll("#form_contact .errors");
     const subject = document.getElementById("sujet");
+    const menus = document.querySelectorAll("#data_services option");
     let Iserror = false;  
  
     document.querySelectorAll("#form_contact input,#form_contact textarea").forEach((elmt,index) =>{
@@ -411,34 +412,43 @@ function contact(){
             
             if( nom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(nom.value.trim())){
                 error[0].style.display = "block";
-                error[0].textContent = "nom invalide ou vide";
+                error[0].textContent = "Nom invalide ou vide";
                 Iserror = true;
     
             }
             if( prenom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(prenom.value.trim())){
                 error[1].style.display = "block";
-                error[1].textContent = "prenom invalide";
+                error[1].textContent = "Prenom invalide ou vide";
                 Iserror = true;
             }
             if(email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
                 error[2].style.display = "block";
-                error[2].textContent = "Email requise ou invalide";
+                error[2].textContent = "E-mail requise ou invalide";
               Iserror = true;
             }
-           
-            if(subject.value.trim() === "" || subject.value.trim().length < 5){
+            let found = false;
+            menus.forEach(m =>{
+                if(subject.value.trim() === m.value.trim()) found = true;
+           });
+           if(!found){
                 error[3].style.display = "block";
-                error[3].textContent = "Sujet invalide ou vide";
+                error[3].textContent = "Service proposé n'existe pas";
                 Iserror = true;
             }
-            if(message.value.trim() === "" || message.value.trim().length < 10){
+            if(subject.value.trim() === ""){
+                error[3].style.display = "block";
+                error[3].textContent = "Service invalide ou vide";
+                Iserror = true;
+            }
+            if(message.value.trim()==="" || message.length < 5){
                 error[4].style.display = "block";
-                error[4].textContent = "Message invalide ou vide";
+                error[4].textContent = "Message trop court ou vide";
                 Iserror = true;
             }
-           const verif =  document.querySelectorAll("#form_contact  input, #form_contact  textarea")
+            
+           const verif =  document.querySelectorAll("#form_contact input,#form_contact textarea")
             if(!Iserror){
-                alert(`${nom }${prenom}`);
+                 alert(`${nom.value.trim()} ${prenom.value.trim()}, merci pour votre demande. Nous vous contactons dès que possible.`); 
                 form.reset();
                 form.addEventListener("reset", function(){
                     error.forEach(block =>{
