@@ -652,7 +652,8 @@ main{
 }
 
 .chat .chat_content .message .second_mes form{
-    text-align: left;
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     width: 200px;
     height: auto;
@@ -661,12 +662,13 @@ main{
    
 }
 .chat .chat_content .message .second_mes form label{
+    text-align: left;
     color: black;
     font-size: 0.8rem;
-    margin: 0 10px;
+    margin: 5px 10px;
 }
 .chat .chat_content .message .second_mes form input{
-    display: inline-flex;
+    display: flex;
     width: auto;
     margin: 10px 10px;
     border: none;
@@ -674,15 +676,16 @@ main{
     outline: none;
 }
 .chat .chat_content .message .second_mes form textarea{
-    vertical-align: bottom;
-    width: auto;
     outline: none;
     margin: 10px 10px;
-    border: 0;
+    border: none;
     border-bottom: 1px solid black;
-    resize: none;
+    text-wrap: wrap;
+    resize: none; 
 }
 .chat .chat_content .message .second_mes form button{
+    
+    width: auto;
     background-color: var(--blue-primary);
     color: white;
     border: none;
@@ -692,14 +695,15 @@ main{
     cursor: pointer;
     transition: all 0.5s ease;
 }
-.chat .chat_content .message .second_mes form input.valid,textarea.valid{
+.chat .chat_content .message .second_mes form input.valid, .chat .chat_content .message .second_mes form textarea.valid{
     border-bottom: 2px solid green;
 }
-.chat .chat_content .message .second_mes form input.invalid, textarea.invalid{
+.chat .chat_content .message .second_mes form input.invalid, .chat .chat_content .message .second_mes form textarea.invalid{
     border-bottom: 2px solid red;
 }
 
 .chat .chat_content .message .second_mes form .errors{
+    text-align: left;
     color: red;
     font-size: 0.7rem;
     margin:0 10px 10px 10px;
@@ -742,8 +746,6 @@ main{
     width: 100%;
     
 }
-
-
 .chat .chat_content .send_chat button{
     border: none;
     background-color: transparent;
@@ -1001,8 +1003,8 @@ footer .politique span{
     .navbar .navigation.active{
         left: 0;   
     }
-    .navbar .navigation ul li ul{
-        position: static;
+     /* .navbar .navigation ul li ul{
+         position: static; 
         animation: services 0.5s ease;
     }
     @keyframes services {
@@ -1013,7 +1015,7 @@ footer .politique span{
             transform: translateX(0);
         }
         
-    }
+    }  */
     .navbar .navigation ul li a{
         font-size: 1.5rem;
     }

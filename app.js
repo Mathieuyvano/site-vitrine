@@ -249,11 +249,11 @@ function chat(){
     messageinput.addEventListener("keydown",(e) =>{
         if(e.key == "Enter"){
             e.preventDefault();
-            sendmessage()
+            sendmessage();
         }
 
     })
-    document.querySelectorAll("#formchat input,#formchat textarea ").forEach((elt,index) =>{
+    document.querySelectorAll("#formchat input,#formchat textarea").forEach((elt,index) =>{
         elt.addEventListener("input",function(){
           if(elt.checkVisibility()){
             elt.classList.remove("invalid");
@@ -291,15 +291,15 @@ function chat(){
                 block.style.display = "none";
                 block.textContent = "";
             })
-            if( noms.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(noms.value.trim())){
+            if( noms.value.trim().length < 3 || !/^[a-zA-Z]+\s+[a-zA-Z]+$/.test(noms.value.trim())){
                 error[0].style.display = "block";
-                error[0].textContent = "nom invalide";
+                error[0].textContent = "Nom et prenom invalide ou vide";
                 Iserror = true;
     
             }
             if(email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
                 error[1].style.display = "block";
-                error[1].textContent = "Email requise ou invalide";
+                error[1].textContent = "Email requise ou vide";
                 Iserror = true;
             }
             if(mes.value.trim() === "" || mes.value.trim().length < 10){
@@ -339,7 +339,7 @@ function chat(){
                 Iserror = true;
                 
             }
-            if(!/^[a-zA-Z]+$/.test(mes.value.trim()) || mes.value.trim().length < 10){
+            if(mes.value.trim().length < 10){
                 error[2].style.display = "block";
                 error[2].textContent = "Message non valide"
                 Iserror = true
