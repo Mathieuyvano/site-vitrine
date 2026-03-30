@@ -558,6 +558,8 @@ main{
     margin: 10px 10px;
     border: 0;
     border-bottom: 1px solid black;
+    resize: none;
+    
 }
 .chat .chat_content .message .second_mes form button{
     background-color: var(--blue-primary);
@@ -569,10 +571,10 @@ main{
     cursor: pointer;
     transition: all 0.5s ease;
 }
-.chat .chat_content .message .second_mes form input.valid,textarea.valid{
+.chat .chat_content .message .second_mes form input.valid,.chat .chat_content .message .second_mes form textarea.valid{
     border-bottom: 2px solid green;
 }
-.chat .chat_content .message .second_mes form input.invalid, textarea.invalid{
+.chat .chat_content .message .second_mes form input.invalid,.chat .chat_content .message .second_mes form textarea.invalid{
     border-bottom: 2px solid red;
 }
 
@@ -808,6 +810,21 @@ footer .politique span{
    }
    
 }
+ /* animation de fermeture */
+ @keyframes close {
+    from{
+        opacity: 1;
+        transform: translateY(0);
+
+    } to{
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    
+ }
+ .modal .modal_content.closing{
+    animation: close 0.5s ease-in-out;
+ }
 
 .modal .modal_content .about_modal  {
     display: flex; 
@@ -1064,9 +1081,30 @@ footer .politique span{
             transform: translateY(0);
         }
     }
+    @keyframes close {
+        from{
+            opacity: 1;
+            transform: translateY(0);
+
+        } to{
+            opacity: 0;
+            transform: translateY(-40px);
+        }
+        
+    }
+    .chat .chat_content.closing{
+        animation: close 0.5s ease-in-out;
+    }
     #close_chat{
         display: block;
     }
+    .chat .chat_content .message .second_mes form{
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+    }
+   
     .services_content .services_paragraphe p{
         font-size: 1rem;
     }
@@ -1147,6 +1185,8 @@ footer .politique span{
     footer .footer_content .sections-1,.sections-2,.section-3{
         text-align: center;
     }
+    
+  
    
     /* a propos */
     .propos_content .propos{

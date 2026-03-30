@@ -173,17 +173,29 @@ function closemodal(){
     if(closebtn){
         closebtn.addEventListener('click',(e)=>{
             e.preventDefault();
-            const link = document.querySelectorAll("#service_p ul li a").forEach(l =>{
-                l.classList.remove("active");
-            })
+            // const link = document.querySelectorAll("#service_p ul li a").forEach(l =>{
+            //     l.classList.remove("active");
+            // })
+            const modalContent = modal.querySelector(".modal .modal_content");
+            modalContent.classList.add("closing");
+
+            modalContent.addEventListener("animationend",() =>{
+                modal.style.display = "none";
+                modalContent.classList.remove("closing");
+            },{once:true});
             
-            modal.style.display ="none";
+            
                     
         });
     }
     window.addEventListener('click',(e) =>{
         if(e.target === modal){
-            modal.style.display ="none";      
+            const modalContent = modal.querySelector(".modal .modal_content");
+            modalContent.classList.add("closing");
+            modalContent.addEventListener("animationend",() =>{
+                modal.style.display = "none";
+                modalContent.classList.remove("closing");
+            },{once:true});      
         }
     });
 }
@@ -220,9 +232,15 @@ function chat(){
         }
         if(close){
             close.addEventListener("click",() =>{
-                chatbox.style.display = "none";
+                const chatContent = chatbox.querySelector(".chat .chat_content");
+                chatContent.classList.add("closing");
+                chatContent.addEventListener("animationend",() =>{
+                    chatbox.style.display = "none";
+                    chatContent.classList.remove("closing");
+                },{once:true});
+                
                 icons.setAttribute('name','chatbubble-ellipses-outline');
-    
+                document.body.classList.remove('no_scroll');
             })
         }
       

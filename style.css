@@ -841,6 +841,21 @@ footer .politique span{
     }
     
  }
+ /* animation de fermeture */
+ @keyframes close {
+    from{
+        opacity: 1;
+        transform: translateY(0);
+
+    } to{
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    
+ }
+ .modal .modal_content.closing{
+    animation: close 0.5s ease-in-out;
+ }
  .modal .modal_content .about_modal{
     display: flex; 
     justify-content: space-around; 
@@ -1106,6 +1121,21 @@ footer .politique span{
         bottom: 0;
         border-radius: 0;
         z-index: 2;
+    }
+    /* animation de fermeture */
+    @keyframes close {
+        from{
+            opacity: 1;
+            transform: translateY(0);
+
+        } to{
+            opacity: 0;
+            transform: translateY(-40px);
+        }
+        
+    }
+    .chat .chat_content.closing{
+        animation: close 0.5s ease-in-out;
     }
     @keyframes chat {
         from{
