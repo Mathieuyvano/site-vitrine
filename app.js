@@ -1,496 +1,64 @@
-const btnburger = document.querySelector('.btn_burger');
-const menu = document.querySelector('.navigation');
-const iconburger = document.querySelector('.btn_burger ion-icon');
-const link = document.querySelectorAll('nav .navigation ul li a');
-const abouts = document.querySelectorAll('.hidden');
-const modal = document.getElementById("mymodal");
-const h2 = document.getElementById("modaltitres");
-const p = document.getElementById("paragraphes_content");
-const p2 = document.getElementById("paragraphes_content2");
-const modalImg = document.getElementById("modalimg");
-const closebtn  =document.querySelector(".icon_close");
-const prix = document.getElementById("prix");
-const accueil = document.getElementById("entreprise");
+import { navigation } from "./JS/navigation.js";
+import { contact } from "./JS/contact.js";
+import { initmodal } from "./JS/modal.js";
+import { chat } from "./JS/chat.js";
+import { scrolls } from "./JS/scrolls.js";
+import { serviceslink } from "./JS/services.js";
 
+window.scrolls = scrolls;
+window.serviceslink = serviceslink;
+document.addEventListener("DOMContentLoaded",() =>{
+    const btnburger = document.querySelector('.btn_burger');
+    const abouts = document.querySelectorAll('.hidden');
+    // module
+    navigation();
+    initmodal();
+    chat();
+    contact();
 
-
-// makany page hafa
-function navigation(){
-    const links = {
-        "projet":"frontend/contact.html",
-        "more-services":"frontend/services.html",
-        "moreinfo":"frontend/propos.html",
-        
-    }
-    for(let i in links){
-        const elmt = document.getElementById(i)
-
-        if(elmt){
-            elmt.addEventListener('click',() =>{
-                window.location.href = links[i];
-            })
-        }
-    }
-    if(accueil){
-        accueil.addEventListener("click", () =>{
-           window.location.href = "/index.html";
-
-        })
-    } 
-    
-}
- document.addEventListener("DOMContentLoaded",navigation)
-// menu deroulalnt
-function serviceslink(){
-    const link = document.querySelector(".allservices ion-icon");
-    const links = document.querySelector("#service_p ul ")
-    links.classList.toggle('show');
-    if(links.classList.contains('show')){
-        link.setAttribute('name','chevron-down-outline');
-    }else{
-        link.setAttribute('name','chevron-forward-outline');
-    }
-    window.addEventListener('click',(e) =>{
-        if(!e.target.closest(".allservices")){
-            links.classList.remove('show');
-            link.setAttribute('name','chevron-forward-outline');
-        }
-    })
-}
-function scrolls(){
-    const services = document.getElementById("services");
-    const nav = document.getElementById("navbars");
-    const navheight = nav.offsetHeight;
-    const top = services.getBoundingClientRect().top + window.scrollY - navheight;
-    window.scrollTo({
-        top:top,
-        behavior:"smooth"
-    })
-} 
-
-// menu burger
-btnburger.addEventListener('click',(e) =>{
-    e.preventDefault();
-    e.stopPropagation();
-    menu.classList.toggle('active');
-    if(menu.classList.contains('active')){
-        iconburger.setAttribute('name','close-outline');
-        document.body.classList.add('no_scroll');
-    }else{
-        iconburger.setAttribute('name','menu-outline');
-        document.body.classList.remove('no_scroll');
-    }
-  
-})
-//  mgerer dynamiquement ny boutton active
-link.forEach(l =>{
-    l.addEventListener('click',function(){
-        link.forEach(links => links.classList.remove('active'));
-        this.classList.add('active');
-    })
-})
-
-
-
-// mivoaka tsikelikely ny contenue page
-const mjr = new IntersectionObserver((entry) =>{
-    entry.forEach(entries =>{
-        if(entries.isIntersecting){
-            entries.target.classList.add('show');
-        }
-    });
-});
-abouts.forEach(about =>{
-    mjr.observe(about)
-
-})
-// misokatra ny modal
-function openmodal(btn){
-   
-    document.getElementById("buttons_modal").addEventListener('click', function(){
-        const service = h2.textContent.trim();
-        // fetch("frontend/contact.html")
-        // .then(res =>{
-        //     if(res.ok){
-        //         window.location.href = "frontend/contact.html?service=" + encodeURIComponent(service);
-        //     }else{
-        //         window.location.href = "contact.html?service=" + encodeURIComponent(service);
-        //     }
-        // }).catch(() =>{
-        //     window.location.href = "frontend/contact.html" +  encodeURIComponent(service);
-        // }) 
-        window.location.href = window.location.origin + "/frontend/contact.html?service=" + encodeURIComponent(service);  
-    })
-    const card = btn.closest(".card");
-            if(card){
-                const image = card.querySelector("img")?.src;
-                const texttitres = card.querySelector("h2")?.textContent;
-                const paragraphestext = card.querySelector("div > #p_content1 ")?.innerHTML;
-                const paragraphestext2 = card.querySelector("#p_content2")?.innerHTML;
-                const prixmodal = card.querySelector(".idprix")?.innerHTML;
-                modalImg.src = image;
-                h2.textContent = texttitres;
-                p.innerHTML = paragraphestext;
-                p2.innerHTML = paragraphestext2;
-                prix.innerHTML = prixmodal;
-                modal.style.display = "block";
-            }  
-            else{
-                const image = btn.dataset.img;
-                const texttitres = btn.dataset.title;
-                const paragraphestext = btn.dataset.p;
-                const ptext2 = btn.dataset.p2;
-                const prixmodal = btn.dataset.price;
-                const formatted = prixmodal.replace(/\d+/g, match =>{
-                    return `<span class="color_number">${match}</span>`;
-                 })
-                modalImg.src = image;
-                h2.textContent = texttitres;
-                p.innerHTML = paragraphestext;
-                p2.innerHTML = ptext2;
-                prix.innerHTML = formatted;
-                modal.style.display = "block";
-              
-            } 
-        
-}
-// charge la page de conact dia aveo zffecter le valeur
-const subject = document.getElementById("sujet");
-document.addEventListener("DOMContentLoaded", () =>{
-    const urlParams = new URLSearchParams(location.search);
-    const serviceP = urlParams.get("service");
-    if(serviceP){
-        subject.value = serviceP;
-    }
-    if(window.location.pathname.endsWith("contact.html")){
-        window.history.replaceState({},document.title,"contact.html");
-    }
-    
-})
-// fermeture du modal
-function closemodal(){
-    
-    if(closebtn){
-        closebtn.addEventListener('click',(e)=>{
+    if(btnburger){
+        // menu burger
+        btnburger.addEventListener('click',(e) =>{
             e.preventDefault();
-            // const link = document.querySelectorAll("#service_p ul li a").forEach(l =>{
-            //     l.classList.remove("active");
-            // })
-            const modalContent = modal.querySelector(".modal .modal_content");
-            modalContent.classList.add("closing");
-
-            modalContent.addEventListener("animationend",() =>{
-                modal.style.display = "none";
-                modalContent.classList.remove("closing");
-            },{once:true});
-            
-            
-                    
-        });
-    }
-    window.addEventListener('click',(e) =>{
-        if(e.target === modal){
-            const modalContent = modal.querySelector(".modal .modal_content");
-            modalContent.classList.add("closing");
-            modalContent.addEventListener("animationend",() =>{
-                modal.style.display = "none";
-                modalContent.classList.remove("closing");
-            },{once:true});      
-        }
-    });
-}
-document.addEventListener("DOMContentLoaded",closemodal);
-// chat
-function chat(){
-    const send = document.getElementById("button_send");
-    const first = document.getElementById("first_mes");
-    const second = document.getElementById("seconds_m");
-    const buttons = document.getElementById("button_chat");
-    const messageContainer = document.getElementById("content_mes");
-    const messageinput = document.getElementById("input_message");
-    const user_message = document.getElementById("user_message");
-    const chat_form = document.getElementById("chat_form");
-    const email = document.getElementById("id_email");
-    const noms = document.getElementById("chat_nom");
-    const mes = document.getElementById("id_message");
-    const form = document.getElementById("formchat");
-    const error = document.querySelectorAll("#formchat .errors")
-    let Iserror = false;
-    buttons.addEventListener('click',()=>{
-        const chatbox = document.getElementById("chat_main");
-        const icons = document.querySelector(".button_chat ion-icon");
-        const close = document.getElementById("close_chat");
-        if(chatbox.style.display === "block"){
-            chatbox.style.display = "none";
-            icons.setAttribute('name','chatbubble-ellipses-outline');
-            document.body.classList.remove('no_scroll');
-        }else{
-            chatbox.style.display = "block";
-            icons.setAttribute('name','close-outline');
-            document.body.classList.add('no_scroll');
-
-        }
-        if(close){
-            close.addEventListener("click",() =>{
-                const chatContent = chatbox.querySelector(".chat .chat_content");
-                chatContent.classList.add("closing");
-                chatContent.addEventListener("animationend",() =>{
-                    chatbox.style.display = "none";
-                    chatContent.classList.remove("closing");
-                },{once:true});
-                
-                icons.setAttribute('name','chatbubble-ellipses-outline');
+            e.stopPropagation();
+            menu.classList.toggle('active');
+            if(menu.classList.contains('active')){
+                iconburger.setAttribute('name','close-outline');
+                document.body.classList.add('no_scroll');
+            }else{
+                iconburger.setAttribute('name','menu-outline');
                 document.body.classList.remove('no_scroll');
+            }
+        
             })
-        }
-      
-    })
-    function sendmessage(){
-        const message = messageinput.value.trim();
-        user_message.style.display = "block";
-        if(message !== ""){
-            const newmsg = document.createElement("p");
-            newmsg.classList.add("user_message");
-            newmsg.textContent = message;
-            newmsg.style.textAlign = "left";
-            user_message.appendChild(newmsg);
-            
-            messageinput.value = "";
-            messageContainer.scrollTop = messageContainer.scrollHeight;
-            first.style.display = "block";
-            second.style.display = "block";  
-            messageinput.disabled = true;
-        }  
     }
-    //  mandefa message voalohany
-    send.addEventListener('click',sendmessage )
-    messageinput.addEventListener("keydown",(e) =>{
-        if(e.key == "Enter"){
-            e.preventDefault();
-            sendmessage();
-        }
+    // mivoaka tsikelikely ny contenue page
+    const mjr = new IntersectionObserver((entry) =>{
+        entry.forEach(entries =>{
+            if(entries.isIntersecting){
+                entries.target.classList.add('show');
+            }
+        });
+    });
+    abouts.forEach(about =>{
+        mjr.observe(about)
 
     })
-    document.querySelectorAll("#formchat input,#formchat textarea").forEach((elt,index) =>{
-        elt.addEventListener("input",function(){
-          if(elt.checkVisibility()){
-            elt.classList.remove("invalid");
-            elt.classList.add("valid");
-          }
-          if(error[index]){
-            error[index].style.display = "none";
-            error[index].textContent = "";
-          }
-          else{
-            elt.classList.add("invalid");
-            elt.classList.remove("valid");
-        }
-        })
-        elt.addEventListener("blur",function(){
-            if(elt.value.trim() == ""){
-                elt.classList.add("invalid");
-                elt.classList.remove("valid");
-                error[index].style.display = "block";
-                error[index].textContent = "Veuillez remplir le champ";
-            
-            }else{
-                elt.classList.remove("invalid");
-                elt.classList.add("valid");
-                error[index].style.display = "none";
-                error[index].textContent = "";
-            }
-        })
-       
-    })
-    if(form){
-        form.addEventListener("submit", (e) =>{
-            e.preventDefault();
-            error.forEach(block =>{
-                block.style.display = "none";
-                block.textContent = "";
-            })
-            if( noms.value.trim().length < 3 || !/^[a-zA-Z]+\s+[a-zA-Z]+$/.test(noms.value.trim())){
-                error[0].style.display = "block";
-                error[0].textContent = "Nom et prenom invalide ou vide";
-                Iserror = true;
-    
-            }
-            if(email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-                error[1].style.display = "block";
-                error[1].textContent = "Email requise ou vide";
-                Iserror = true;
-            }
-            if(mes.value.trim() === "" || mes.value.trim().length < 10){
-                error[2].style.display = "block";
-                error[2].textContent = "Message invalide ou vide";
-                Iserror = true;
-            }
-            if(!Iserror){
-                alert("message envoyé avec succès");
-                form.reset();
-                form.addEventListener("reset",function(){
-                    error.forEach(block =>{
-                        block.style.display = "none";
-                        block.textContent = "";
-                    })
-                    document.querySelectorAll("#formchat input, textarea").forEach(l =>{
-                        l.classList.remove("invalid","valid");
-                    })
-                })
-            }   
-    
-        })
-    }
-    
-    if(chat_form){
-        chat_form.addEventListener("submit",(e)=>{
-            e.preventDefault();
-            if( !/^[a-zA-Z]+\s+[a-zA-Z]+$/.test(noms.value.trim())){
-                error[0].style.display = "block";
-                error[0].textContent =  "Noms incomplet";
-                Iserror = true;
-           
-            }
-            if( !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-                error[1].style.display = "block";
-                error[1].textContent = "E-mail non valide";
-                Iserror = true;
-                
-            }
-            if(mes.value.trim().length < 10){
-                error[2].style.display = "block";
-                error[2].textContent = "Message non valide"
-                Iserror = true
-            }
-            if(!Iserror){
-                alert("Données envoyés avec succès");
-                chat_form.reset();
-            }
-    
-        })
-    }
-    
-    
-}
-document.addEventListener("DOMContentLoaded",chat);
-
-// contact 
-function contact(){
-    const form = document.getElementById("form_contact");
-    const nom = document.getElementById("nom");
-    const prenom = document.getElementById("prenom");
-    const email = document.getElementById("email");
-    const message = document.getElementById("messages");
-    const error = document.querySelectorAll("#form_contact .errors");
+// charge la page de conact dia aveo zffecter le valeur
     const subject = document.getElementById("sujet");
-    const menus = document.querySelectorAll("#data_services option");
-    let Iserror = false;  
- 
-    document.querySelectorAll("#form_contact input,#form_contact textarea").forEach((elmt,index) =>{
-        elmt.addEventListener("input", function(){
-            if(elmt.checkValidity()){
-                elmt.classList.remove("invalid");
-                elmt.classList.add("valid");
-                // miverina manafina anle erreur
-            if(error[index]){
-                error[index].style.display = "none";
-                error[index].textContent = "";
-             }
-            }
-           
-            else{
-                elmt.classList.add("invalid");
-                elmt.classList.remove("valid");
-            }  
-        })
-        elmt.addEventListener("blur",function(){
-            if(elmt.value.trim() == ""){
-                elmt.classList.add("invalid");
-                elmt.classList.remove('valid');
-                error[index].style.display = "block";
-                error[index].textContent = "Veuillez remplir le champ";
-            }else{
-                elmt.classList.remove("invalid");
-                elmt.classList.add("valid");
-                error[index].style.display = "none";
-                error[index].textContent = "";
-            }
-        })
-    })
-    
-    if(form){
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            error.forEach(block => {
-                block.style.display = "none";
-                block.textContent = "";
-                
-            } )
-           
-            
-            if( nom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(nom.value.trim())){
-                error[0].style.display = "block";
-                error[0].textContent = "Nom invalide ou vide";
-                Iserror = true;
-    
-            }
-            if( prenom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(prenom.value.trim())){
-                error[1].style.display = "block";
-                error[1].textContent = "Prenom invalide ou vide";
-                Iserror = true;
-            }
-            if(email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-                error[2].style.display = "block";
-                error[2].textContent = "E-mail requise ou invalide";
-              Iserror = true;
-            }
-            let found = false;
-            menus.forEach(m =>{
-                if(subject.value.trim() === m.value.trim()) found = true;
-           });
-           if(!found){
-                error[3].style.display = "block";
-                error[3].textContent = "Service proposé n'existe pas";
-                Iserror = true;
-            }
-            if(subject.value.trim() === ""){
-                error[3].style.display = "block";
-                error[3].textContent = "Service invalide ou vide";
-                Iserror = true;
-            }
-            if(message.value.trim()==="" || message.length < 5){
-                error[4].style.display = "block";
-                error[4].textContent = "Message trop court ou vide";
-                Iserror = true;
-            }
-            
-           const verif =  document.querySelectorAll("#form_contact input,#form_contact textarea")
-            if(!Iserror){
-                 alert(`${nom.value.trim()} ${prenom.value.trim()}, merci pour votre demande. Nous vous contactons dès que possible.`); 
-                form.reset();
-                form.addEventListener("reset", function(){
-                    error.forEach(block =>{
-                        block.style.display = "none";
-                        block.textContent = "";
-                    })
-                    verif.forEach(el =>{
-                        el.classList.remove('invalid');
-                        el.classList.add("valid");
-                    })
-                      
-                })
-            }else{
-                verif.forEach(el =>{
-                    el.classList.add("invalid");
-                    el.classList.remove("valid");
-                })
-            }
-    
-        })
+    if(subject){
+        const urlParams = new URLSearchParams(location.search);
+        const serviceP = urlParams.get("service");
+        if(serviceP){
+            subject.value = serviceP;
+        }
+        if(window.location.pathname.endsWith("contact.html")){
+            window.history.replaceState({},document.title,"contact.html");
+        }
+
     }
-   
-   
-}   
-// footer
+ 
+});
 const footer = document.getElementById("droit")
 footer.textContent = new Date().getFullYear();
+
