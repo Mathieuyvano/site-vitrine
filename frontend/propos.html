@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/others_page.css">
-    <link rel="shortcut icon" href="../image/original.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../image/Logo_acysteek.png" type="image/x-icon">
     <title>A propos</title>
 </head>
 <body>
     <div id="content">
         <nav class="navbar ">
-            <div class="logo_nom "> 
-                <span class="nom_entreprise " id="entreprise">AcynSteek Inc</span>
-               
+            <div class="logo_nom " id="entreprise"> 
+                <img src="../image/Logo_acysteek.png"  class="nom_entreprise "  />
+                <h1>cysteek</h1>
             </div>
             
             <div class="navigation " >
@@ -20,96 +20,8 @@
                     <li> <a href="../index.html"  >accueil</a></li>
                     <li> <a href="propos.html" class="active" >à propos</a></li>
                     <li id="service_p">
-                        <div class="allservices">
-                            <a href="services.html" >services</a>
-                            <ion-icon name="chevron-forward-outline" onclick="serviceslink()"></ion-icon>
-                        </div>
-                        <ul>
-                            <li><a onclick="openmodal(this)"
-                                data-img="../image/assistant virtuelle.jpg"
-                                data-title="Assistante virtuelle & Administrative"
-                                data-price="120€ à 250€ HT"
-                                data-p="L’<span>assistante virtuelle et administrative</span> est un véritable <span>partenaire stratégique</span> pour toute entreprise souhaitant gagner en efficacité. Grâce à une maîtrise des <span>tâches administratives</span>, de la <span>gestion des agendas</span> et de la <span>rédaction de documents officiels,</span> elle garantit une organisation fluide et un suivi rigoureux."
-                                data-p2="Choisir une assistante virtuelle, c’est opter pour la <span>flexibilité</span>, le <span>professionnalisme</span> et la <span>discrétion</span>, tout en bénéficiant d’un soutien fiable qui permet de se concentrer sur les priorités essentielles. En apportant une réelle valeur ajoutée, elle contribue directement à la <span>performance</span> et à la <span>croissance durable</span> de l’entreprise.">Assistant virtuel & Administrative</a></li>
-                            <li><a onclick="openmodal(this)"
-                                data-img="../image/assistant_client.jpg"
-                                data-title="Assistant commerciale & service client"
-                                data-price="120€ à 250€ HT"
-                                data-p="L’<span>assistante commerciale et service client</span> est la clé d’une relation durable et performante avec vos clients. Par à une <span>gestion fluide des ventes</span> et une <span>communication professionnelle,</span> elle assure une expérience positive à chaque interaction."
-                                data-p2="Avec son <span>écoute attentive</span> et sa <span>réactivité</span>, elle renforce la confiance, stimule la fidélisation et soutient la <span>croissance commerciale.</span> Elle incarne un véritable <span>partenaire stratégique,</span> capable de valoriser l’image de l’entreprise tout en dynamisant son développement.">Assistant commerciale & service client</a></li>
-                            <li><a onclick="openmodal(this)"
-                                data-img="../image/compta.jpg"
-                                data-title="Externalisation comptable"
-                                data-price="120€ à 250€ HT"
-                                data-p="L’<span>externalisation comptable</span> vous offre une <span>gestion financière fiable</span> et un <span>gain de temps précieux.</span> <span> vos comptes à un expert</span> et concentrez vous sur la croissance de votre entreprise."
-                                data-p2="L’<span>externalisation comptable</span> vous offre une gestion financière fiable et un gain de temps précieux. Confiez vos comptes à un expert et concentrez-vous sur la croissance de votre entreprise.">Externalisation compta</a></li>
-                            <li><a onclick="openmodal(this)"
-                                data-img="../image/salla.png"
-                                data-title="Salle représentative"
-                                data-price="120€ à 250€ HT"
-                                data-p="<span>Un cadre prestigieux pour vos réunions. Professionnalisme et élégance au service de votre image.</span>"
-                                data-p2="Au-delà de son esthétisme, cette salle est pensée pour favoriser la <span>productivité</span> et la <span>réussite</span> de vos échanges. Grâce à son équipement moderne et son atmosphère soignée, elle permet à vos réunions de se dérouler dans les meilleures conditions.">Salle représentative</a></li>
-                            <li><a onclick="openmodal(this)"
-                                data-img="../image/devsweb.jpg"
-                                data-title="Développeur & SEO"
-                                data-price="120€ à 250€ HT"
-                                data-p="Le <span>développeur web et SEO</span> est au cœur de la visibilité et de la performance digitale d’une entreprise. Il conçoit des sites modernes, rapides et sécurisés, tout en optimisant leur <span>référencement naturel</span> pour garantir une présence efficace sur les moteurs de recherche."
-                                data-p2="<span>En combinant des compétences techniques et des stratégies marketing, il améliore l’expérience utilisateur, accroît la notoriété en ligne et favorise la croissance commerciale.</span><br><span style='color: #B4D334 ;'>Technologies:</span> HTML/CSS/JS , React , PHP , JAVA.</span>">Développeur web & SEO</a>
-                            </li>
-                            <li><a onclick="openmodal(this)"
-                                    data-img="../image/desgin_uxui.jpg"
-                                    data-title="Design UI/UX"
-                                    data-price="120€ à 250€ HT"
-                                    data-p="Le <span>design UI/UX</span> est la rencontre entre l’esthétique et l’efficacité. L’interface utilisateur (UI) séduit par son style moderne et élégant, tandis que l’expérience utilisateur (UX) garantit une navigation fluide et intuitive. Ensemble, elles transforment chaque visite en une <span>expérience digitale mémorable.</span>"
-                                    data-p2="Un site bien pensé attire, retient et fidélise vos clients. Grâce à un design centré sur l’utilisateur, votre entreprise se démarque, valorise son image et maximise son impact en ligne.">Design UI/UX</a>
-                            </li>
-                            <li><a onclick="openmodal(this)"
-                                data-img="../image/teleconseiller.jpg"
-                                data-title="Téléconseiller"
-                                data-price="120€ à 250€ HT"
-                                data-p="Le <span>téléconseiller</span> est bien plus qu’un interlocuteur : il devient l’<span>ambassadeur de votre marque.</span> Chaque appel est transformé en une <span>expérience positive</span>, grâce à une écoute attentive, une réactivité immédiate et une approche orientée solution.
-                                En offrant un service chaleureux et professionnel, il renforce la <span>confiance des clients,</span> stimule leur <span>fidélité</span> et contribue directement à la <span>croissance de votre entreprise.</span> Le téléconseiller incarne votre image et garantit que chaque interaction laisse une impression durable.
-                                "
-                                data-p2="<span>Offrez à vos clients un service irréprochable : confiez vos appels à un téléconseiller expert et transformez chaque contact en opportunité.</span>">Téléconseiller</a></li>
-                           
-                            <li><a  class="openlink" 
-                                    data-img="../image/teleoperateur.jpg"
-                                    data-title="Téléoperateur"
-                                    data-price="120€ à 250€ HT"
-                                    data-p="Le <span>téléopérateur</span> est votre allié pour une communication directe et performante. Spécialiste de la gestion des appels entrants et sortants, il assure une <span>prise en charge rapide et efficace,</span> tout en garantissant une <span>relation fluide</span> entre votre entreprise et vos clients.
-                                    Son rôle va au delà de l’accueil téléphonique : il contribue à la <span>prospection,</span> au <span>suivi commercial</span> et à la <span>fidélisation,</span> en transformant chaque interaction en opportunité de croissance. Grâce à son professionnalisme et sa maîtrise des outils digitaux, le téléopérateur optimise vos échanges et renforce votre compétitivité.
-                                    "
-                                    data-p2="Boostez vos performances commerciales avec un téléopérateur expert et donnez à vos clients une expérience irréprochable."
-                                    onclick="openmodal(this)">Téléoperateur
-                                </a>
-                            </li>
-                            <li><a onclick="openmodal(this)"
-                                data-img="../image/Prestataire.jpg"
-                                data-title="Prestataire"
-                                data-price="120€ à 250€ HT"
-                                data-p="Le prestataire est votre partenaire de confiance pour externaliser vos besoins et gagner en efficacité. Grâce à son expertise, il vous apporte des solutions sur mesure qui optimisent vos coûts et valorisent votre image. "
-                                data-p2="Choisissez un prestataire fiable et transformez vos projets en véritables réussites.">Prestataire</a></li>
-                            <li><a onclick="openmodal(this)"
-                                data-img="../image/testeur_qa.jpg"
-                                data-title="Testeur QA"
-                                data-price="120€ à 250€ HT"
-                                data-p="Le <span>testeur QA</span> est un élément clé dans le développement de logiciels performants et fiables. Il veille à la qualité du produit en identifiant les bugs, en vérifiant le bon fonctionnement des fonctionnalités et en garantissant une expérience utilisateur fluide et sans faille."
-                                data-p2="Au-delà de la simple détection d’erreurs, il contribue activement à l’<span>amélioration continue</span> du produit. Grâce à sa rigueur, ses méthodologies de test et sa maîtrise des outils spécialisés, le testeur QA renforce la <span>fiabilité</span> et la <span>satisfaction client</span> de votre solution logicielle.">Testeur QA</a></li>
-                            <li><a onclick="openmodal(this)"
-                                data-img="../image/redaction web.jpg"
-                                data-title="Rédaction web"
-                                data-price="120€ à 250€ HT"
-                                data-p="La <span>rédaction web</span> constitue un atout essentiel pour une communication claire et impactante. Elle permet de transformer vos messages en contenus fluides, professionnels et optimisés, qui captent l’attention des visiteurs dès les premières lignes sur votre site vitrine."
-                                data-p2="Au-delà de la simple rédaction, elle renforce votre <span>image de marque</span>, valorise vos <span>services</span> et facilite la <span>conversion</span> des visiteurs en clients. Grâce à un ton adapté et une structure soignée, chaque texte contribue efficacement à votre <span>présence en ligne</span> et à votre <span>crédibilité</span>.">Rédaction web</a></li>
-                            
-                            <li><a onclick="openmodal(this)"
-                                data-img="../image/support_client.jpg"
-                                data-title="Support client"
-                                data-price="120€ à 250€ HT"
-                                data-p="Le support client est la pierre angulaire de votre relation avec vos consommateurs, garantissant une assistance rapide et efficace. Avec une équipe dédiée, vos clients profitent d’un accompagnement personnalisé qui renforce leur confiance et leur fidélité. "
-                                data-p2="Investir dans un support client de qualité, c’est transformer chaque interaction en opportunité de croissance et en avantage concurrentiel."
-                                >Support client</a></li>
-                        </ul>
+                        
+                         <a href="services_tr.html" >tarifs</a>
                     </li>
                     <li><a href="contact.html"  >contact</a></li>
                 </ul>    
@@ -129,28 +41,28 @@
                                 <ion-icon name="stats-chart-outline"></ion-icon>
                                 <aside>
                                     <h2>Notre mission</h2>
-                                    <p>Accompagner les entreprises et entrepreneurs avec des services de qualité pour optimiser leur productivité et leur croissance.</p>
+                                    <p>Permettre aux professionnels de déléguer leurs tâches efficacement afin de libérer du temps et se concentrer sur l’essentiel : le développement de leur activité.</p>
                                 </aside>
                             </div>
                             <div class="all_info">
                                 <ion-icon name="heart-outline"></ion-icon>
                                 <aside>
                                     <h2>Notre vision</h2>
-                                    <p>Devenir le partenaire de référence, en offrant des solutions personnalisées et adaptées à chaque besoin, avec écoute et engagement.</p>
+                                    <p>Construire des collaborations durables en devenant un partenaire fiable sur lequel vous pouvez vous appuyer au quotidien.</p>
                                 </aside>
                             </div>
                             <div class="all_info">
                                 <ion-icon name="bulb-outline"></ion-icon>
                                 <aside>
                                     <h2>Notre engagement</h2>
-                                    <p>Fournir des services professionnels et fiables avec une disponibilité optimale et un accompagnement sur mesure pour chaque client.</p>
+                                    <p>Offrir une solution simple, réactive et facile à mettre en place, sans les contraintes ni la complexité d’un recrutement classique.</p>
                                 </aside>
                             </div>
                             <div class="all_info">
                                 <ion-icon name="people-outline"></ion-icon>
                                 <aside>
                                     <h2>Notre équipe</h2>
-                                    <p>Une équipe d'experts qualifiés et passionnés, dédiée à vous offrir le meilleur service, avec professionnalisme, écoute et innovation.</p>
+                                    <p>Des assistants expérimentés, sélectionnés pour leur sérieux et leur capacité à s’intégrer rapidement à votre organisation.</p>
                                 </aside>
                             </div>
                         </div>
@@ -159,9 +71,10 @@
                 </div>
                 <div class="questions_content">
                     <div class="questions hidden">
-                        <h1>Une question ? Besoin d'aide ?</h1>
-                        <p>Nous sommes là pour vous écouter, vous conseiller et vous accompagner à chaque étape de votre projet.</p>
-                        <button><a href="contact.html">Nous contacter</a></button>
+                        <h1>Pourquoi nous ?</h1>
+                        <p>Basés à Madagascar, nous vous permettons de bénéficier d’un service professionnel à un coût optimisé, sans compromis sur la qualité.</p>
+                        <p>Une solution simple pour déléguer sans recruter et avancer plus vite.</p>
+                        <button onclick="window.location.href='contact.html'">Obtenir mon assistant</button>  
                     </div>
                 </div>
           </div>
@@ -169,14 +82,14 @@
         <footer>
             <div class="footer_content">
                 <section class="sections-1">
-                    <h1>AcynSteek Inc</h1>
+                    <h1>ACYSTEEK INC</h1>
                     <p>Externalisez vos tâches et augmentez votre productivité dès aujourd'huie</p>
                 </section>
                 <section class="sections-2">
                     <h1>Navigation</h1>
                     <ul>
                         <li><a href="../index.html">accueil</a></li>
-                        <li><a href="services.html " >services</a></li>
+                        <li><a href="services.html " >tarifs</a></li>
                         <li><a href="contact.html" >contact</a></li>
                 
                     </ul>
@@ -184,43 +97,50 @@
                 <section class="section-3">
                     <h1>services</h1>
                     <ul>
-                        <li><a onclick="openmodal(this)"
+                        <li><a  class="openlink"
                             data-img="../image/assistant virtuelle.jpg"
-                            data-title="Assistante virtuelle & Administrative"
-                            data-price="120€ à 250€ HT"
-                            data-p="L’<span>assistante virtuelle et administrative</span> est un véritable <span>partenaire stratégique</span> pour toute entreprise souhaitant gagner en efficacité. Grâce à une maîtrise des <span>tâches administratives</span>, de la <span>gestion des agendas</span> et de la <span>rédaction de documents officiels,</span> elle garantit une organisation fluide et un suivi rigoureux."
-                            data-p2="Choisir une assistante virtuelle, c’est opter pour la <span>flexibilité</span>, le <span>professionnalisme</span> et la <span>discrétion</span>, tout en bénéficiant d’un soutien fiable qui permet de se concentrer sur les priorités essentielles. En apportant une réelle valeur ajoutée, elle contribue directement à la <span>performance</span> et à la <span>croissance durable</span> de l’entreprise.">Assistant virtuel & Administrative</a></li>
-                       
-                        <li><a  class="openlink" 
-                            data-img="../image/teleoperateur.jpg"
-                            data-title="Téléoperateur"
-                            data-price="120€ à 250€ HT"
-                            data-p="Le <span>téléopérateur</span> est votre allié pour une communication directe et performante. Spécialiste de la gestion des appels entrants et sortants, il assure une <span>prise en charge rapide et efficace,</span> tout en garantissant une <span>relation fluide</span> entre votre entreprise et vos clients.
-                            Son rôle va au delà de l’accueil téléphonique : il contribue à la <span>prospection,</span> au <span>suivi commercial</span> et à la <span>fidélisation,</span> en transformant chaque interaction en opportunité de croissance. Grâce à son professionnalisme et sa maîtrise des outils digitaux, le téléopérateur optimise vos échanges et renforce votre compétitivité.
+                            data-title="Assistante administrative"
+                            data-price="À partir de <span>400€</span>/mois"
+                            data-p="<span>Gagnez du temps au quotidien en déléguant vos tâches administratives à un assistant dédié.</span>"
+                            data-p2="Gestion des emails, organisation de votre agenda, saisie de données ou suivi administratif : nous prenons en charge ces missions pour vous permettre de vous concentrer sur l’essentiel
+                            Moins de tâches, plus de temps pour développer votre activité
                             "
-                            data-p2="Boostez vos performances commerciales avec un téléopérateur expert et donnez à vos clients une expérience irréprochable."
-                            onclick="openmodal(this)">Téléoperateur
-                            </a>
-                        </li>
-                        <li><a onclick="openmodal(this)"
+                            onclick="openmodal(this)">Assistant administrative
+                        </a>
+                    </li>
+                    <li><a  class="openlink" 
+                            data-img="../image/assistant_client.jpg"
+                            data-title="Support client & téléopération"
+                            data-price="À partir de <span>400€</span>/mois"
+                            data-p="Améliorez votre relation client et ne laissez plus aucune opportunité passer."
+                            data-p2="Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.
+                            Des clients mieux suivis, plus satisfaits et plus fidèles.
+                            "
+                            onclick="openmodal(this)">Support client & téléopération
+                        </a>
+                    </li>
+                    <li><a  class="openlink" 
                             data-img="../image/devsweb.jpg"
-                            data-title="Développeur & SEO"
-                            data-price="120€ à 250€ HT"
-                            data-p="Le <span>développeur web et SEO</span> est au cœur de la visibilité et de la performance digitale d’une entreprise. Il conçoit des sites modernes, rapides et sécurisés, tout en optimisant leur <span>référencement naturel</span> pour garantir une présence efficace sur les moteurs de recherche."
-                            data-p2="<span>En combinant des compétences techniques et des stratégies marketing, il améliore l’expérience utilisateur, accroît la notoriété en ligne et favorise la croissance commerciale.</span><br><span style='color: #B4D334 ;'>Technologies:</span> HTML/CSS/JS , React , PHP , JAVA.</span>">
-                            Développeur web & SEO</a>
-                        </li>
-                        
-                        <li><a  class="openlink" 
-                            data-img="../image/salla.png"
-                            data-title="Salle représentative"
-                            data-price="120€ à 250€ HT"
-                            data-p="<span>Un cadre prestigieux pour vos réunions. Professionnalisme et élégance au service de votre image.</span>"
-                            data-p2="Au-delà de son esthétisme, cette salle est pensée pour favoriser la <span>productivité</span> et la <span>réussite</span> de vos échanges. Grâce à son équipement moderne et son atmosphère soignée, elle permet à vos réunions de se dérouler dans les meilleures conditions."
+                            data-title="Web & digital"
+                            data-price="Sur devis"
+                            data-p="Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance."
+                            data-p2="Plus de visibilité, plus de prospects, plus de résultats."
                             onclick="openmodal(this)"
-                            >salle représentative
-                            </a>
-                        </li>
+                        >Web & digital
+                        </a>
+                    </li>
+                    <li><a  class="openlink" 
+                        data-img="../image/salla.png"
+                        data-title="Assistant polyvalent"
+                        data-price="À partir de <span>400€</span>/mois"
+                        data-p="Un assistant capable de s’adapter à vos besoins et de prendre en charge différentes missions selon votre activité."
+                        data-p2="Administratif, commercial, support client ou autres tâches : vous déléguez ce qui vous ralentit.
+                        Une solution flexible pour avancer plus vite sans vous disperser.
+                        "
+                        onclick="openmodal(this)"
+                        >Assistant polyvalent
+                        </a>
+                    </li>
                     </ul>
                 </section>
             </div>
@@ -229,10 +149,12 @@
             </div>      
         </footer>
         <!-- whatsapp -->
-        <div class="whatsapp_content">
-            <a href="https://wa.me/212661111111" target="_blank" class="whatsapp">
-                <ion-icon name="logo-whatsapp"></ion-icon>
-            </a>
+        <div class="whatsapp">
+            <div class="whatsapp_content">
+                <a href="https://wa.me/212661111111" target="_blank" class="whatsapp">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+            </div>
         </div>
            <!-- chat -->
            <div class="chat">
@@ -262,16 +184,16 @@
                             <form action="" id="formchat">
                                 <label >Nom Complet</label>
                                 <input type="text" placeholder="Nom et prénom" id="chat_nom" >
-                                <p class="errors" style="display: none;" data-for="names"></p>
+                                <p class="errors" style="display: none;" data-for="chat_nom"></p>
                                 <label >E-mail</label>
                                 <input type="text" placeholder="email" id="id_email" >
-                                <p class="errors" style="display: none;" data-for="email"></p>
-                                <div >
+                                <p class="errors" style="display: none;" data-for="id_email"></p>
+                                <div style=" display: flex;justify-content: space-between;">
                                     <label >Messages</label>
                                     <div id="charCount"></div>
                                 </div>
                                 <textarea name="message" id="id_message" placeholder="Entrer votre message..." maxlength="100" ></textarea>
-                                <p class="errors" style="display: none;" data-for="message"></p>
+                                <p class="errors" style="display: none;" data-for="id_message"></p>
                                 <button id="envoie_button" type="submit" >Envoyer</button>
                             </form>
     

@@ -83,7 +83,7 @@
            if(!found){
                 const err = geterror("sujet");
                 err.style.display = "block";
-                err.textContent = "Le sujet n existe pas";
+                err.textContent = "Le sujet n'existe pas";
                 Iserror = true;
             }
             if(subject.value.trim() === ""){

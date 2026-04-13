@@ -8,7 +8,7 @@ export function navigation(){
     const links = {
         "projet":"frontend/contact.html",
         "more-services":"frontend/services.html",
-        "moreinfo":"frontend/propos.html",
+        "moreinfo":"frontend/contact.html",
         
     }
     for(let i in links){

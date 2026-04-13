@@ -31,11 +31,10 @@ export function chat(){
             err.textContent = "";
         })
     }
-  
+    const chatbox = document.getElementById("chat_main");
+    const icons = document.querySelector(".button_chat ion-icon");
     buttons.addEventListener('click',()=>{
-        const chatbox = document.getElementById("chat_main");
-        const icons = document.querySelector(".button_chat ion-icon");
-        const close = document.getElementById("close_chat");
+       
         if(chatbox.style.display === "block"){
             chatbox.style.display = "none";
             icons.setAttribute('name','chatbubble-ellipses-outline');
@@ -46,6 +45,8 @@ export function chat(){
             document.body.classList.add('no_scroll');
 
         }
+        })
+        const close = document.getElementById("close_chat");
         if(close){
             close.addEventListener("click",() =>{
                 const chatContent = chatbox.querySelector(".chat .chat_content");
@@ -60,11 +61,12 @@ export function chat(){
             })
         }
       
-    })
+
     function sendmessage(){
         const message = messageinput.value.trim();
-        user_message.style.display = "block";
+       
         if(message !== ""){
+            user_message.style.display = "block";
             const newmsg = document.createElement("p");
             newmsg.classList.add("user_message");
             newmsg.textContent = message;
@@ -75,7 +77,7 @@ export function chat(){
             messageContainer.scrollTop = messageContainer.scrollHeight;
             first.style.display = "block";
             second.style.display = "block";  
-            messageinput.disabled = true;
+           
         }  
     }
     //  mandefa message voalohany
@@ -90,7 +92,7 @@ export function chat(){
     document.querySelectorAll("#formchat input,#formchat textarea").forEach((elt) =>{
         elt.addEventListener("input",function(){
             const err = geterror(elt.id);
-          if(elt.checkVisibility() && elt.value.trim() !== ""){
+          if(elt.value.trim() !== ""){
             elt.classList.remove("invalid");
             elt.classList.add("valid");
             if(err){
@@ -127,21 +129,21 @@ export function chat(){
             let Iserror = false;
             e.preventDefault();
             reseterr();
-            if( noms.value.trim().length < 3 || !/^[a-zA-Z]+\s+[a-zA-Z]+$/.test(noms.value.trim())){
-                const err = geterror("names");
+            if( noms.value.trim().length < 3 || !/^[a-zA-ZÀ-ÿ]+(?:\s+[a-zA-ZÀ-ÿ]+)+$/.test(noms.value.trim())){
+                const err = geterror("chat_nom");
                 err.style.display = "block";
                 err.textContent = "Nom et prenom invalide ou vide";
                 Iserror = true;
     
             }
             if(email.value.trim() === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-                const err = geterror("email");
+                const err = geterror("id_email");
                 err.style.display = "block";
                 err.textContent = "Email requise ou vide";
                 Iserror = true;
             }
             if(mes.value.trim() === "" || mes.value.trim().length < 10){
-                const err = geterror("message");
+                const err = geterror("id_message");
                 err.style.display = "block";
                 err.textContent = "Message invalide ou vide";
                 Iserror = true;
@@ -161,33 +163,6 @@ export function chat(){
         })
     }
     
-    // if(chat_form){
-    //     chat_form.addEventListener("submit",(e)=>{
-    //         e.preventDefault();
-    //         if( !/^[a-zA-Z]+\s+[a-zA-Z]+$/.test(noms.value.trim())){
-    //             error[0].style.display = "block";
-    //             error[0].textContent =  "Noms incomplet";
-    //             Iserror = true;
-           
-    //         }
-    //         if( !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
-    //             error[1].style.display = "block";
-    //             error[1].textContent = "E-mail non valide";
-    //             Iserror = true;
-                
-    //         }
-    //         if(mes.value.trim().length < 10){
-    //             error[2].style.display = "block";
-    //             error[2].textContent = "Message non valide"
-    //             Iserror = true
-    //         }
-    //         if(!Iserror){
-    //             alert("Données envoyés avec succès");
-    //             chat_form.reset();
-    //         }
-    
-    //     })
-    // }
     
     
 }

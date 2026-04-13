@@ -45,17 +45,26 @@ nav{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
 }
+.navbar .logo_nom{
+    cursor: pointer;
+}
 
 .navbar .logo_nom .nom_entreprise{
-    font-size: 1.8rem;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 100px;
+}
+.navbar .logo_nom  h1{
+    display: flex;
+    font-size: 1.6rem;
     font-weight: bold;
-    padding: 3rem;
-    background: linear-gradient(90deg, #4CB8C4, #B4D334);
+    background: linear-gradient(to right,#4CB8C4,#B4D334);
+    background-clip: text;
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
     color: transparent;
-    cursor: pointer;
+    margin: 22px 0 0 72px;
 }
 
 
@@ -91,35 +100,7 @@ nav .navigation ul li  a.active {
     border-right: 0;
 
 }
-.navbar .navigation .allservices{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    
-}
-.navbar .navigation .allservices ion-icon{
-    font-size: 1.2rem;
-    padding: 0 5px 0 5px;
-}
-.navbar .navigation .allservices:hover{
-    color: var(--blue-primary);
-}
-#service_p ul{
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    top: 100%;
-    background-color: #fff;
-    min-width: 200px;
-    height: auto;
-    transition: all 0.5s ease;
-    padding: 10px auto;
-    box-shadow: 4px 10px 5px rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.2)
 
-}
 #service_p  ul li{
     padding: 5px 10px 5px 5px;
 }
@@ -158,93 +139,300 @@ nav .navigation ul li a:hover{
 
 /* services */ 
 .services_content{
-    text-align: center;
-   
-}
-.services_content .main_services{
+    position: relative;
     width: 100%;
-    max-width: 1400px;
-    padding: 50px 0 25px 0;
-    /* border: 1px solid black;  */
-
-    
+    height: 100vh;
 }
-.services_content .main_services .grid_container{
-    display: grid;
+.services_content::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url(../../image/tarif.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -2;
+}
+.services_content::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+.services_content .tarif_content{
+    display: flex;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit,minmax(280px,auto));
-    margin: 0 auto;
-}
-.services_content .services_paragraphe{
-    text-align: center;
-}
+    height: 100%;
+    width: 50%;
+    margin: 0 0 0 30px;
+    flex-direction: column;
 
-.services_content .services_paragraphe h1{
-    display: inline-flex;
-    width: auto;
+}
+.services_content .tarif_content h1{
+    color: white;
+    font-size: 3rem;
+    animation: slidetoframe 0.5s ease;
+}
+.services_content .tarif_content h1 span{
     background: linear-gradient(90deg,#4CB8C4,#B4D334);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
     background-clip: text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
 }
-.services_content .services_paragraphe p{
-    text-align: center;
-    margin: 10px 0 0 0;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-.services_content .main_services .card {
-    border-radius: 12px;
-    box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.2);
-    margin: 15px auto;
-    width: 250px;
-    height: auto;
-    cursor: pointer;
-}
-
-.services_content .main_services .card:hover{
-    transform: scale(1.1);
-    transition:  0.5s ease ;
-  
-}
-.services_content .main_services  img{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    object-position: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.services_content .main_services  h2{
-    text-align: center;
-    padding: 10px 10px;
+.services_content .tarif_content .p_tarif{
+    color: white;
     font-size: 1.2rem;
+    margin: 20px 0;
+    animation: slidetoframe 1s ease;
 }
 
-.services_content .main_services .details{
-   display: inline-flex;
-   width: auto;
-   justify-content:center ; 
-   margin: 5px auto; 
-   cursor: pointer;  
+.services_content .tarif_content .tarifs{
+    background-color: var(--blue-primary);
+    text-align: center;
+    color: white;
+    width: 250px;
+    margin: 30px 0;
+    padding: 20px 10px;
+    border-radius: 20px;
+    animation: slidetoframe 1s ease;
 }
-.services_content .main_services .details:hover{
-    color: #B4D334;
+.services_content .tarif_content .tarifs span{
+    font-size: 2rem;
 }
-#card4 h2{
+ .services_content .tarif_content .btn_tarif{
+    display: flex;
+    margin: 20px 0;
+   
+    animation: slidetoframe 1s ease;
+}
+.services_content .tarif_content .btn_tarif button{
+    padding: 20px;
+    margin: 0 10px;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.services_content .tarif_content .btn_tarif .t_1{
+    display: flex;
+    align-items: center;
+    background-color: var(--green-primary);
+   
+}
+.services_content .tarif_content .btn_tarif .t_1 p{
+    font-size: 1rem;
+}
+.services_content .tarif_content .btn_tarif .t_1 ion-icon{
+    font-size: 1.5rem;
+    margin: 0  0 0 10px;
+}
+.services_content .tarif_content .btn_tarif .t_2{
+    background-color: transparent;
+    font-size: 1rem;
+    border: 2px solid white;
+}
+.services_content .tarif_content .btn_tarif .t_1:hover,.btn_tarif .t_2:hover{
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s ease;
+}
+.services_content .tarif_content .btn_tarif .t_2:hover{
+    background-color: white;
+    color: black;
+}
+@keyframes slidetoframe {
+    from{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+}
+.wins_sections h1{
+    text-align: center;
+}
+.wins_sections .wins{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0 20px 0;
+}
+.wins_sections .wins img{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.wins_sections .wins_content{
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    gap: 20px;
+    margin: 20px ;
+}
+.wins_sections .wins_content .sect_wins{
+    display: flex;
+    align-items: center;
+    background-color: var(--green-primary);
+    color: white;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+.wins_sections .wins_content .sect_wins h3{
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+}
+/* avt */
+.avt{
+
+    text-align: center;
+    
+    
+}
+.avt .trwhy{
+    text-align: center;
+    background: linear-gradient(to right,#4CB8C4,#B4D334);
+    background-clip: text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+.avt .avt_content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.avt .avt_content .avt_c{
+    width: 300px;
+    height: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+}
+.avt .avt_content .avt_c h2{
+    text-align: center;
+}
+.avt .avt_content .avt_c .dvt{
+    border-bottom: 2px solid red;
+}
+.avt .avt_content .avt_c .avts{
+    color: var(--green-primary);
+    border-bottom: 2px solid var(--green-primary);
+}
+.avt .avt_content .avt_c div{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.avt .avt_content .avt_c div ion-icon{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 10px;
+}
+.avt  .trf{
+    display: inline-flex;
+    width: auto;
+    background: linear-gradient(to right,#4CB8C4,#B4D334);
+    color: white;
+    padding: 20px 20px;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+#dvts{
+    color: red;
+}
+#avtts{
+    color: var(--green-primary);
+}
+
+/* btnp */
+.btnp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+}
+.btnp img{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btnp .brnp_c{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content:center;
+    margin: 0 20px;
+}
+#btns_c{
     display: flex;
     flex-direction: column;
+    margin: 20px 0;
 }
-.services_content .main_services  h3{
-    font-size: 1rem;
-    padding: 0 10px;
+
+#btns_c button{
+    margin: 10px 0;
+    padding: 20px 40px ;
+    border-radius: 20px;
+    cursor: pointer;
 }
-.services_content .main_services  .iconadmin{
-    font-size: 1.4rem;
-    color: #B4D334;
+#btns_c .assists{
+    background: var(--blue-primary);
+    color: white;
+    border: none;
 }
+#btns_c .call{
+    background-color: transparent;
+
+}
+#btns_c .call:hover{
+    transform: scale(1.1);
+    background-color: black;
+    color: white;
+    transition: all 0.5s ease;
+  
+}
+#btns_c .assists:hover{
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+#btns_c .assists,#btns_c .call{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+#btns_c p{
+    font-size: 1.2rem;
+}
+#btns_c ion-icon{
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+#price{
+    background-color: var(--green-primary);
+    color: white;
+    padding: 20px 10px;
+    width: 300px;
+    margin: 20px;
+}
+
 
 .more_services{
     display: inline-flex;
@@ -420,6 +608,9 @@ nav .navigation ul li a:hover{
 
 }
 /* whastapp */
+.whatsapp{
+    z-index: 2;
+}
 .whatsapp_content{
     position: fixed;
     background-color: green;
@@ -428,7 +619,7 @@ nav .navigation ul li a:hover{
     right: 20px;
     width: 60px;
     height: 60px;
-    z-index: 2;
+    
 }
 .whatsapp_content a {
     display: flex;
@@ -733,19 +924,17 @@ nav .navigation ul li a:hover{
     margin: 20px;
     padding: 20px;
     width: 200px;
+    color: #fff;
+    font-size: 1.2rem;
     border-radius: 20px;
     cursor: pointer;
 }
 .propos_content .questions_content .questions button:hover{
     transform: scale(1.1);
-    box-shadow: 4px 5px 5px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 10px  rgba(0, 0, 0, 0.2);
     transition: all 0.5s ease;
 }
-.propos_content .questions_content .questions button a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.2rem;
-}
+
 
 /* footer */
 footer{
@@ -991,15 +1180,10 @@ footer .politique span{
         padding: 15px 0;
         width: 100%;
     }
-    .navbar .logo_nom{
-        top: 50px;
-        left: 50px;
-    }
-    .navbar .logo_nom .nom_entreprise{
+    
+    .navbar .logo_nom h1{
+        margin: 35px 0 0 90px;
         font-size: 1.4rem;
-    }
-    .navbar .navigation .allservices ion-icon{
-        display: none;
     }
     .navbar .navigation ul li:hover ul{
         display: none;
@@ -1098,9 +1282,50 @@ footer .politique span{
     .main_about .abouts .abouts_content p{
         font-size: 1rem;
     }
+    /* tarif */
     .services_content{
         height: auto;
         margin: 10px auto;
+    }
+    .services_content::before{
+        background-attachment: scroll;
+        background-position: center;
+    }
+    .services_content .tarif_content{
+        text-align: center;
+        width: 100%;
+        margin: 10px 0;
+    }
+    .services_content .tarif_content h1{
+        font-size: 2rem;
+    }
+    .services_content .tarif_content .tarifs{
+        display: flex;
+        align-self: center;
+    }
+    .services_content .tarif_content .p_tarif{
+        font-size: 1rem;
+    }
+    .wins_sections .wins img{
+        display: none;
+    }
+    .wins_sections .wins_content .sect_wins ion-icon{
+        font-size: 2rem;
+    }
+    .avt .avt_content{
+        flex-direction: column;
+    }
+    .avt .trwhy{
+        font-size: 1rem;
+    }
+    .avt  .trf{
+        font-size: 0.5rem;
+    }
+    .btnp img{
+        display: none;
+    }
+    .btnp .brnp_c{
+        flex-direction: column-reverse;
     }
     .lines_services h1{
         font-size: 1rem;

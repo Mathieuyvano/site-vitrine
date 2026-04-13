@@ -6,7 +6,6 @@ import { scrolls } from "./JS/scrolls.js";
 import { serviceslink } from "./JS/services.js";
 
 window.scrolls = scrolls;
-window.serviceslink = serviceslink;
 document.addEventListener("DOMContentLoaded",() =>{
     const btnburger = document.querySelector('.btn_burger');
     const abouts = document.querySelectorAll('.hidden');
@@ -14,6 +13,7 @@ document.addEventListener("DOMContentLoaded",() =>{
     navigation();
     initmodal();
     chat();
+    serviceslink();
     contact();
 
     if(btnburger){
