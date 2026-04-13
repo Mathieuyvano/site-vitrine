@@ -57,6 +57,17 @@ document.addEventListener("DOMContentLoaded",() =>{
         }
 
     }
+    const whatsapp  = document.getElementById("whtsp_url");
+    if(whatsapp){
+        whatsapp.addEventListener('click', () =>{
+            const message = "Bonjour, je souhaite planifier un appel concernant vos services d'assistance.";
+            const encodeMg = encodeURIComponent(message);
+            const num = "261348072116";
+            const url = `https://wa.me/${num}?text=${encodeMg}`;
+
+            window.open(url,'_blank');
+        })
+    }
  
 });
 const footer = document.getElementById("droit")
