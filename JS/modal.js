@@ -48,7 +48,7 @@ export function initmodal(){
                     const titre = h2.textContent.trim();
                     const message=`Bonjour, je souhaite planifier un appel concernant l'activité "${titre}" `;
                     const encodeMg = encodeURIComponent(message);
-                    const num = "261375893555";
+                    const num="33756835665";
                     const url = `https://wa.me/${num}?text=${encodeMg}`;
 
                     window.open(url,'_blank');

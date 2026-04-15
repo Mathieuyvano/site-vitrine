@@ -53,7 +53,7 @@
     if(form){
         form.addEventListener("submit", function (e) {
             let Iserror = false; 
-            e.preventDefault();
+            // e.preventDefault();
             resetErr();
            
             
@@ -101,7 +101,8 @@
             
             const verif =  document.querySelectorAll("#form_contact input,#form_contact textarea")
             if(!Iserror){
-                 alert(`${nom.value.trim()} ${prenom.value.trim()}, merci pour votre demande. Nous vous contactons dès que possible.`); 
+                // alert(`${nom.value.trim()} ${prenom.value.trim()}, merci pour votre demande. Nous vous contactons dès que possible.`); 
+                form.submit();
                 form.reset();
                 verif.forEach(el => {
                     el.classList.remove("invalid", "valid");

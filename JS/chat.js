@@ -11,6 +11,9 @@ export function chat(){
     const mes = document.getElementById("id_message");
     const count = document.getElementById("charCount");
     const maxlength = mes.getAttribute("maxLength");
+    const countdown = document.getElementById("countdown");
+    const cooldown_minute =5;
+    const speed = 1000;
     mes.addEventListener("input",function(){
         const currentLength = mes.value.length;
         count.textContent =currentLength + "/" + maxlength;
@@ -46,6 +49,43 @@ export function chat(){
 
         }
         })
+        let history = JSON.parse(localStorage.getItem("chat_history")) || [];
+        let messageCount = history.length;
+        if(history.length > 0){       
+                const firstmsgblock = document.createElement("aside");
+                firstmsgblock.classList.add("user_message");
+                const firstMsg = document.createElement("p");
+                firstMsg.classList.add("user_message");
+                firstMsg.textContent = history[0];
+                firstMsg.style.textAlign = "left"; 
+                firstmsgblock.appendChild(firstMsg);
+                user_message.style.display = "block";
+                user_message.appendChild(firstmsgblock);
+                
+                for(let i = 1; i < history.length; i++){
+                    const msgblock = document.createElement("aside");
+                    msgblock.classList.add("message_block");
+                    const newmesg = document.createElement("p");
+                    newmesg.classList.add("user_message");
+                    newmesg.textContent = history[i];
+                    newmesg.style.textAlign = "left";
+                    msgblock.appendChild(newmesg);  
+                    messageContainer.appendChild(msgblock);
+                }
+              
+                first.style.display = "block";
+                second.style.display = "block";
+                
+        }
+        const lastsent = localStorage.getItem("last_sent_time");
+        if(lastsent){
+            const now = Date.now();
+            const diff = now - parseInt(lastsent,10);
+            const colldown = cooldown_minute * 60 * 1000;
+            if(diff <colldown){
+                disableInput(colldown - diff);
+            }
+        }
         const close = document.getElementById("close_chat");
         if(close){
             close.addEventListener("click",() =>{
@@ -66,20 +106,71 @@ export function chat(){
         const message = messageinput.value.trim();
        
         if(message !== ""){
-            user_message.style.display = "block";
+            const msgblock = document.createElement("aside");
+            msgblock.classList.add("message_block");
             const newmsg = document.createElement("p");
             newmsg.classList.add("user_message");
             newmsg.textContent = message;
             newmsg.style.textAlign = "left";
-            user_message.appendChild(newmsg);
-            
+            msgblock.appendChild(newmsg);
+            if(messageCount === 0){
+                user_message.style.display = "block";
+                user_message.appendChild(msgblock);
+            }else{ 
+                messageContainer.append(msgblock);
+            }
+            history.push(message);
+            localStorage.setItem("chat_history",JSON.stringify(history));
+            messageCount++;
+
+            localStorage.setItem("last_sent_time", Date.now().toString());
+
+            disableInput(5 * 60 * 1000);
             messageinput.value = "";
             messageContainer.scrollTop = messageContainer.scrollHeight;
+            first.style.display = "none";
+            second.style.display = "none";
+            first.offsetHeight;
+            second.offsetHeight;
             first.style.display = "block";
             second.style.display = "block";  
            
         }  
     }
+    function disableInput(duration){
+        messageinput.disabled = true;
+        send.disabled = true;
+
+        let remaining = Math.floor(duration / 1000);
+        const interval = setInterval(() =>{
+            remaining--;
+            updateCountdown(remaining);
+            if(remaining <=0){
+                clearInterval(interval);
+                messageinput.disabled = false;
+                send.disabled = false;
+                countdown.textContent = "";
+            }
+
+        },speed);
+    }
+    function updateCountdown(seconds){
+        const min =  Math.floor(seconds / 60);
+        const sec = seconds % 60;
+        countdown.textContent =`Vous pourrez réutiliser ce champ dans ${min}:${sec.toString().padStart(2,"0")}`;
+        
+    }
+    function resetChat(){
+        localStorage.removeItem("chat_history");
+        history = [];
+        messageCount = 0;
+        user_message.innerHTML = "";
+        user_message.style.display = "none";
+        countdown.textContent = "";
+        first.style.display = "none";
+        second.style.display = "none";
+    }
+    
     //  mandefa message voalohany
     send.addEventListener('click',sendmessage )
     messageinput.addEventListener("keydown",(e) =>{
@@ -150,16 +241,19 @@ export function chat(){
             }
             const verif = document.querySelectorAll("#formchat input,#formchat textarea");
             if(!Iserror){
-                alert(`${noms.value.trim()}, votre message a été envoyé avec succès!`);
+                // alert(`${noms.value.trim()}, votre message a été envoyé avec succès!`);
+                form.submit();
                 form.reset();
                 verif.forEach(v =>{
                     v.classList.remove("invalid","valid");
                 })
+                
             }   
     
         });
         form.addEventListener("reset",function(){   
             reseterr();
+            resetChat();
         })
     }
     

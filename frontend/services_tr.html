@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style/others_page.css">
         <link rel="shortcut icon" href="../image/Logo_acysteek.png"  type="image/x-icon">
-        <title>Services</title>
+        <title>tarifs</title>
     </head>
     <body>
         <div id="content">
@@ -119,6 +119,21 @@
                         </ul>
                     </section>
                     <section class="section-3">
+                        <h1>contact</h1>
+                        <ul>
+                            <li style="display: flex; align-items: center; gap: 10px;">
+                                <ion-icon name="mail-outline" style="color:#4CB8C4 ;"></ion-icon>
+                                <p>info@acysteek.com</p>
+                            </li>
+                            <li>
+                                <ion-icon name="call-outline" style="color: #4CB8C4;"></ion-icon>
+                                <a id="whtsp_url">
+                                +33 7 56 83 56 65 </a>
+                            </li>
+                        </ul>
+                    </section>
+                   
+                    <section class="section-4">
                         <h1>Services</h1>
                         <ul>
                             <li><a  class="openlink"
@@ -129,7 +144,7 @@
                                 data-p2="Gestion des emails, organisation de votre agenda, saisie de données ou suivi administratif : nous prenons en charge ces missions pour vous permettre de vous concentrer sur l’essentiel
                                 Moins de tâches, plus de temps pour développer votre activité
                                 "
-                                onclick="openmodal(this)">Assistant administrative
+                                onclick="openmodal(this)">Assistance administrative
                             </a>
                         </li>
                         <li><a  class="openlink" 
@@ -175,7 +190,7 @@
             <!-- whatsapp -->
             <div class="whatsapp">
                 <div class="whatsapp_content">
-                    <a id="whtsp_url" class="whatsapp">
+                    <a id="whtsp_urls" class="whatsapp">
                         <ion-icon name="logo-whatsapp"></ion-icon>
                     </a>
                 </div>
@@ -221,7 +236,7 @@
                                         <p class="errors" style="display: none;"data-for="id_message" ></p>
                                         <button id="envoie_button" type="submit" >Envoyer</button>
                                     </form>
-            
+                                    <span id="countdown" style="color: black; text-align: left;"></span>
                                 </div>
                             </div>
                             <div class="send_chat">

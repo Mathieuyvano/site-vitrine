@@ -11,7 +11,7 @@ export function serviceslink(){
    if(call){
         const message = "Bonjour, je souhaite planifier un appel concernant vos services d'assistance.";
         const encodeMg = encodeURIComponent(message);
-        const num = "261348072116";
+        const num = "33756835665";
         const send = `https://wa.me/${num}?text=${encodeMg}`;
         call.addEventListener("click", function(){
             window.open(send,'_blank');
@@ -20,7 +20,7 @@ export function serviceslink(){
    if(call2){
     const message = "Bonjour, je souhaite planifier un appel concernant vos services d'assistance.";
     const encodeMg = encodeURIComponent(message);
-    const num = "261348072116";
+    const num = "33756835665";
     const send = `https://wa.me/${num}?text=${encodeMg}`;
     call2.addEventListener("click", function(){
         window.open(send,'_blank');

@@ -554,6 +554,7 @@ nav .navigation ul li a:hover{
     right: 20px;
     width: 60px;
     height: 60px;
+    cursor: pointer;
     
 }
 .whatsapp_content a {
@@ -668,7 +669,7 @@ main{
     background-color: #fff;
     color: black;
     width: auto;
-    max-width: 200px;
+    width: fit-content;
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
@@ -789,6 +790,14 @@ main{
     color: var(--blue-primary);
     font-size: 1.3rem;
 
+}
+.message_block{
+    width: fit-content;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
 }
 
 /* footer */

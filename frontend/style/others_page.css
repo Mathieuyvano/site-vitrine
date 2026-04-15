@@ -206,7 +206,6 @@ nav .navigation ul li a:hover{
  .services_content .tarif_content .btn_tarif{
     display: flex;
     margin: 20px 0;
-   
     animation: slidetoframe 1s ease;
 }
 .services_content .tarif_content .btn_tarif button{
@@ -619,7 +618,7 @@ nav .navigation ul li a:hover{
     right: 20px;
     width: 60px;
     height: 60px;
-    
+    cursor: pointer;
 }
 .whatsapp_content a {
     display: flex;
@@ -837,6 +836,11 @@ nav .navigation ul li a:hover{
     padding: 10px 10px;
     width: 100%;
     
+}
+.message_block{
+    width: fit-content;
+    background-color: white;
+    color: black;
 }
 
 
@@ -1303,6 +1307,9 @@ footer .politique span{
         display: flex;
         align-self: center;
     }
+    .services_content .tarif_content .btn_tarif{
+        justify-content:center ;
+    }
     .services_content .tarif_content .p_tarif{
         font-size: 1rem;
     }
@@ -1468,7 +1475,7 @@ footer .politique span{
     footer section{
         margin: 15px auto;
     }
-    footer .footer_content .sections-1,.sections-2,.section-3{
+    footer .footer_content .sections-1,.sections-2,.section-3,.section-4{
         text-align: center;
     }
     

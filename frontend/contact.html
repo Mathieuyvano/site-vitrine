@@ -36,10 +36,14 @@
                         <div class="coordonnees">
                             <h1>Nos contacts</h1>
                             <div class="coordonnees_item">
-                                <a href="https://mail.google.com/">
+                                <a href="info@acysteek.com">
                                     <ion-icon name="mail-outline" class="email_icon"></ion-icon>
                                     <p>AcysteekInc@example.com</p>
-                                </a>       
+                                </a> 
+                                <a id="whtsp_url">
+                                    <ion-icon name="call-outline" class="email_icon"></ion-icon>
+                                    <p>+33 7 56 83 56 65</p>
+                                </a>      
                             </div>
                         </div>
                     </div>
@@ -48,18 +52,18 @@
                             <h1>Contactez-nous</h1>
                         </div>
                         
-                        <form action="" class="hidden" id="form_contact">
+                        <form action="../PHP/contact.php" method="post" class="hidden" id="form_contact">
                             <label >Nom</label>
-                            <input type="text" placeholder=" ex: Jean" id="nom" >
+                            <input type="text" placeholder=" ex: Jean" id="nom" name="nom" >
                             <p class="errors" style="display: none;" data-for="nom"></p>
                             <label >Prenom</label>
-                            <input type="text" placeholder=" ex: Luis" id="prenom">
+                            <input type="text" placeholder=" ex: Luis" id="prenom" name="prenom">
                             <p class="errors" style="display: none;" data-for="prenom"></p>
                             <label >E-mail</label>
-                            <input type="text" placeholder="jeanluis@example.com" id="email" >
+                            <input type="text" placeholder="jeanluis@example.com" id="email" name="email">
                             <p class="errors" style="display: none;" data-for="email"></p>
                             <label >Sujet</label>
-                            <input type="text" placeholder="Assistance administrative" id="sujet" list="data_services" >
+                            <input type="text" placeholder="Assistance administrative" id="sujet" list="data_services" name="sujet" >
                             <datalist id="data_services">
                                 <option value="Assistance administrative">
                                 <option value="Support client & téléopération">
@@ -70,10 +74,10 @@
                             </datalist>
                             <p class="errors" style="display: none;" data-for="sujet"></p>
                             <label >Message ou Commentaire</label>
-                            <textarea name="message" id="messages" placeholder="Entrer votre message..."  ></textarea>
+                            <textarea name="message" id="messages" placeholder="Entrer votre message..." name="message" ></textarea>
                             <p class="errors" style="display: none;" data-for="message"></p>
                             <div class="contact_button">
-                                <button  type="submit" onclick="contact()" >envoyer le message</button>
+                                <button  type="submit" >envoyer le message</button>
                             </div>
                             
                         </form>
@@ -101,6 +105,20 @@
                     </ul>
                 </section>
                 <section class="section-3">
+                    <h1>contact</h1>
+                    <ul>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <ion-icon name="mail-outline" style="color:#4CB8C4 ;"></ion-icon>
+                            <p>info@acysteek.com</p>
+                        </li>
+                        <li>
+                            <ion-icon name="call-outline" style="color: #4CB8C4;"></ion-icon>
+                            <a id="whtsp_url">
+                            +33 7 56 83 56 65 </a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="section-4">
                     <h1>services</h1>
                     <ul>
                         <li><a  class="openlink"
@@ -111,7 +129,7 @@
                             data-p2="Gestion des emails, organisation de votre agenda, saisie de données ou suivi administratif : nous prenons en charge ces missions pour vous permettre de vous concentrer sur l’essentiel
                             Moins de tâches, plus de temps pour développer votre activité
                             "
-                            onclick="openmodal(this)">Assistant administrative
+                            onclick="openmodal(this)">Assistance administrative
                         </a>
                     </li>
                     <li><a  class="openlink" 
@@ -158,7 +176,7 @@
         <!-- whatsapp -->
         <div class="whatsapp">
             <div class="whatsapp_content">
-                <a id="whtsp_url" class="whatsapp">
+                <a id="whtsp_urls" class="whatsapp">
                     <ion-icon name="logo-whatsapp"></ion-icon>
                 </a>
             </div>
@@ -201,9 +219,9 @@
                                 </div>
                                 <textarea name="message" id="id_message" placeholder="Entrer votre message..." maxlength="100" ></textarea>
                                 <p class="errors" style="display: none;" data-for="id_message"></p>
-                                <button id="envoie_button" type="submit" >Envoyer</button>
+                                <button id="envoie_button" type="submit" onclick="contact()" >Envoyer</button>
                             </form>
-    
+                            <span id="countdown" style="color: black; text-align: left;"></span>
                         </div>
                     </div>
                     <div class="send_chat">
@@ -235,7 +253,7 @@
                             <ion-icon name="call-outline" style="font-size: 24px; margin: 10px;"></ion-icon>
                             <h3 id="whtp">Planifier un appel</h3>
                         </button> 
-                        <button class="contact_modal" id="buttons_modal" >Planifier un devis</button>
+                        <button class="contact_modal" id="buttons_modal" >Obtenir mon assistant</button>
                     </div>
                 </div>
            

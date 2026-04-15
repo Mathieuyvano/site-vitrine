@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="image/Logo_acysteek.png" type="image/x-icon">
-    <title>AcynSteek Inc</title>
+    <title>AcySteek Inc</title>
 
 </head>
 <body>
@@ -145,8 +145,8 @@
                             <p> Confiez la gestion de vos appels, de votre service client et de vos relances pour améliorer votre relation client.</p>
                             <div style="display: none;" >
                                 <h3 class="idprix">À partir de <span>400€</span>/mois</h3>
-                                <p id="p_content1">L’<span> assistante commerciale et service client</span> est la clé d’une relation durable et performante avec vos clients. Par à une <span>gestion fluide des ventes</span> et une <span>communication professionnelle,</span> elle assure une expérience positive à chaque interaction.</p>
-                                <p id="p_content2">Avec son <span>écoute attentive</span> et sa <span>réactivité,</span> elle renforce la confiance, stimule la fidélisation et soutient la <span>croissance commerciale.</span> Elle incarne un véritable <span>partenaire stratégique,</span> capable de valoriser l’image de l’entreprise tout en dynamisant son développement.</p>
+                                <p id="p_content1">Améliorez votre relation client et ne laissez plus aucune opportunité passer.</p>
+                                <p id="p_content2">Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.Des clients mieux suivis, plus satisfaits et plus fidèles.</p>
                             </div>
                             <div class="details">
                                 <ion-icon name="newspaper-outline" class="iconadmin"></ion-icon>
@@ -160,9 +160,11 @@
                             <p>Développez votre présence en ligne avec un site professionnel, du contenu optimisé et une meilleure visibilité.</p>
                             <div style="display: none;" >
                                 <p class="idprix">Sur devis</p>
-                                <p id="p_content1">Le <span>développeur web & SEO</span> est au cœur de la visibilité et de la performance digitale d’une entreprise. Il conçoit des sites modernes, rapides et sécurisés, tout en optimisant leur <span>référencement naturel</span> pour garantir une présence efficace sur les moteurs de recherche.
+                                <p id="p_content1">Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.
                                 </p>
-                                <p id="p_content2"><span>En combinant des compétences techniques et des stratégies marketing, il améliore l’expérience utilisateur, accroît la notoriété en ligne et favorise la croissance commerciale.</span> </p>
+                                <p id="p_content2">Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance.
+                                    Plus de visibilité, plus de prospects, plus de résultats.
+                                     </p>
                             </div>
                             <div class="details">
                                 <ion-icon name="newspaper-outline" class="iconadmin"></ion-icon>
@@ -176,8 +178,10 @@
                             <p>Un assistant capable de s’adapter à vos besoins : administratif, support client et autres missions selon votre activité.</p>
                             <div style="display: none;" >
                                 <p class="idprix">À partir de <span>400€</span>/mois</p>
-                                <p id="p_content1"><span>Un cadre prestigieux pour vos réunions. Professionnalisme et élégance au service de votre image.</span></p>
-                                <p id="p_content2">Au-delà de son esthétisme, cette salle est pensée pour favoriser la <span>productivité</span> et la <span>réussite</span> de vos échanges. Grâce à son équipement moderne et son atmosphère soignée, elle permet à vos réunions de se dérouler dans les meilleures conditions.</p>
+                                <p id="p_content1">Un assistant capable de s’adapter à vos besoins et de prendre en charge différentes missions selon votre activité.</p>
+                                <p id="p_content2">Administratif, commercial, support client ou autres tâches : vous déléguez ce qui vous ralentit.
+                                    Une solution flexible pour avancer plus vite sans vous disperser.
+                                    </p>
                             </div>
                             <div class="details">
                                 <ion-icon name="newspaper-outline" class="iconadmin"></ion-icon>
@@ -212,6 +216,21 @@
                 </ul>
             </section>
             <section class="section-3">
+                <h1>contact</h1>
+                <ul>
+                    <li style="display: flex; align-items: center; gap: 10px;">
+                        <ion-icon name="mail-outline" style="color:#4CB8C4 ;"></ion-icon>
+                        <p>info@acysteek.com</p>
+                    </li>
+                    <li>
+                        <ion-icon name="call-outline" style="color: #4CB8C4;"></ion-icon>
+                        <a id="whtsp_url">
+                        +33 7 56 83 56 65 </a>
+                    </li>
+                </ul>
+            </section>
+           
+            <section class="section-3">
                 <h1>services</h1>
                 <ul>
                     <li><a  class="openlink"
@@ -222,7 +241,7 @@
                             data-p2="Gestion des emails, organisation de votre agenda, saisie de données ou suivi administratif : nous prenons en charge ces missions pour vous permettre de vous concentrer sur l’essentiel
                             Moins de tâches, plus de temps pour développer votre activité
                             "
-                            onclick="openmodal(this)">Assistant administrative
+                            onclick="openmodal(this)">Assistance administrative
                         </a>
                     </li>
                     <li><a  class="openlink" 
@@ -268,7 +287,7 @@
        <!-- whatsapp -->
         <div class="whatsapp">
             <div class="whatsapp_content">
-                <a id="whtsp_url" class="whatsapp">
+                <a id="whtsp_urls" class="whatsapp">
                     <ion-icon name="logo-whatsapp"></ion-icon>
                 </a>
             </div>
@@ -299,24 +318,27 @@
                             <p>Veuillez remplir les champs afin que nous puissions vous répondre </p>
                         </div>
                         <div class="second_mes" id="seconds_m" style="display: none;">
-                            <form action="" id="formchat">
+                            <form action="PHP/chat.php" method="post" id="formchat">
                                 <label >Nom Complet</label>
-                                <input type="text" placeholder="Nom et prénom" id="chat_nom" >
+                                <input type="text" placeholder="Nom et prénom" id="chat_nom" name="chat_nom" >
                                 <p class="errors" style="display: none;" data-for="chat_nom"></p>
                                 <label >E-mail</label>
-                                <input type="text" placeholder="email" id="id_email" >
-                                <p class="errors" style="display: none;" data-for="id_email"></p>
+                                <input type="text" placeholder="email" id="id_email" name="id_email">
+                                <p class="errors" style="display: none;" data-for="id_email" ></p>
                                 <div  style=" display: flex;justify-content: space-between;">
                                     <label >Messages</label>
                                     <div id="charCount" style="margin: 0 0 10px 0;"></div>
                                 </div>
                                 
-                                <textarea name="message" id="id_message" placeholder="Entrer votre message..." maxlength="100" ></textarea>
-                                <p class="errors" style="display: none;" data-for="id_message"></p>
+                                <textarea  id="id_message" placeholder="Entrer votre message..." maxlength="100" name="id_message" ></textarea>
+                                <p class="errors" style="display: none;" data-for="id_message" ></p>
                                 <button id="envoie_button" type="submit" >Envoyer</button>
+                                
                             </form>
     
                         </div>
+                        <span id="countdown" style="color: black; text-align: left;"></span>
+                        
                     </div>
                     <div class="send_chat">
                         <input type="text" placeholder="Ecrivez votre message..." id="input_message">
@@ -347,7 +369,7 @@
                         <ion-icon name="call-outline" style="font-size: 24px; margin: 10px;"></ion-icon>
                         <h3 id="whtp">Planifier un appel</h3>
                     </button>
-                    <button class="contact_modal" id="buttons_modal" >Planifier votre devis</button>
+                    <button class="contact_modal" id="buttons_modal" >Obtenir mon assistant</button>
                 </div>
             </div>
            

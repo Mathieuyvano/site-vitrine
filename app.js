@@ -6,6 +6,7 @@ import { scrolls } from "./JS/scrolls.js";
 import { serviceslink } from "./JS/services.js";
 
 window.scrolls = scrolls;
+window.contact = contact;
 document.addEventListener("DOMContentLoaded",() =>{
     const btnburger = document.querySelector('.btn_burger');
     const abouts = document.querySelectorAll('.hidden');
@@ -14,7 +15,6 @@ document.addEventListener("DOMContentLoaded",() =>{
     initmodal();
     chat();
     serviceslink();
-    contact();
 
     if(btnburger){
         // menu burger
@@ -62,7 +62,18 @@ document.addEventListener("DOMContentLoaded",() =>{
         whatsapp.addEventListener('click', () =>{
             const message = "Bonjour, je souhaite planifier un appel concernant vos services d'assistance.";
             const encodeMg = encodeURIComponent(message);
-            const num = "261348072116";
+            const num = "33756835665";
+            const url = `https://wa.me/${num}?text=${encodeMg}`;
+
+            window.open(url,'_blank');
+        })
+    }
+    const whts = document.getElementById("whtsp_urls");
+    if(whts){
+        whts.addEventListener('click', () =>{
+            const message = "Bonjour, je souhaite planifier un appel concernant vos services d'assistance.";
+            const encodeMg = encodeURIComponent(message);
+            const num = "33756835665";
             const url = `https://wa.me/${num}?text=${encodeMg}`;
 
             window.open(url,'_blank');
@@ -70,6 +81,9 @@ document.addEventListener("DOMContentLoaded",() =>{
     }
  
 });
-const footer = document.getElementById("droit")
-footer.textContent = new Date().getFullYear();
+const footer = document.getElementById("droit");
+if(footer){
+    footer.textContent = new Date().getFullYear();
+}
+
 
