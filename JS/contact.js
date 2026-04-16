@@ -57,14 +57,14 @@
             resetErr();
            
             
-            if( nom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(nom.value.trim())){
+            if( nom.value.trim().length < 3 || !/^[a-zA-ZÀ-ÿ]+$/.test(nom.value.trim())){
                 const err = geterror("nom");
                 err.style.display = "block";
                 err.textContent = "Nom invalide ou vide";
                 Iserror = true;
     
             }
-            if( prenom.value.trim().length < 3 || !/^[a-zA-Z]+$/.test(prenom.value.trim())){
+            if( prenom.value.trim().length < 3 || !/^[a-zA-ZÀ-ÿ]+$/.test(prenom.value.trim())){
                 const err = geterror("prenom");
                 err.style.display = "block";
                 err.textContent = "Prenom invalide ou vide";

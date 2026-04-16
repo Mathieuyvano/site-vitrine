@@ -21,16 +21,17 @@ document.addEventListener("DOMContentLoaded",() =>{
         btnburger.addEventListener('click',(e) =>{
             e.preventDefault();
             e.stopPropagation();
-            menu.classList.toggle('active');
-            if(menu.classList.contains('active')){
-                iconburger.setAttribute('name','close-outline');
-                document.body.classList.add('no_scroll');
-            }else{
-                iconburger.setAttribute('name','menu-outline');
-                document.body.classList.remove('no_scroll');
-            }
-        
-            })
+            if(menu){
+                menu.classList.toggle('active');
+                if(menu.classList.contains('active')){
+                    iconburger.setAttribute('name','close-outline');
+                    document.body.classList.add('no_scroll');
+                }else{
+                    iconburger.setAttribute('name','menu-outline');
+                    document.body.classList.remove('no_scroll');
+                }
+            }  
+        })
     }
     // mivoaka tsikelikely ny contenue page
     const mjr = new IntersectionObserver((entry) =>{

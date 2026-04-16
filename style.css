@@ -669,7 +669,7 @@ main{
     background-color: #fff;
     color: black;
     width: auto;
-    width: fit-content;
+    max-width: 200px;
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
@@ -1202,6 +1202,12 @@ footer .politique span{
     }
     #close_chat{
         display: block;
+    }
+    .chat .chat_content .message .second_mes form{
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
     }
 
     .modal .modal_content{

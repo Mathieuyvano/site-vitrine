@@ -5,6 +5,11 @@ body{
     font-family: 'Poppins',sans-serif;
     background-color: rgba(0, 0, 0, 0.5);
 }
+:root{
+    --blue-primary:#4CB8C4;
+    --green-primary:#B4D334;
+    --paragraphes:#555;
+}
 .container{
     display: flex;
     align-items: center;
@@ -17,6 +22,20 @@ body{
     width: 800px;
     animation: slideinvertical 0.5s ease-out;
 }
+.container h1, p{
+    text-align: center;
+}
+.container ion-icon{
+    font-size: 100px;
+    color: red;
+}
+.container a{
+    text-decoration:  none;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--blue-primary) ;
+}
 @keyframes slideinvertical {
     from {
         transform: translateY(-100%);
@@ -26,4 +45,10 @@ body{
         transform: translateY(0);
         opacity: 1;
     }
+}
+@media screen and (max-width: 768px){
+    .container{
+        width: 80%;
+    }
+    
 }

@@ -12,8 +12,47 @@ export function chat(){
     const count = document.getElementById("charCount");
     const maxlength = mes.getAttribute("maxLength");
     const countdown = document.getElementById("countdown");
-    const cooldown_minute =5;
+    const cooldown_minute =2;
     const speed = 1000;
+
+    let cI;
+    function disableInput(duration){
+        messageinput.disabled = true;
+        send.disabled = true;
+
+        let remaining = Math.floor(duration / 1000);
+        if(cI) clearInterval(cI);
+        cI = setInterval(() =>{
+            remaining--;
+            updateCountdown(remaining);
+            if(remaining <=0){
+                clearInterval(cI);
+                cI = null;
+                messageinput.disabled = false;
+                send.disabled = false;
+                countdown.textContent = "";
+            }
+
+        },speed);
+    }
+    function updateCountdown(seconds){
+        const min =  Math.floor(seconds / 60);
+        const sec = seconds % 60;
+        countdown.textContent =`Vous pourrez réutiliser ce champ dans ${min}:${sec.toString().padStart(2,"0")}`;
+        
+    }
+    function resetChat(){
+        localStorage.removeItem("chat_history");
+        history = [];
+        messageCount = 0;
+        user_message.innerHTML = "";
+        user_message.style.display = "none";
+        disableInput(0);
+        updateCountdown(0);
+        first.style.display = "none";
+        second.style.display = "none";
+    }
+    // compteur
     mes.addEventListener("input",function(){
         const currentLength = mes.value.length;
         count.textContent =currentLength + "/" + maxlength;
@@ -53,9 +92,9 @@ export function chat(){
         let messageCount = history.length;
         if(history.length > 0){       
                 const firstmsgblock = document.createElement("aside");
-                firstmsgblock.classList.add("user_message");
+                // firstmsgblock.classList.add("user_message");
                 const firstMsg = document.createElement("p");
-                firstMsg.classList.add("user_message");
+                // firstMsg.classList.add("user_message");
                 firstMsg.textContent = history[0];
                 firstMsg.style.textAlign = "left"; 
                 firstmsgblock.appendChild(firstMsg);
@@ -66,7 +105,7 @@ export function chat(){
                     const msgblock = document.createElement("aside");
                     msgblock.classList.add("message_block");
                     const newmesg = document.createElement("p");
-                    newmesg.classList.add("user_message");
+                    // newmesg.classList.add("user_message");
                     newmesg.textContent = history[i];
                     newmesg.style.textAlign = "left";
                     msgblock.appendChild(newmesg);  
@@ -137,39 +176,7 @@ export function chat(){
            
         }  
     }
-    function disableInput(duration){
-        messageinput.disabled = true;
-        send.disabled = true;
-
-        let remaining = Math.floor(duration / 1000);
-        const interval = setInterval(() =>{
-            remaining--;
-            updateCountdown(remaining);
-            if(remaining <=0){
-                clearInterval(interval);
-                messageinput.disabled = false;
-                send.disabled = false;
-                countdown.textContent = "";
-            }
-
-        },speed);
-    }
-    function updateCountdown(seconds){
-        const min =  Math.floor(seconds / 60);
-        const sec = seconds % 60;
-        countdown.textContent =`Vous pourrez réutiliser ce champ dans ${min}:${sec.toString().padStart(2,"0")}`;
-        
-    }
-    function resetChat(){
-        localStorage.removeItem("chat_history");
-        history = [];
-        messageCount = 0;
-        user_message.innerHTML = "";
-        user_message.style.display = "none";
-        countdown.textContent = "";
-        first.style.display = "none";
-        second.style.display = "none";
-    }
+   
     
     //  mandefa message voalohany
     send.addEventListener('click',sendmessage )
@@ -255,8 +262,5 @@ export function chat(){
             reseterr();
             resetChat();
         })
-    }
-    
-    
-    
+    }   
 }
