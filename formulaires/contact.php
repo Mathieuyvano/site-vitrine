@@ -12,15 +12,15 @@
 
         if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
             error_log("formulaire contact: adresse email invalide: $email");
-            header("Location:../frontend/error.html");
+             header("Location:../contenu/error.html");
         }
         if(empty($sujet)){
-            error_log("formulaire contact: sujet invlide: $sujet" );
-            header("Location:../frontend/error.html");
+            error_log("formulaire contact: sujet invalide: $sujet" );
+             header("Location:../contenu/error.html");
         }
         if(empty($message ) || strlen($message)< 10){
             error_log("formulaire contact: message invalide: $message" );
-             header("Location:../frontend/error.html");
+              header("Location:../contenu/error.html");
         }
         $mail = new PHPMailer(true);
 
@@ -39,16 +39,22 @@
             $mail->addReplyTo($email,$nom.' '.$prenom);
 
             $mail->isHTML(true);
-            $mail->Subject = $sujet;
-            $mail->Body = "Nom: $nom<br>Prenom: $prenom<br>Email: $email<br>Message: $message";
+            $mail->Subject = " Acysteek Inc - $sujet";
+            $mail->Body =
+             "
+            <p>De: $nom $prenom</p>
+            <p><strong>Email:</strong>$email</p>
+            <p>Message:<br> $message</p>
+            <p style='font-size:12px;color:#555;'>Ce message a été envoyé automatiquement via le formulaire de contact du site AcySteek.</p>
+            ";
 
             $mail->send();
 
-            header("Location:../frontend/success.html");
+            header("Location:../contenu/success.html");
             exit();
         }catch(Exception $e){
              echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-            header("Location:../frontend/error.html");
+             header("Location:../contenu/error.html");
             exit();
         }
     }

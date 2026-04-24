@@ -12,10 +12,10 @@ export function chat(){
     const count = document.getElementById("charCount");
     const maxlength = mes.getAttribute("maxLength");
     const countdown = document.getElementById("countdown");
-    const cooldown_minute =2;
+    const cooldown_minute = 5;
     const speed = 1000;
-
     let cI;
+
     function disableInput(duration){
         messageinput.disabled = true;
         send.disabled = true;
@@ -47,8 +47,6 @@ export function chat(){
         messageCount = 0;
         user_message.innerHTML = "";
         user_message.style.display = "none";
-        disableInput(0);
-        updateCountdown(0);
         first.style.display = "none";
         second.style.display = "none";
     }
@@ -91,21 +89,18 @@ export function chat(){
         let history = JSON.parse(localStorage.getItem("chat_history")) || [];
         let messageCount = history.length;
         if(history.length > 0){       
-                const firstmsgblock = document.createElement("aside");
-                // firstmsgblock.classList.add("user_message");
+                const firstmsgblock = document.createElement("div");
                 const firstMsg = document.createElement("p");
-                // firstMsg.classList.add("user_message");
                 firstMsg.textContent = history[0];
                 firstMsg.style.textAlign = "left"; 
                 firstmsgblock.appendChild(firstMsg);
-                user_message.style.display = "block";
+                user_message.style.display = "block";   
                 user_message.appendChild(firstmsgblock);
                 
                 for(let i = 1; i < history.length; i++){
-                    const msgblock = document.createElement("aside");
-                    msgblock.classList.add("message_block");
+                    const msgblock = document.createElement("div");
+                    msgblock.classList.add("user_block");
                     const newmesg = document.createElement("p");
-                    // newmesg.classList.add("user_message");
                     newmesg.textContent = history[i];
                     newmesg.style.textAlign = "left";
                     msgblock.appendChild(newmesg);  
@@ -117,14 +112,17 @@ export function chat(){
                 
         }
         const lastsent = localStorage.getItem("last_sent_time");
-        if(lastsent){
-            const now = Date.now();
-            const diff = now - parseInt(lastsent,10);
-            const colldown = cooldown_minute * 60 * 1000;
-            if(diff <colldown){
-                disableInput(colldown - diff);
+            if(lastsent){
+                const now = Date.now();
+                const diff = now - parseInt(lastsent,10);
+                const colldown = cooldown_minute * 60 * 1000;
+                if(diff <colldown){
+                    disableInput(colldown - diff);
+                }
             }
-        }
+        
+        
+        
         const close = document.getElementById("close_chat");
         if(close){
             close.addEventListener("click",() =>{
@@ -143,17 +141,15 @@ export function chat(){
 
     function sendmessage(){
         const message = messageinput.value.trim();
-       
         if(message !== ""){
-            const msgblock = document.createElement("aside");
-            msgblock.classList.add("message_block");
+            const msgblock = document.createElement("div");
+            msgblock.classList.add("user_block");
             const newmsg = document.createElement("p");
-            newmsg.classList.add("user_message");
             newmsg.textContent = message;
             newmsg.style.textAlign = "left";
             msgblock.appendChild(newmsg);
             if(messageCount === 0){
-                user_message.style.display = "block";
+                user_message.style.display = "block"; 
                 user_message.appendChild(msgblock);
             }else{ 
                 messageContainer.append(msgblock);
@@ -230,7 +226,7 @@ export function chat(){
             if( noms.value.trim().length < 3 || !/^[a-zA-ZÀ-ÿ]+(?:\s+[a-zA-ZÀ-ÿ]+)+$/.test(noms.value.trim())){
                 const err = geterror("chat_nom");
                 err.style.display = "block";
-                err.textContent = "Nom et prenom invalide ou vide";
+                err.textContent = "Nom et prenom invalide ou vide(nom manquant ou prenom manquant)";
                 Iserror = true;
     
             }
@@ -243,7 +239,7 @@ export function chat(){
             if(mes.value.trim() === "" || mes.value.trim().length < 10){
                 const err = geterror("id_message");
                 err.style.display = "block";
-                err.textContent = "Message invalide ou vide";
+                err.textContent = "Message invalide ou vide (au moins 10 caractères)";
                 Iserror = true;
             }
             const verif = document.querySelectorAll("#formchat input,#formchat textarea");

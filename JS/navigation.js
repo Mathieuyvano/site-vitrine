@@ -6,10 +6,8 @@ export function navigation(){
     const menu = document.querySelector('.navigation');
     const iconburger = document.querySelector('.btn_burger ion-icon');
     const links = {
-        "projet":"frontend/contact.html",
-        "more-services":"frontend/services.html",
-        "moreinfo":"frontend/contact.html",
-        
+        "projet":"contenu/contact.html",
+        "moreinfo":"contenu/contact.html",     
     }
     for(let i in links){
         const elmt = document.getElementById(i)
@@ -22,7 +20,7 @@ export function navigation(){
     }
     if(accueil){
         accueil.addEventListener("click", () =>{
-           window.location.href = "/index.html";
+           window.location.href = "/accueil.html";
 
         })
     } 

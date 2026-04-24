@@ -729,12 +729,30 @@ nav .navigation ul li a:hover{
     display: none;
     background-color: #fff;
     color: black;
-    width: auto;
+    width: fit-content;
     max-width: 200px;
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
 }
+.user_block{
+    width: fit-content;
+    background-color: white;
+    color: black;
+    max-width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+   
+}
+.user_block p,#user_message p{
+    max-width: 200px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+
 .chat .chat_content .message .first_mes p{
     display: inline-flex;
     text-align: left;
@@ -839,7 +857,7 @@ nav .navigation ul li a:hover{
 }
 .message_block{
     width: fit-content;
-    background-color: white;
+    /* background-color: white; */
     color: black;
     border-radius: 10px;
     margin: 10px;
@@ -1383,6 +1401,10 @@ footer .politique span{
    
     .services_content .services_paragraphe p{
         font-size: 1rem;
+    }
+    .services_content .tarif_content .tarifs {
+        display: flex;
+        justify-content: center;
     }
     /* contact page */
     .contact_content{

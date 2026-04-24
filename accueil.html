@@ -15,25 +15,23 @@
         <div class="logo_nom " id="entreprise"> 
             <img src="image/Logo_acysteek.png"  class="nom_entreprise "  />
             <h1>cysteek</h1>
-        </div>
-        
+        </div> 
             <div class="navigation " >
                 <ul >
-                    <li> <a href="index.html" class="active" >accueil</a></li>
-                    <li> <a href="frontend/propos.html">à propos</a></li>
+                    <li> <a href="accueil.html" class="active" >accueil</a></li>
+                    <li> <a href="contenu/propos.html">à propos</a></li>
                     <li id="service_p">
                         
-                            <a href="frontend/services_tr.html" >tarifs</a>
+                            <a href="contenu/tarifs.html" >tarifs</a>
                             
                     </li>
-                    <li><a href="frontend/contact.html"  >contact</a></li>
+                    <li><a href="contenu/contact.html">contact</a></li>
                 </ul>    
             </div>
             <div class="btn_burger">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
        </nav>
-
 
        <!-- accueil -->
 
@@ -99,12 +97,12 @@
             <div class="choose" id="chs2">
                 <ion-icon name="checkmark-done-outline" class="icon_choose"></ion-icon>
                 <h2>Une équipe <span>francophone qualifiée</span></h2>
-                <p>Nous sélectionnons des profils sérieux, formés et capables de s’adapter à votre activité.</p>
+                <p>Une sélection rigoureuse des profils capables d'intervenir avec professionnalisme et efficacité sur vos missions.</p>
             </div>
-            <div class="choose">
+            <div class="choose" >
                 <ion-icon name="people-outline" class="icon_choose"></ion-icon>
-                <h2>Flexibilité <span>totale</span></h2>
-                <p> Adaptez les missions et le volume de travail selon vos besoins, sans engagement rigide. </p>
+                <h2>Flexibilité <span>du service</span> </h2>
+                <p>Une organisation flexible pensée pour s'adapter à votre contrainte et priorité. </p>
             </div>
         </section>
    </div>
@@ -121,59 +119,8 @@
                 
                 <main class="main_services">
                     <section>
-                        <div class="card hidden" onclick="openmodal(this)">
-                            <img src="image/assistant virtuelle.jpg" alt="">
-                            <h2>Assistance Administrative</h2>
-                            <p>Confiez vos tâches administratives pour alléger votre quotidien : gestion des emails, saisie de données et suivi administratif.</p>
-                            <div style="display: none;" >
-                                <p class="idprix">À partir de <span>10€</span> </p>
-                                <p id="p_content1"> <span>Gagnez du temps au quotidien en déléguant vos tâches administratives à un assistant dédié.</span></p>
-                                <p id="p_content2">Gestion des emails, organisation de votre agenda, saisie de données ou suivi administratif : nous prenons en charge ces missions pour vous permettre de vous concentrer sur l’essentiel
-                                    Moins de tâches, plus de temps pour développer votre activité.
-                                    </p>
-                            </div>
-                            <div class="details">
-                                <ion-icon name="newspaper-outline" class="iconadmin"></ion-icon>
-                                <h3 class="openModal" onclick="openmodal(this)">Obtenir mon assistant</h3>
-                            </div>
-                        
-                            
-                        </div>
-                        <div class="card hidden" onclick="openmodal(this)">
-                            <img src="image/assistant_client.jpg" alt="assistant_commerciale"  >
-                            <h2>Support client & téléopération</h2>
-                            <p> Confiez la gestion de vos appels, de votre service client et de vos relances pour améliorer votre relation client.</p>
-                            <div style="display: none;" >
-                                <h3 class="idprix">À partir de <span>10€</span></h3>
-                                <p id="p_content1">Améliorez votre relation client et ne laissez plus aucune opportunité passer.</p>
-                                <p id="p_content2">Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.Des clients mieux suivis, plus satisfaits et plus fidèles.</p>
-                            </div>
-                            <div class="details">
-                                <ion-icon name="newspaper-outline" class="iconadmin"></ion-icon>
-                                <h3 class="openModal" onclick="openmodal(this)">Obtenir mon assistant</h3>
-                            </div>
-                            
-                        </div>
-                        <div class="card hidden" onclick="openmodal(this)">
-                            <img src="image/devsweb.jpg" alt="">
-                            <h2>Web &  <span>Digital</span></h2>
-                            <p>Développez votre présence en ligne avec un site professionnel, du contenu optimisé et une meilleure visibilité.</p>
-                            <div style="display: none;" >
-                                <p class="idprix">Sur devis</p>
-                                <p id="p_content1">Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.
-                                </p>
-                                <p id="p_content2">Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance.
-                                    Plus de visibilité, plus de prospects, plus de résultats.
-                                     </p>
-                            </div>
-                            <div class="details">
-                                <ion-icon name="newspaper-outline" class="iconadmin"></ion-icon>
-                                <h3 class="openModal" onclick="openmodal(this)">Obtenir mon assistant</h3>
-                            </div>
-                            
-                        </div>
                         <div class="card hidden" id="card4" onclick="openmodal(this)">
-                            <img src="../image/salla.png" alt="">
+                            <img src="image/salla.png" alt="">
                             <h2>Assistant <span>polyvalent</span></h2>
                             <p>Un assistant capable de s’adapter à vos besoins : administratif, support client et autres missions selon votre activité.</p>
                             <div style="display: none;" >
@@ -190,12 +137,40 @@
                             
                         </div>
                        
-                    </section>
-                    
-                
+                        <div class="card hidden" onclick="openmodal(this)">
+                            <img src="image/assistant_client.jpg" alt="assistant_commerciale"  >
+                            <h2>Support client & téléopération</h2>
+                            <p> Confiez la gestion de vos appels, de votre service client et de vos relances pour améliorer votre relation client.</p>
+                            <div style="display: none;" >
+                                <h3 class="idprix">À partir de <span>10€</span></h3>
+                                <p id="p_content1">Améliorez votre relation client et ne laissez plus aucune opportunité passée.</p>
+                                <p id="p_content2">Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.Des clients mieux suivis, plus satisfaits et plus fidèles.</p>
+                            </div>
+                            <div class="details">
+                                <ion-icon name="newspaper-outline" class="iconadmin"></ion-icon>
+                                <h3 class="openModal" onclick="openmodal(this)">Obtenir mon assistant</h3>
+                            </div>
+                            
+                        </div>
+                        <div class="card hidden" onclick="openmodal(this)">
+                            <img src="image/devsweb.jpg" alt="">
+                            <h2>Web &  <span>Digital</span></h2>
+                            <p>Développez votre présence en ligne avec un site professionnel, du contenu optimisé et une meilleure visibilité.</p>
+                            <div style="display: none;" >
+                                <p class="idprix">Sur devis</p>
+                                <p id="p_content1">Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance.
+                  
+                                </p>
+                                <p id="p_content2">Plus de visibilité, plus de prospects, plus de résultats.
+                                     </p>
+                            </div>
+                            <div class="details">
+                                <ion-icon name="newspaper-outline" class="iconadmin"></ion-icon>
+                                <h3 class="openModal" onclick="openmodal(this)">Obtenir mon assistant</h3>
+                            </div>  
+                        </div>  
+                    </section>      
                 </main>
-                
-            
             </div>
         </div>
       
@@ -204,14 +179,15 @@
         <div class="footer_content">
             <section class="sections-1">
                 <h1>ACYSTEEK INC</h1>
-                <p>Externalisez vos tâches et augmentez votre productivité dès aujourd'huie</p>
+                <p>Externalisez vos tâches et concentrez-vous sur votre croissance</p>
             </section>
             <section class="sections-2">
                 <h1>Navigation</h1>
                 <ul>
-                    <li><a href="frontend/propos.html">à propos</a></li>
-                    <li><a href="frontend/services_tr.html " >tarifs</a></li>
-                    <li><a href="frontend/contact.html" >contact</a></li>
+                    <li><a href="accueil.html">accueil</a></li>
+                    <li><a href="contenu/propos.html">à propos</a></li>
+                    <li><a href="contenu/tarifs.html" >tarifs</a></li>
+                    <li><a href="contenu/contact.html" >contact</a></li>
             
                 </ul>
             </section>
@@ -233,22 +209,23 @@
             <section class="section-3">
                 <h1>services</h1>
                 <ul>
-                    <li><a  class="openlink"
-                            data-img="image/assistant virtuelle.jpg"
-                            data-title="Assistante administrative"
-                            data-price="À partir de <span>10€</span>"
-                            data-p="<span>Gagnez du temps au quotidien en déléguant vos tâches administratives à un assistant dédié.</span>"
-                            data-p2="Gestion des emails, organisation de votre agenda, saisie de données ou suivi administratif : nous prenons en charge ces missions pour vous permettre de vous concentrer sur l’essentiel
-                            Moins de tâches, plus de temps pour développer votre activité
-                            "
-                            onclick="openmodal(this)">Assistance administrative
+                    <li><a  class="openlink" 
+                        data-img="image/salla.png"
+                        data-title="Assistant polyvalent"
+                        data-price="À partir de <span>10€</span>"
+                        data-p="Un assistant capable de s’adapter à vos besoins et de prendre en charge différentes missions selon votre activité."
+                        data-p2="Administratif, commercial, support client ou autres tâches : vous déléguez ce qui vous ralentit.
+                        Une solution flexible pour avancer plus vite sans vous disperser.
+                        "
+                        onclick="openmodal(this)"
+                        >Assistant polyvalent
                         </a>
                     </li>
                     <li><a  class="openlink" 
                             data-img="image/assistant_client.jpg"
                             data-title="Support client & téléopération"
                             data-price="À partir de <span>10€</span>"
-                            data-p="Améliorez votre relation client et ne laissez plus aucune opportunité passer."
+                            data-p="Améliorez votre relation client et ne laissez plus aucune opportunité passée."
                             data-p2="Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.
                             Des clients mieux suivis, plus satisfaits et plus fidèles.
                             "
@@ -265,18 +242,7 @@
                         >Web & digital
                         </a>
                     </li>
-                    <li><a  class="openlink" 
-                        data-img="image/salla.png"
-                        data-title="Assistant polyvalent"
-                        data-price="À partir de <span>10€</span>"
-                        data-p="Un assistant capable de s’adapter à vos besoins et de prendre en charge différentes missions selon votre activité."
-                        data-p2="Administratif, commercial, support client ou autres tâches : vous déléguez ce qui vous ralentit.
-                        Une solution flexible pour avancer plus vite sans vous disperser.
-                        "
-                        onclick="openmodal(this)"
-                        >Assistant polyvalent
-                        </a>
-                    </li>
+                   
                 </ul>
             </section>
         </div>
@@ -311,14 +277,14 @@
                     </div>
                     <div class="message" id="content_mes">
                         <div class="mes">
-                            <p>Bonjour, que pouvons-nous faire pour vous ?</p>
+                            <p>Bonjour,en quoi puis-je vous accompagner aujourd'huie ?</p>
                         </div>
                         <div id="user_message" class="user_mes"></div>
                         <div class="first_mes" style="display: none;" id="first_mes">
                             <p>Veuillez remplir les champs afin que nous puissions vous répondre </p>
                         </div>
                         <div class="second_mes" id="seconds_m" style="display: none;">
-                            <form action="PHP/chat.php" method="post" id="formchat">
+                            <form action="formulaires/chat.php" method="post" id="formchat">
                                 <label >Nom Complet</label>
                                 <input type="text" placeholder="Nom et prénom" id="chat_nom" name="chat_nom" >
                                 <p class="errors" style="display: none;" data-for="chat_nom"></p>
@@ -378,6 +344,6 @@
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script type="module" src="app.js" ></script>
+    <script type="module" src="app.js" defer></script>
 </body>
 </html>

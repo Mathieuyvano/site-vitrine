@@ -17,7 +17,7 @@
                 
                 <div class="navigation " >
                     <ul >
-                        <li> <a href="../index.html"  >accueil</a></li>
+                        <li> <a href="../accueil.html"  >accueil</a></li>
                         <li> <a href="propos.html">à propos</a></li>
                         <li id="service_p">
                                 <a href="services_tr.html" class="active" >tarifs</a>   
@@ -106,13 +106,14 @@
                 <div class="footer_content">
                     <section class="sections-1">
                         <h1>ACYSTEEK INC</h1>
-                        <p>Externalisez vos tâches et augmentez votre productivité dès aujourd'huie</p>
+                        <p>Externalisez vos tâches et concentrez-vous sur votre croissance</p>
                     </section>
                     <section class="sections-2">
                         <h1>Navigation</h1>
                         <ul>
-                            <li><a href="../index.html">accueil</a></li>
+                            <li><a href="../accueil.html">accueil</a></li>
                             <li><a href="propos.html" >à propos</a></li>
+                            <li><a href="services_tr.html">tarifs</a></li>
                             <li><a href="contact.html" >contact</a></li>
                         
                         </ul>
@@ -135,22 +136,24 @@
                     <section class="section-4">
                         <h1>Services</h1>
                         <ul>
-                            <li><a  class="openlink"
-                                data-img="../image/assistant virtuelle.jpg"
-                                data-title="Assistante administrative"
+                            <li><a  class="openlink" 
+                                data-img="../image/salla.png"
+                                data-title="Assistant polyvalent"
                                 data-price="À partir de <span>10€</span>"
-                                data-p="<span>Gagnez du temps au quotidien en déléguant vos tâches administratives à un assistant dédié.</span>"
-                                data-p2="Gestion des emails, organisation de votre agenda, saisie de données ou suivi administratif : nous prenons en charge ces missions pour vous permettre de vous concentrer sur l’essentiel
-                                Moins de tâches, plus de temps pour développer votre activité
+                                data-p="Un assistant capable de s’adapter à vos besoins et de prendre en charge différentes missions selon votre activité."
+                                data-p2="Administratif, commercial, support client ou autres tâches : vous déléguez ce qui vous ralentit.
+                                Une solution flexible pour avancer plus vite sans vous disperser.
                                 "
-                                onclick="openmodal(this)">Assistance administrative
-                            </a>
-                        </li>
+                                onclick="openmodal(this)"
+                                >Assistant polyvalent
+                                </a>
+                            </li>
+                           
                         <li><a  class="openlink" 
                                 data-img="../image/assistant_client.jpg"
                                 data-title="Support client & téléopération"
                                 data-price="À partir de <span>10€</span>"
-                                data-p="Améliorez votre relation client et ne laissez plus aucune opportunité passer."
+                                data-p="Améliorez votre relation client et ne laissez plus aucune opportunité passée."
                                 data-p2="Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.
                                 Des clients mieux suivis, plus satisfaits et plus fidèles.
                                 "
@@ -165,18 +168,6 @@
                                 data-p2="Plus de visibilité, plus de prospects, plus de résultats."
                                 onclick="openmodal(this)"
                             >Web & digital
-                            </a>
-                        </li>
-                        <li><a  class="openlink" 
-                            data-img="../image/salla.png"
-                            data-title="Assistant polyvalent"
-                            data-price="À partir de <span>10€</span>"
-                            data-p="Un assistant capable de s’adapter à vos besoins et de prendre en charge différentes missions selon votre activité."
-                            data-p2="Administratif, commercial, support client ou autres tâches : vous déléguez ce qui vous ralentit.
-                            Une solution flexible pour avancer plus vite sans vous disperser.
-                            "
-                            onclick="openmodal(this)"
-                            >Assistant polyvalent
                             </a>
                         </li>
                         </ul>
@@ -213,26 +204,26 @@
                             </div>
                             <div class="message" id="content_mes">
                                 <div class="mes">
-                                    <p>Bonjour, que pouvons-nous faire pour vous ?</p>
+                                    <p>Bonjour,en quoi puis-je vous accompagner aujourd'huie ?</p>
                                 </div>
                                 <div id="user_message" class="user_mes"></div>
                                 <div class="first_mes" style="display: none;" id="first_mes">
                                     <p>Veuillez remplir les champs afin que nous puissions vous répondre </p>
                                 </div>
                                 <div class="second_mes" id="seconds_m" style="display: none;">
-                                    <form action="" id="formchat">
+                                    <form action="../formulaires/chat.php" method="post" id="formchat">
                                         <label >Nom Complet</label>
-                                        <input type="text" placeholder="Nom et prénom" id="chat_nom" >
+                                        <input type="text" placeholder="Nom et prénom" id="chat_nom" name="chat_nom" >
                                         <p class="errors" style="display: none;" data-for="chat_nom"></p>
                                         <label >E-mail</label>
-                                        <input type="text" placeholder="email" id="id_email" >
+                                        <input type="text" placeholder="email" id="id_email" name="id_email" >
                                         <p class="errors" style="display: none;" data-for="id_email"></p>
                                         <div style=" display: flex;justify-content: space-between;" >
                                             <label >Messages</label>
-                                            <div id="charCount"></div>
+                                            <div id="charCount" style="margin: 0 0 10px 0;"></div>
                                         </div>
-                                        <textarea name="message" id="id_message" placeholder="Entrer votre message..." maxlength="100" ></textarea>
-                                        <p class="errors" style="display: none;"data-for="id_message" ></p>
+                                        <textarea name="id_message" id="id_message" placeholder="Entrer votre message..." maxlength="100" ></textarea>
+                                        <p class="errors" style="display: none;" data-for="id_message" ></p>
                                         <button id="envoie_button" type="submit" >Envoyer</button>
                                     </form>
                                     <p id="countdown" style="color: red;margin: 10px;  text-align: center;"></p>
@@ -276,6 +267,6 @@
         </div> 
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        <script type="module" src="../app.js" ></script>   
+        <script type="module" src="../app.js" defer ></script>   
     </body>
     </html>

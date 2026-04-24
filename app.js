@@ -6,33 +6,16 @@ import { scrolls } from "./JS/scrolls.js";
 import { serviceslink } from "./JS/services.js";
 
 window.scrolls = scrolls;
-window.contact = contact;
 document.addEventListener("DOMContentLoaded",() =>{
-    const btnburger = document.querySelector('.btn_burger');
     const abouts = document.querySelectorAll('.hidden');
     // module
     navigation();
     initmodal();
     chat();
+    contact();
     serviceslink();
 
-    if(btnburger){
-        // menu burger
-        btnburger.addEventListener('click',(e) =>{
-            e.preventDefault();
-            e.stopPropagation();
-            if(menu){
-                menu.classList.toggle('active');
-                if(menu.classList.contains('active')){
-                    iconburger.setAttribute('name','close-outline');
-                    document.body.classList.add('no_scroll');
-                }else{
-                    iconburger.setAttribute('name','menu-outline');
-                    document.body.classList.remove('no_scroll');
-                }
-            }  
-        })
-    }
+   
     // mivoaka tsikelikely ny contenue page
     const mjr = new IntersectionObserver((entry) =>{
         entry.forEach(entries =>{

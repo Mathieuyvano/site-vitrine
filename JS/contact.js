@@ -3,7 +3,7 @@
     const nom = document.getElementById("nom");
     const prenom = document.getElementById("prenom");
     const email = document.getElementById("email");
-    const message = document.getElementById("messages");
+    const message = document.getElementById("message");
     // const error = document.querySelectorAll("#form_contact .errors");
     const subject = document.getElementById("sujet");
     const menus = document.querySelectorAll("#data_services option");
@@ -51,12 +51,10 @@
     })
     
     if(form){
-        form.addEventListener("submit", function (e) {
+        form.addEventListener("submit",  (e) => {
             let Iserror = false; 
-            // e.preventDefault();
+            e.preventDefault();
             resetErr();
-           
-            
             if( nom.value.trim().length < 3 || !/^[a-zA-ZÀ-ÿ]+$/.test(nom.value.trim())){
                 const err = geterror("nom");
                 err.style.display = "block";
@@ -80,16 +78,11 @@
             menus.forEach(m =>{
                 if(subject.value.trim() === m.value.trim()) found = true;
            });
-           if(!found){
+          
+            if(subject.value.trim() === "" || !found){
                 const err = geterror("sujet");
                 err.style.display = "block";
-                err.textContent = "Le sujet n'existe pas";
-                Iserror = true;
-            }
-            if(subject.value.trim() === ""){
-                const err = geterror("sujet");
-                err.style.display = "block";
-                err.textContent = "Veuillez choisir un sujet";
+                err.textContent = "Veuillez choisir un sujet ou sujet n existe pas";
                 Iserror = true;
             }
             if(message.value.trim()==="" || message.value.trim().length < 5){
@@ -99,9 +92,8 @@
                 Iserror = true;
             }
             
-            const verif =  document.querySelectorAll("#form_contact input,#form_contact textarea")
+            const verif =  document.querySelectorAll("#form_contact input,#form_contact textarea");
             if(!Iserror){
-                // alert(`${nom.value.trim()} ${prenom.value.trim()}, merci pour votre demande. Nous vous contactons dès que possible.`); 
                 form.submit();
                 form.reset();
                 verif.forEach(el => {
