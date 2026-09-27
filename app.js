@@ -3,8 +3,8 @@ import { contact } from "./JS/contact.js";
 import { initmodal } from "./JS/modal.js";
 import { chat } from "./JS/chat.js";
 import { scrolls } from "./JS/scrolls.js";
-import { serviceslink } from "./JS/services.js";
 
+import {linkAndNumber} from "./JS/linkAndNumber.js";
 window.scrolls = scrolls;
 document.addEventListener("DOMContentLoaded",() =>{
     const abouts = document.querySelectorAll('.hidden');
@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded",() =>{
     initmodal();
     chat();
     contact();
-    serviceslink();
+    linkAndNumber();
+
 
    
     // mivoaka tsikelikely ny contenue page
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded",() =>{
         mjr.observe(about)
 
     })
-// charge la page de conact dia aveo zffecter le valeur
+// charge la page de contact dia aveo zffecter le valeur
     const subject = document.getElementById("sujet");
     if(subject){
         const urlParams = new URLSearchParams(location.search);
@@ -41,28 +42,7 @@ document.addEventListener("DOMContentLoaded",() =>{
         }
 
     }
-    const whatsapp  = document.getElementById("whtsp_url");
-    if(whatsapp){
-        whatsapp.addEventListener('click', () =>{
-            const message = "Bonjour, je souhaite planifier un appel concernant vos services d'assistance.";
-            const encodeMg = encodeURIComponent(message);
-            const num = "33756835665";
-            const url = `https://wa.me/${num}?text=${encodeMg}`;
-
-            window.open(url,'_blank');
-        })
-    }
-    const whts = document.getElementById("whtsp_urls");
-    if(whts){
-        whts.addEventListener('click', () =>{
-            const message = "Bonjour, je souhaite planifier un appel concernant vos services d'assistance.";
-            const encodeMg = encodeURIComponent(message);
-            const num = "33756835665";
-            const url = `https://wa.me/${num}?text=${encodeMg}`;
-
-            window.open(url,'_blank');
-        })
-    }
+  
  
 });
 const footer = document.getElementById("droit");

@@ -1,10 +1,11 @@
- export function contact(){
+import { afficherpopup } from "./popup.js";
+
+export function contact(){
     const form = document.getElementById("form_contact");
     const nom = document.getElementById("nom");
     const prenom = document.getElementById("prenom");
     const email = document.getElementById("email");
     const message = document.getElementById("message");
-    // const error = document.querySelectorAll("#form_contact .errors");
     const subject = document.getElementById("sujet");
     const menus = document.querySelectorAll("#data_services option");
     const geterror = (id) => document.querySelector(`[data-for="${id}"]`);
@@ -51,7 +52,7 @@
     })
     
     if(form){
-        form.addEventListener("submit",  (e) => {
+        form.addEventListener("submit", async function(e) {
             let Iserror = false; 
             e.preventDefault();
             resetErr();
@@ -94,11 +95,24 @@
             
             const verif =  document.querySelectorAll("#form_contact input,#form_contact textarea");
             if(!Iserror){
-                form.submit();
-                form.reset();
-                verif.forEach(el => {
-                    el.classList.remove("invalid", "valid");
-                });
+               try{
+                    const formeData = new FormData(form);
+                    const response = await fetch(form.action,{
+                        method:"POST",
+                        body:formeData
+                    });
+                    const data = await response.json();
+
+                    afficherpopup(data.success,data.message);
+                    if(data.success){
+                        form.reset();
+                        verif.forEach(e =>{
+                            e.classList.remove("invalid","valid");
+                        })
+                    }
+               }catch(e){
+                    afficherpopup(false,"Erreur de connexion cote serveur");
+               }
                 
             }
     

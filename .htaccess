@@ -2,6 +2,8 @@ RewriteEngine On
 
 DirectoryIndex accueil.html
 
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 # RewriteCond %{REQUEST_FILENAME}.php -f
 # RewriteRule ^(.*)$ $1.php [NC,L]

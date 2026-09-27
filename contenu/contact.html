@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/others_page.css">
+    <link rel="stylesheet" href="style/contact.css">
     <link rel="shortcut icon" href="../image/Logo_acysteek.png" type="image/x-icon">
     <title>Contact</title>
 </head>
@@ -42,7 +42,7 @@
                                 </a> 
                                 <a id="whtsp_url">
                                     <ion-icon name="call-outline" class="email_icon"></ion-icon>
-                                    <p>+33 7 56 83 56 65</p>
+                                    <p>+261 33 20 451 72</p>
                                 </a>      
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                             <h1>Contactez-nous</h1>
                         </div>
                         
-                        <form action="../formulaires/contact.php" method="post" class="hidden" id="form_contact">
+                        <form action="../services/contacts.php" method="post" class="hidden" id="form_contact">
                             <label >Nom</label>
                             <input type="text" placeholder=" ex: Jean" id="nom" name="nom" >
                             <p class="errors" style="display: none;" data-for="nom"></p>
@@ -96,7 +96,7 @@
                 <section class="sections-2">
                     <h1>Navigation</h1>
                     <ul>
-                        <li><a href="../index.html">accueil</a></li>
+                        <li><a href="../accueil.html">accueil</a></li>
                         <li><a href="propos.html" >à propos</a></li>
                         <li><a href="tarifs.html" >tarifs</a></li>
                         <li><a href="contact.html">contact</a></li>
@@ -114,7 +114,7 @@
                         <li>
                             <ion-icon name="call-outline" style="color: #4CB8C4;"></ion-icon>
                             <a id="whtsp_url">
-                            +33 7 56 83 56 65 </a>
+                            +261 33 20 451 72 </a>
                         </li>
                     </ul>
                 </section>
@@ -187,14 +187,14 @@
                     </div>
                     <div class="message" id="content_mes">
                         <div class="mes">
-                            <p>Bonjour,en quoi puis-je vous accompagner aujourd'huie ?</p>
+                            <p>Bonjour,en quoi puis-je vous accompagner aujourd'hui ?</p>
                         </div>
                         <div id="user_message" class="user_mes"></div>
                         <div class="first_mes" style="display: none;" id="first_mes">
                             <p>Veuillez remplir les champs afin que nous puissions vous répondre </p>
                         </div>
                         <div class="second_mes" id="seconds_m" style="display: none;">
-                            <form action="../formulaires/chat.php" method="post" id="formchat">
+                            <form action="../services/message.php" method="post" id="formchat">
                                 <label >Nom Complet</label>
                                 <input type="text" placeholder="Nom et prénom" id="chat_nom" name="chat_nom" >
                                 <p class="errors" style="display: none;" data-for="chat_nom"></p>

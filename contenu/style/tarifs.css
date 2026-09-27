@@ -1507,26 +1507,5 @@ footer .politique span{
         text-align: center;
     }
     
-  
-   
-    /* a propos */
-    .propos_content .propos{
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-    }
-    .propos_content .propos img{
-        display: flex;
-        flex-shrink: 0;
-        width: 40%;
-        flex-shrink: 0;
-    }
-    .propos_content .propos .more_propos .info_propos .all_info ion-icon{
-        font-size: 2rem;
-    }
-    .propos_content .propos .more_propos h1{
-        font-size: 1.5rem;
-    }
 }
 

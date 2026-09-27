@@ -9,7 +9,7 @@ export function initmodal(){
     const whatsapp = document.getElementById("whtp");
     document.getElementById("buttons_modal").addEventListener('click', function(){
         const service = h2.textContent.trim();
-        window.location.href = window.location.origin + "/frontend/contact.html?service=" + encodeURIComponent(service);  
+        window.location.href = window.location.origin + "/contenu/contact.html?service=" + encodeURIComponent(service);  
     })
     window.openmodal = function(btn){
         const card = btn.closest(".card");
@@ -58,7 +58,7 @@ export function initmodal(){
                 btnmodal.addEventListener('click',function(){
 
                     const service = h2.textContent.trim();
-                    window.location.href = window.location.origin + "/frontend/contact.html?service=" + encodeURIComponent(service);  
+                    window.location.href = window.location.origin + "/contenu/contact.html?service=" + encodeURIComponent(service);  
                 })
             }
             if(closebtn){

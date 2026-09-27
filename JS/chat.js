@@ -1,3 +1,5 @@
+import { afficherpopup } from "./popup.js";
+
 export function chat(){
     const send = document.getElementById("button_send");
     const first = document.getElementById("first_mes");
@@ -219,7 +221,7 @@ export function chat(){
        
     })
     if(form){
-        form.addEventListener("submit", (e) =>{
+        form.addEventListener("submit",async function (e){
             let Iserror = false;
             e.preventDefault();
             reseterr();
@@ -245,12 +247,24 @@ export function chat(){
             const verif = document.querySelectorAll("#formchat input,#formchat textarea");
             if(!Iserror){
                 // alert(`${noms.value.trim()}, votre message a été envoyé avec succès!`);
-                form.submit();
-                form.reset();
-                verif.forEach(v =>{
-                    v.classList.remove("invalid","valid");
-                })
-                
+              try{
+                    const formeData = new FormData(form);
+                    const response = await fetch(form.action,{
+                            method:"POST",
+                            body:formeData
+                          });
+                    const data = await response.json();
+              
+                        afficherpopup(data.success,data.message);
+                        if(data.success){
+                            form.reset();
+                              verif.forEach(e =>{
+                                 e.classList.remove("invalid","valid");
+                              })
+                        }
+                }catch(e){
+                    afficherpopup(false,"Erreur de connexion cote serveur");
+                }
             }   
     
         });
