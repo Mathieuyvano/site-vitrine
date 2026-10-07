@@ -1,5 +1,6 @@
 .env
 vendor/
+.htaccess
 .DS_Store
 Thumbs.db
 *.log
