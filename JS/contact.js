@@ -18,12 +18,13 @@ export function contact(){
     }
     
     // validation
-    document.querySelectorAll("#form_contact input,#form_contact textarea").forEach((elmt) =>{
+    document.querySelectorAll("#form_contact .input_info input,#form_contact .textarea_info textarea").forEach((elmt) =>{
+        const box = elmt.closest(".input_info,.textarea_info") ?? elmt;
         elmt.addEventListener("input", () =>{
             const err = geterror(elmt.id);
             if(elmt.checkValidity() && elmt.value.trim()!== ""){
-                elmt.classList.remove("invalid");
-                elmt.classList.add("valid");
+                box.classList.remove("invalid");
+                box.classList.add("valid");
                 if(err){
                     err.style.display = "none";
                     err.textContent = "";
@@ -31,22 +32,22 @@ export function contact(){
 
             }
             else{
-                elmt.classList.add("invalid");
-                elmt.classList.remove("valid");
+                box.classList.add("invalid");
+                box.classList.remove("valid");
             }  
         })
         elmt.addEventListener("blur",function(){
             const err = geterror(elmt.id);
             if(elmt.value.trim() === ""){
-                elmt.classList.add("invalid");
-                elmt.classList.remove('valid');
+                box.classList.add("invalid");
+                box.classList.remove('valid');
                 if(err){
                     err.style.display = "block";
                     err.textContent = "Veuillez remplir le champ";
                 }
             }else{
-                elmt.classList.remove("invalid");
-                elmt.classList.add("valid");
+                box.classList.remove("invalid");
+                box.classList.add("valid");
             }
         })
     })
@@ -56,14 +57,14 @@ export function contact(){
             let Iserror = false; 
             e.preventDefault();
             resetErr();
-            if( nom.value.trim().length < 3 || !/^[a-zA-ZÀ-ÿ]+$/.test(nom.value.trim())){
+            if( nom.value.trim().length < 2 || !/^[a-zA-ZÀ-ÿ]+$/.test(nom.value.trim())){
                 const err = geterror("nom");
                 err.style.display = "block";
                 err.textContent = "Nom invalide ou vide";
                 Iserror = true;
     
             }
-            if( prenom.value.trim().length < 3 || !/^[a-zA-ZÀ-ÿ]+$/.test(prenom.value.trim())){
+            if( prenom.value.trim().length < 2 || !/^[a-zA-ZÀ-ÿ]+$/.test(prenom.value.trim())){
                 const err = geterror("prenom");
                 err.style.display = "block";
                 err.textContent = "Prenom invalide ou vide";
@@ -93,7 +94,7 @@ export function contact(){
                 Iserror = true;
             }
             
-            const verif =  document.querySelectorAll("#form_contact input,#form_contact textarea");
+            const verif =  document.querySelectorAll("#form_contact .input_info,#form_contact .textarea_info");
             if(!Iserror){
                try{
                     const formeData = new FormData(form);
@@ -111,7 +112,8 @@ export function contact(){
                         })
                     }
                }catch(e){
-                    afficherpopup(false,"Erreur de connexion cote serveur");
+                    afficherpopup(false,"Erreur de connexion coté serveur");
+                    console.err(e);
                }
                 
             }

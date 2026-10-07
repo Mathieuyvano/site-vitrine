@@ -1,68 +1,280 @@
 import { afficherpopup } from "./popup.js";
 
+
+const BOT_RULES = [
+    {
+        keywords:["administrative","administratif","commercial","commerciale","polyvalent"],
+        answer:"Notre assistant polyvalent s'occupe à la fois de vos tâches administratives et commerciales.Souhaitez-vous être rappelés pour en discuter ?",
+        ships:["oui, être rappelé","Voir le tarif"]
+    },
+    {
+        keywords:["support client","support","teleoperation","support client & teleoperation"],
+        answer:"Notre assistant support client & teleopération répond a vos clients rapidement 24h/24.Voulez-vous en savoir plus ?",
+        ships:["oui, être rappelé","Voir le tarif"]
+    },
+    {
+        keywords:["web","digital","web & digital","design"],
+        answer:"Notre assistant web & digital est disponible 24h/24 pour répondre à vos questions rapidement. Souhaitez-vous en savoir plus sur nos services ?",
+        ships:["oui, être rappelé","Voir le tarif"]
+    },
+    {
+        keywords:["rappele","autre","aute demande","formulaire"],
+        answer:"Très bien ! Laisser nous vos coordonnées avec le formulaire ci-dessous et nous vous rappellerons",
+        showForm:true
+    },
+    {   
+        weight:0.5,
+        keywords:["bonjour","salut","hello","bonsoir","coucou"],
+        answer:"Bonjour ! ,comment puis-je vous aider aujourd'huie",
+    },
+    
+    {
+        keywords:["prix","cout","tarif","combien"],
+        answer:"Nos tarifs dépendent de votre besoin. Remplissez le formulaire de contact pour obtenir un devis personnalisé.",
+        showForm:true
+    },
+    {
+        keywords:["horaire","heure","ouvert","ferme"],
+        answer:"Nos horaires d'ouverture sont du lundi au vendredi de 9h à 18h. Nous sommes fermés le week-end et les jours fériés."
+    },
+    {
+        keywords: ["contact", "email", "mail", "telephone", "appeler"],
+        answer: "Vous pouvez nous écrire via le formulaire de contact de cette page, nous répondons sous 24h.",
+        showForm:true
+    },
+    {
+        weight:0.5,
+        keywords:["merci","super","parfait"],
+        answer:"Je vous en prie ! N'hésitez pas à nous contacter si vous avez d'autres questions."
+    },{
+        keywords:["au revoir","bye","à bientôt"],
+        answer:"Au revoir ! Passez une excellente journée et n'hésitez pas à revenir si vous avez besoin d'aide."
+    }
+]
+
+const FALLBACK_ANSWER ={
+    text: "Je suis désolé, je n'ai pas compris votre question. Veuillez remplir le formulaire de contact pour obtenir une réponse personnalisée.",
+    showForm:true
+};
+
+const normalize = (s) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+
+const espaceregex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+function countMatchs(text,keywords){
+    return keywords.filter((k)=>
+        new RegExp("\\b" + espaceregex(k) + "(s|x)?\\b").test(text)
+    ).length;
+}
+async function getBotReply(userText){
+    const text = normalize(userText);
+    let best = null;
+    let bestScore = 0;
+    for(const rule of BOT_RULES){
+        const score = countMatchs(text,rule.keywords) *(rule.weight ?? 1);
+        if(score > bestScore){
+            best = rule;
+            bestScore = score;
+        }
+    }
+     if(!best) return FALLBACK_ANSWER;
+     return {text:best.answer, showForm: !!best.showForm, chips:best.ships || []};
+
+}
+
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve,ms))
+
+
 export function chat(){
-    const send = document.getElementById("button_send");
-    const first = document.getElementById("first_mes");
-    const second = document.getElementById("seconds_m");
-    const buttons = document.getElementById("button_chat");
-    const messageContainer = document.getElementById("content_mes");
-    const messageinput = document.getElementById("input_message");
-    const user_message = document.getElementById("user_message");
-    const email = document.getElementById("id_email");
-    const noms = document.getElementById("chat_nom");
-    const mes = document.getElementById("id_message");
-    const count = document.getElementById("charCount");
+    const {
+        send,
+        intro,
+        contactForm,
+        buttons,
+        messageContainer,
+        messageinput,
+        email,
+        noms,
+        mes,
+        count
+    } = {
+        send:document.getElementById("button_send"),
+        intro:document.getElementById("first_mes"),
+        contactForm: document.getElementById("seconds_m"),
+        buttons: document.getElementById("button_chat"),
+        messageContainer:document.getElementById("content_mes"),
+        messageinput: document.getElementById("input_message"),
+        email: document.getElementById("id_email"),
+        noms:document.getElementById("chat_nom"),
+        mes:document.getElementById("id_message"),
+        count:document.getElementById("charCount"),
+    }
+    
     const maxlength = mes.getAttribute("maxLength");
-    const countdown = document.getElementById("countdown");
-    const cooldown_minute = 5;
-    const speed = 1000;
-    let cI;
+    let isBotBusy = false;
 
-    function disableInput(duration){
-        messageinput.disabled = true;
-        send.disabled = true;
 
-        let remaining = Math.floor(duration / 1000);
-        if(cI) clearInterval(cI);
-        cI = setInterval(() =>{
-            remaining--;
-            updateCountdown(remaining);
-            if(remaining <=0){
-                clearInterval(cI);
-                cI = null;
-                messageinput.disabled = false;
-                send.disabled = false;
-                countdown.textContent = "";
-            }
+    let history = (JSON.parse(localStorage.getItem("chat_history")) || []).map(
+        (item) => (typeof item === "string" ? {role:"user",text:item} : item)
+    )
 
-        },speed);
+    const saveHistory = () => localStorage.setItem("chat_history",JSON.stringify(history));
+
+    const nowTime = () =>
+        new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"});
+
+    const avatarSrc = document.querySelector(".header_chat .avatar")?.src || "";
+    
+    
+    // affichage bulle
+    function renderBubble(role,text,{time = nowTime(), chips = []}={}){
+        const row = document.createElement("div");
+        row.classList.add("msg_row",role === "bot" ? "bot" :"user");
+
+        if(role === "bot"){
+            const img = document.createElement("img");
+            img.className = "avatar sm";
+            img.src = avatarSrc;
+            img.alt = "";
+            row.appendChild(img);
+        }
+        const bubble = document.createElement("div");
+        bubble.className = "bubble " + (role === "bot" ? "bot_block" : "user_block");
+        const p = document.createElement("p");
+        p.textContent = text;
+        bubble.appendChild(p);
+
+
+        if(chips.length > 0){
+            const box = document.createElement("div");
+            box.className = "chips";
+            chips.forEach((label) =>{
+                const b = document.createElement("button");
+                b.type = "button";
+                b.className = "chip";
+                b.dataset.text = label;
+                b.textContent = label;
+                box.appendChild(b);
+            })
+            bubble.appendChild(box);
+        }
+
+        // fotoana
+        const t = document.createElement("span");
+        t.className = "time";
+        t.textContent = role ==="user" ?  time + "✓✓" : time;
+        bubble.appendChild(t);
+
+        row.appendChild(bubble);
+        return row;
+
     }
-    function updateCountdown(seconds){
-        const min =  Math.floor(seconds / 60);
-        const sec = seconds % 60;
-        countdown.textContent =`Vous pourrez réutiliser ce champ dans ${min}:${sec.toString().padStart(2,"0")}`;
-        
+    // insertion des bulles avant le formulaire
+    function insertBubble(row){
+        messageContainer.insertBefore(row,intro);
     }
+
+    function addMessage(role,text,{save = true,chips=[],time = nowTime()}={}){
+        insertBubble(renderBubble(role,text,{time,chips}));
+        if(save){
+            history.push({role,text,time});
+            saveHistory();
+        }
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+    }
+
+    // trois points
+    function showTyping(){
+        const block = renderBubble("bot","...",{time:""});
+        block.classList.add("typing");
+        insertBubble(block);
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+        return block;
+    }
+
+    // visibilite du formulaire
+    function setFormVisible(visible,{scroll=false} ={}){
+        intro.style.display = visible ? "block" : "none";
+        contactForm.style.display = visible ? "block" : "none";
+        if(visible && scroll) messageContainer.scrollTop = messageContainer.scrollHeight;
+    }
+
+    // fonction occupation
+    function setBusy(state){
+        isBotBusy = state;
+        messageinput.disabled = state;
+        send.disabled = state;
+        if(!state) messageinput.focus();
+
+    }
+    // reset
     function resetChat(){
         localStorage.removeItem("chat_history");
         history = [];
-        messageCount = 0;
-        user_message.innerHTML = "";
-        user_message.style.display = "none";
-        first.style.display = "none";
-        second.style.display = "none";
+        setFormVisible(false);
+        //restauration au chargement
+        if(history.length > 0){
+            const saved = history;
+            history = [];
+            saved.forEach((m) =>{
+                addMessage(m.role,m.text,{save:false,time:m.time});
+                history.push(m);
+            })
+        }
+        setFormVisible(localStorage.getItem("chat_form_open") === "1");
     }
+
+    async function sendMessage(){
+        const message = messageinput.value.trim();
+        if(message === "" || isBotBusy) return;
+        
+        addMessage("user",message);
+        messageinput.value = "";
+
+        setBusy(true);
+        const typing = showTyping();
+        try{
+            const [reply] = await Promise.all([
+                getBotReply(message),
+                delay(600 + Math.random() * 600)
+            ])
+            typing.remove();
+            addMessage("bot",reply.text,{chips:reply.chips});
+            if(reply.showForm) setFormVisible(true,{scroll:true})
+        }catch(e){
+            typing.remove()
+            addMessage("bot","Désolé,une erreur est survenue.Réessayer dans un instant");
+        }finally{
+            setBusy(false);
+        }
+    }
+
+    // clic un boutton rapide
+    messageContainer.addEventListener("click",(e)=>{
+        const chip = e.target.closest(".chip");
+        if(!chip || isBotBusy) return;
+        chip.closest(".chips").remove();
+
+        messageinput.value = chip.dataset.text;
+        sendMessage();
+    })
+
+      //  mandefa message voalohany
+      send.addEventListener('click',sendMessage )
+      messageinput.addEventListener("keydown",(e) =>{
+          if(e.key == "Enter"){
+              e.preventDefault();
+              sendMessage();
+          }
+  
+      })
+
     // compteur
     mes.addEventListener("input",function(){
         const currentLength = mes.value.length;
         count.textContent =currentLength + "/" + maxlength;
-
-        if(currentLength >= maxlength){
-            count.style.color = "red";
-
-        }else{
-            count.style.color = "black";
-        }
+        count.style.color = currentLength >=maxlength ? "red" : "black";
     });
     const form = document.getElementById("formchat");
     // const error = document.querySelectorAll("#formchat .errors")
@@ -73,8 +285,11 @@ export function chat(){
             err.textContent = "";
         })
     }
+
+
     const chatbox = document.getElementById("chat_main");
     const icons = document.querySelector(".button_chat ion-icon");
+
     buttons.addEventListener('click',()=>{
        
         if(chatbox.style.display === "block"){
@@ -88,42 +303,6 @@ export function chat(){
 
         }
         })
-        let history = JSON.parse(localStorage.getItem("chat_history")) || [];
-        let messageCount = history.length;
-        if(history.length > 0){       
-                const firstmsgblock = document.createElement("div");
-                const firstMsg = document.createElement("p");
-                firstMsg.textContent = history[0];
-                firstMsg.style.textAlign = "left"; 
-                firstmsgblock.appendChild(firstMsg);
-                user_message.style.display = "block";   
-                user_message.appendChild(firstmsgblock);
-                
-                for(let i = 1; i < history.length; i++){
-                    const msgblock = document.createElement("div");
-                    msgblock.classList.add("user_block");
-                    const newmesg = document.createElement("p");
-                    newmesg.textContent = history[i];
-                    newmesg.style.textAlign = "left";
-                    msgblock.appendChild(newmesg);  
-                    messageContainer.appendChild(msgblock);
-                }
-              
-                first.style.display = "block";
-                second.style.display = "block";
-                
-        }
-        const lastsent = localStorage.getItem("last_sent_time");
-            if(lastsent){
-                const now = Date.now();
-                const diff = now - parseInt(lastsent,10);
-                const colldown = cooldown_minute * 60 * 1000;
-                if(diff <colldown){
-                    disableInput(colldown - diff);
-                }
-            }
-        
-        
         
         const close = document.getElementById("close_chat");
         if(close){
@@ -139,52 +318,10 @@ export function chat(){
                 document.body.classList.remove('no_scroll');
             })
         }
-      
-
-    function sendmessage(){
-        const message = messageinput.value.trim();
-        if(message !== ""){
-            const msgblock = document.createElement("div");
-            msgblock.classList.add("user_block");
-            const newmsg = document.createElement("p");
-            newmsg.textContent = message;
-            newmsg.style.textAlign = "left";
-            msgblock.appendChild(newmsg);
-            if(messageCount === 0){
-                user_message.style.display = "block"; 
-                user_message.appendChild(msgblock);
-            }else{ 
-                messageContainer.append(msgblock);
-            }
-            history.push(message);
-            localStorage.setItem("chat_history",JSON.stringify(history));
-            messageCount++;
-
-            localStorage.setItem("last_sent_time", Date.now().toString());
-
-            disableInput(5 * 60 * 1000);
-            messageinput.value = "";
-            messageContainer.scrollTop = messageContainer.scrollHeight;
-            first.style.display = "none";
-            second.style.display = "none";
-            first.offsetHeight;
-            second.offsetHeight;
-            first.style.display = "block";
-            second.style.display = "block";  
-           
-        }  
-    }
+    
    
     
-    //  mandefa message voalohany
-    send.addEventListener('click',sendmessage )
-    messageinput.addEventListener("keydown",(e) =>{
-        if(e.key == "Enter"){
-            e.preventDefault();
-            sendmessage();
-        }
-
-    })
+  
     document.querySelectorAll("#formchat input,#formchat textarea").forEach((elt) =>{
         elt.addEventListener("input",function(){
             const err = geterror(elt.id);
@@ -221,9 +358,11 @@ export function chat(){
        
     })
     if(form){
+       
         form.addEventListener("submit",async function (e){
             let Iserror = false;
             e.preventDefault();
+           
             reseterr();
             if( noms.value.trim().length < 3 || !/^[a-zA-ZÀ-ÿ]+(?:\s+[a-zA-ZÀ-ÿ]+)+$/.test(noms.value.trim())){
                 const err = geterror("chat_nom");
@@ -245,8 +384,11 @@ export function chat(){
                 Iserror = true;
             }
             const verif = document.querySelectorAll("#formchat input,#formchat textarea");
+            const button = document.querySelector("#envoie_button");
             if(!Iserror){
                 // alert(`${noms.value.trim()}, votre message a été envoyé avec succès!`);
+                button.classList.add("loading");
+                button.disabled = true;
               try{
                     const formeData = new FormData(form);
                     const response = await fetch(form.action,{
@@ -264,6 +406,10 @@ export function chat(){
                         }
                 }catch(e){
                     afficherpopup(false,"Erreur de connexion cote serveur");
+                }
+                finally{
+                    button.classList.remove("loading");
+                    button.disabled = false;
                 }
             }   
     

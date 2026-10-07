@@ -4,14 +4,20 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-    require __DIR__.'/vendor/autoload.php';
+    require dirname(__DIR__,2).'/vendor/autoload.php';
     require_once __DIR__.'/helpers.php';
     
 
 
-    $dotenv =Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv =Dotenv\Dotenv::createImmutable(dirname(__DIR__,2));
     $dotenv->load();
-    if($_SERVER["REQUEST_METHOD"]== "POST"){
+        if($_SERVER["REQUEST_METHOD"]!== "POST"){
+            http_response_code(405);
+            header('Allow: POST');
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode(["success"=> false,"message" =>"methode non autorisés"],JSON_UNESCAPED_UNICODE);
+            exit();     
+        }
         $nom = !empty($_POST["nom"]) ? htmlspecialchars(trim($_POST["nom"])) : "Anonyme";
         $prenom = !empty($_POST["prenom"]) ? htmlspecialchars(trim($_POST["prenom"])) : "";
         $email = !empty($_POST["email"]) ? htmlspecialchars(trim($_POST["email"])) : "";
@@ -32,7 +38,7 @@ use PHPMailer\PHPMailer\Exception;
             
         }
         if(strcasecmp($email, $_ENV["SMTP_USER"]) === 0){
-            error_log("formulaire contact: tentative d'usurpation d'email: $email");
+            http_response_code(400);
             repondre(false,"tentative d'usurpation d'email",400);
 
         }
@@ -53,7 +59,7 @@ use PHPMailer\PHPMailer\Exception;
             $mail->addReplyTo($email,$nom.' '.$prenom);
 
             $mail->isHTML(true);
-            $mail->Subject = " Acysteek Inc - $sujet";
+            $mail->Subject = "Acysteek Inc - $sujet";
             $mail->Body =
              "
             <p>De: $nom $prenom</p>
@@ -69,7 +75,7 @@ use PHPMailer\PHPMailer\Exception;
              error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
              repondre(false,"Une erreur est survenue veuillez reessayer",500);
         }
-    }
+    
 
 
 ?>

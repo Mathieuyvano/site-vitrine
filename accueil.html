@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="common/common.css">
      <link rel="stylesheet" href="style.css">
+     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
     <link rel="shortcut icon" href="image/Logo_acysteek.png" type="image/x-icon">
     <title>AcySteek Inc</title>
 
@@ -38,15 +41,15 @@
         <section class="accueil_content">
             <div class="contenue">
                 <div class="prompt">
-                    <h1 class=" titres">Externalisez vos <span class="gradient_text1">tâches</span> et <span class="gradient_text1">concentrez-vous</span> sur votre <span class="gradient_text2">croissance</span></h1>
-                    <p class="  paragraphe">Des assistants virtuels qualifiés, pour vous faire gagner du temps et simplifier votre quotidien professionnel.</p>
-                    <div class="  buttons">
+                    <h1 class=" titres hidden">Externalisez vos <span class="gradient_text1">tâches</span> et <span class="gradient_text1">concentrez-vous</span> sur votre <span class="gradient_text2">croissance</span></h1>
+                    <p class="  paragraphe hidden">Des assistants virtuels qualifiés, pour vous faire gagner du temps et simplifier votre quotidien professionnel.</p>
+                    <div class="  buttons hidden">
                         <button class=" button1" id="projet" ><span>Obtenir mon assistant</span></button>
                         <button class=" button2"  onclick="scrolls()" ><span>Découvrez nos services</span></button>
                     </div>
                 
                 </div>
-                <div class="image">
+                <div class="image hidden">
                     <img src="image/entrepreneuse.png" alt="" >
                 </div>
         
@@ -60,15 +63,15 @@
                     <img src="image/team.png" alt="" >
                 </div>
                
-                <div class="abouts_content hidden">
-                    <h1>Qui somme-nous?</h1>
-                    <p >AcySteek Inc accompagne les entreprises dans l’optimisation de leur organisation grâce à des solutions d’externalisation sur mesure.
+                <div class="abouts_content">
+                    <h1 class="hidden">Qui somme-nous?</h1>
+                    <p class="hidden">AcySteek Inc accompagne les entreprises dans l’optimisation de leur organisation grâce à des solutions d’externalisation sur mesure.
                     </p>
-                    <p >
+                    <p class="hidden">
                         Nous mettons à disposition des assistants virtuels dédiés, capables de gérer vos tâches administratives, commerciales et digitales avec rigueur et efficacité.
                     </p>
-                    <p>Implantée à Madagascar, notre structure nous permet d’allier exigence professionnelle et optimisation des coûts, sans compromis sur la qualité.</p>
-                    <p> <span style="font-weight: bold;">Notre objectif :</span> devenir un véritable partenaire dans le développement de votre activité.</p>
+                    <p class="hidden">Implantée à Madagascar, notre structure nous permet d’allier exigence professionnelle et optimisation des coûts, sans compromis sur la qualité.</p>
+                    <p class="hidden"> <span style="font-weight: bold;">Notre objectif :</span> devenir un véritable partenaire dans le développement de votre activité.</p>
                     <div class="more hidden">
                         <ion-icon name="newspaper-outline" class="icons"></ion-icon>
                         <h1 id="moreinfo" >Obtenir mon assistant</h1>
@@ -83,23 +86,23 @@
             <h1>Pourquoi nous faire confiance ?</h1>
             <p>Un accompagnement sérieux, centré sur la performance de votre activité</p>
         </div>
-        <section class="hidden">
-            <div class="choose" id="chs1" >
+        <section>
+            <div class="choose hidden" id="chs1" >
                 <ion-icon name="wallet-outline"></ion-icon>
                 <h2>Un coût <span>maîtrisé</span></h2>
                 <p> Jusqu'à 60% <span>moins cher qu'un salarié.</span></p>
             </div>
-            <div class="choose">
+            <div class="choose hidden">
                 <ion-icon name="shield-outline" class="icon_choose"></ion-icon>
                 <h2> Mise en place <span>rapide</span> </h2>
                 <p>Nos assistants sont opérationnels rapidement pour répondre à vos besoins sans délai. </p>
             </div>
-            <div class="choose" id="chs2">
+            <div class="choose hidden" id="chs2">
                 <ion-icon name="checkmark-done-outline" class="icon_choose"></ion-icon>
                 <h2>Une équipe <span>francophone qualifiée</span></h2>
                 <p>Une sélection rigoureuse des profils capables d'intervenir avec professionnalisme et efficacité sur vos missions.</p>
             </div>
-            <div class="choose" >
+            <div class="choose hidden" >
                 <ion-icon name="people-outline" class="icon_choose"></ion-icon>
                 <h2>Flexibilité <span>du service</span> </h2>
                 <p>Une organisation flexible pensée pour s'adapter à votre contrainte et priorité. </p>
@@ -110,7 +113,7 @@
         <!-- services -->
         <div id="services" class="container_services">
             <aside class="lines_services" >
-                <h1> Nos activités </h1>
+                <h1 class="hidden"> Nos activités </h1>
             </aside>
             <div class="services_content " >
                 <div class="services_paragraphe hidden">
@@ -154,10 +157,10 @@
                         </div>
                         <div class="card hidden" onclick="openmodal(this)">
                             <img src="image/devsweb.jpg" alt="">
-                            <h2>Web &  <span>Digital</span></h2>
+                            <h2>Web & Digital</h2>
                             <p>Développez votre présence en ligne avec un site professionnel, du contenu optimisé et une meilleure visibilité.</p>
                             <div style="display: none;" >
-                                <p class="idprix">Sur devis</p>
+                                <p class="idprix">Sur <span class="color_price">devis</span></p>
                                 <p id="p_content1">Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance.
                   
                                 </p>
@@ -194,14 +197,19 @@
             <section class="section-3">
                 <h1>contact</h1>
                 <ul>
-                    <li style="display: flex; align-items: center; gap: 10px;">
-                        <ion-icon name="mail-outline" style="color:#4CB8C4 ;"></ion-icon>
-                        <p>info@acysteek.com</p>
+                    <li class="email_url">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <a>info@acysteek.com</a>
                     </li>
                     <li>
-                        <ion-icon name="call-outline" style="color: #4CB8C4;"></ion-icon>
-                        <a id="whtsp_url">
+                        <ion-icon name="call-outline"></ion-icon>
+                        <a class="whtsp_url">
                         +261 33 20 451 72 </a>
+                    </li>
+                    <li>
+                        <ion-icon name="location-outline"></ion-icon>
+                        <a>
+                        Antananarivo,Madagascar </a>
                     </li>
                 </ul>
             </section>
@@ -235,7 +243,7 @@
                     <li><a  class="openlink" 
                             data-img="image/devsweb.jpg"
                             data-title="Web & digital"
-                            data-price="Sur devis"
+                            data-price='Sur <span class="color_price">devis</span>'
                             data-p="Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance."
                             data-p2="Plus de visibilité, plus de prospects, plus de résultats."
                             onclick="openmodal(this)"
@@ -245,6 +253,9 @@
                    
                 </ul>
             </section>
+            <section class="section-5">
+                <h2>Votre succès, <br>notre priorité</h2>
+            </section>
         </div>
         <div class="politique" >
             <p>&copy;<span id="droit"></span>Tous droits réservés</p>
@@ -253,58 +264,71 @@
        <!-- whatsapp -->
         <div class="whatsapp">
             <div class="whatsapp_content">
-                <a id="whtsp_urls" class="whatsapp">
+                <a  class="whatsapp whtsp_url">
                     <ion-icon name="logo-whatsapp"></ion-icon>
                 </a>
             </div>
         </div>
 
        <!-- chat -->
-        <div class="chat">
+       <div class="chat">
             <button class="button_chat" id="button_chat">
                 <ion-icon name="chatbubble-ellipses-outline" ></ion-icon>
-              
+            
             </button>
             <main id="chat_main">
                 <div  class="chat_content" id="chats_content">
                     <div class="header_chat">
-                        <h4>Avez-vous des questions ?</h4>
-                        <div class="online">
-                            <div class="point"></div>
-                            <h4>En ligne</h4>
+                        <img class="avatar" src="../image/avatar.png" alt="">
+                        <div class="header_text">
+                            <h4>Assistant AcySteek</h4>
+                        <div class="online"><span class="point"></span><span>En ligne</span></div>
                         </div>
                         <ion-icon name="close-outline" id="close_chat" ></ion-icon>
                     </div>
                     <div class="message" id="content_mes">
-                        <div class="mes">
-                            <p>Bonjour,en quoi puis-je vous accompagner aujourd'hui ?</p>
+                        <div class="msg_row bot">
+                            <img class="avatar sm" src="../image/avatar.png" alt="">
+                            <div class="bubble bot_block">
+                                <p>Bonjour ! ,je peux vous aider à trouver un assistant adapté à vos besoins. Souhaitez-vous plutôt un assistant pour :</p>
+                                <div class="chips">
+                                    <button type="button" class="chip" data-text="assistant polyvalent">
+                                        <ion-icon name="document-text-outline"></ion-icon>Assistant polyvalent
+
+                                    </button>
+                                    <button type="button" class="chip" data-text="support client & teleoperation">
+                                        <ion-icon name="headset-outline"></ion-icon>Support client & téléoperation
+
+                                    </button>
+                                    <button type="button" class="chip" data-text="web & digital">
+                                        <ion-icon name="globe-outline"></ion-icon>Web & digital
+                                    </button>
+                                
+                                </div>
+                            </div>
+                        
                         </div>
-                        <div id="user_message" class="user_mes"></div>
+                        <!-- formulaire de contact -->
                         <div class="first_mes" style="display: none;" id="first_mes">
                             <p>Veuillez remplir les champs afin que nous puissions vous répondre </p>
                         </div>
                         <div class="second_mes" id="seconds_m" style="display: none;">
-                            <form action="services/message.php" method="post" id="formchat">
+                            <form action="../services/message.php" method="post" id="formchat">
                                 <label >Nom Complet</label>
-                                <input type="text" placeholder="Jean Luc" id="chat_nom" name="chat_nom" >
+                                <input type="text" placeholder="Nom et prénom" id="chat_nom" name="chat_nom" >
                                 <p class="errors" style="display: none;" data-for="chat_nom"></p>
                                 <label >E-mail</label>
-                                <input type="text" placeholder="email" id="id_email" name="id_email">
-                                <p class="errors" style="display: none;" data-for="id_email" ></p>
-                                <div  style=" display: flex;justify-content: space-between;">
+                                <input type="text" placeholder="email" id="id_email"  name="id_email">
+                                <p class="errors" style="display: none;" data-for="id_email"></p>
+                                <div style=" display: flex;justify-content: space-between;">
                                     <label >Messages</label>
                                     <div id="charCount" style="margin: 0 0 10px 0;"></div>
                                 </div>
-                                
-                                <textarea  id="id_message" placeholder="Entrer votre message..." maxlength="100" name="id_message" ></textarea>
-                                <p class="errors" style="display: none;" data-for="id_message" ></p>
-                                <button id="envoie_button" type="submit" >Envoyer</button>
-                                
+                                <textarea name="id_message" id="id_message" placeholder="Entrer votre message..." maxlength="100" ></textarea>
+                                <p class="errors" style="display: none;" data-for="id_message"></p>
+                                <button id="envoie_button" type="submit" ><span class="btn_text">Envoyer</span></button>
                             </form>
-    
                         </div>
-                        <p id="countdown" style="color: red;margin: 10px;  text-align: center;"></p>
-                        
                     </div>
                     <div class="send_chat">
                         <input type="text" placeholder="Ecrivez votre message..." id="input_message">
@@ -312,7 +336,7 @@
                     </div>
                 </div>
             </main>
-          
+        
         </div>
         <!-- modal -->
         <div class="modal" id="mymodal">
@@ -321,21 +345,21 @@
                     <ion-icon name="close-outline"></ion-icon>
                 </div>
                 <div class="about_modal hidden" >
-                    <img src="" alt="" id="modalimg" class="myimgmodal">
+                    <img  alt="" id="modalimg" class="myimgmodal hidden">
                     <div class="text_modal">
-                        <h2 id="modaltitres"></h2>
-                        <h3 id="prix"></h3>
-                        <p id="paragraphes_content"></p>
-                        <p id="paragraphes_content2"></p>
+                        <h2 id="modaltitres" class="hidden"></h2>
+                        <h3 id="prix" class="hidden"></h3>
+                        <p id="paragraphes_content" class="hidden"></p>
+                        <p id="paragraphes_content2" class="hidden"></p>
                     </div>
                       
                 </div>
-                <div class="buttons_modal">
-                    <button class="demand">
-                        <ion-icon name="call-outline" style="font-size: 24px; margin: 10px;"></ion-icon>
+                <div class="buttons_modal ">
+                    <button class="demand hidden">
+                        <ion-icon name="call-outline" ></ion-icon>
                         <h3 id="whtp">Planifier un appel</h3>
                     </button>
-                    <button class="contact_modal" id="buttons_modal" >Obtenir mon assistant</button>
+                    <button class="contact_modal hidden" id="buttons_modal" >Obtenir mon assistant</button>
                 </div>
             </div>
            

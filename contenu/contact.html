@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common/common.css">
     <link rel="stylesheet" href="style/contact.css">
     <link rel="shortcut icon" href="../image/Logo_acysteek.png" type="image/x-icon">
-    <title>Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+    <title>Contact | AcySteek Inc</title>
 </head>
 <body>
     <div id="content">
@@ -29,62 +31,189 @@
                 <ion-icon name="menu-outline"></ion-icon>
             </div>     
         </nav>
-           <div >
+
+        
+        <div class="container_contact">
+            <header>
+                <span class="blob blob--left "></span>
+                <span class="blob blob--right1 "></span>
+                <span class="blob blob--right2 "></span>
+                <div class="header_content">
+                    <div class="header_contact">
+                        <div class="icon_contact hidden">
+                            <ion-icon name="send-outline"></ion-icon>
+                            <h3>Contactez-nous</h3>
+                        </div>
+                        <div class="header_text hidden">
+                            <h2>Une question ? <br>Nous sommes là <span>pour vous !</span></h2>
+                            <p> Notre équipe est à votre ecoute pour répondre a toute vos questions ,vous accompagner et vous aider dans vos démarches</p>
+                        </div>
+                    </div>
+                    <div class="slogan hidden">
+                        <h2>Ensemble,<br>avançons plus loin</h2>
+                    </div>
+
+                </div>
+    
+            </header>
                 <div class="contact_content ">
-                    <div class="image_contact hidden">
-                        <img src="../image/recrutement.jpg" alt="">
+                    <div class="info_contact hidden">
                         <div class="coordonnees">
-                            <h1>Nos contacts</h1>
+                            <aside class="head_coordonnees">
+                                <h2 class="hidden">Nos <span>contacts</span></h2>
+                                <p class="hidden">Vous pouvez nous joindre facilement via les moyens suivants</p>
+                            </aside>  
                             <div class="coordonnees_item">
-                                <a href="#"  onclick="navigator.clipboard.writeText('info@acysteek.com'); alert('Adresse copiée !');">
-                                    <ion-icon name="mail-outline" class="email_icon"></ion-icon>
-                                    <p>info@acysteek.com</p>
-                                </a> 
-                                <a id="whtsp_url">
-                                    <ion-icon name="call-outline" class="email_icon"></ion-icon>
-                                    <p>+261 33 20 451 72</p>
-                                </a>      
+                                <div class="item_contact email_url hidden">
+                                    <div class="item_icon">
+                                        <ion-icon name="mail-outline" ></ion-icon>
+                                    </div>
+                                    
+                                    <aside>
+                                        <h3>E-mail</h3>
+                                        <p>info@acysteek.com</p>
+                                    </aside>
+                                    
+                                </div> 
+                                <div class="item_contact whtsp_url hidden" >
+                                    <div class="item_icon">
+                                        <ion-icon name="call-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <aside>
+                                        <h3>Téléphone</h3>
+                                        <p >+261 33 20 451 72</p>
+                                    </aside>   
+                                </div>
+                                <div class="item_contact hidden" >
+                                    <div class="item_icon">
+                                        <ion-icon name="location-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <aside>
+                                        <h3>Localisation</h3>
+                                        <p >Antananarivo,Madagascar</p>
+                                    </aside>   
+                                </div> 
+                                <div class="item_contact hidden">
+                                    <div class="item_icon">
+                                        <ion-icon name="time-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <aside >
+                                        <h3>Reponse sous 24h</h3>
+                                        <p >Notre equipe vous répond rapidement du lundi au vendredi </p>
+                                    </aside> 
+                                </div>           
                             </div>
                         </div>
                     </div>
-                    <div class="form_contact">
-                        <div class="title_contact">
-                            <h1>Contactez-nous</h1>
+                    <div class="form_contact hidden">
+                        <div class="title_contact hidden">
+                            <aside>
+                                <div class="title_icon">
+                                    <ion-icon name="send-outline"></ion-icon>
+                                </div>   
+                                <div>
+                                    <h1>Ecrivez-<span>nous</span></h1>    
+                                    <p>Remplisser le formulaire ci-dessous et nous vous répondrons dans les plus brefs delai</p>
+                                </div>
+                                
+                            </aside>
+                          
                         </div>
                         
-                        <form action="../services/contacts.php" method="post" class="hidden" id="form_contact">
-                            <label >Nom</label>
-                            <input type="text" placeholder=" ex: Jean" id="nom" name="nom" >
-                            <p class="errors" style="display: none;" data-for="nom"></p>
-                            <label >Prenom</label>
-                            <input type="text" placeholder=" ex: Luis" id="prenom" name="prenom">
-                            <p class="errors" style="display: none;" data-for="prenom"></p>
-                            <label >E-mail</label>
-                            <input type="text" placeholder="jeanluis@example.com" id="email" name="email">
-                            <p class="errors" style="display: none;" data-for="email"></p>
-                            <label >Sujet</label>
-                            <input type="text" placeholder="Support client & téléopération" id="sujet" list="data_services" name="sujet" >
-                            <datalist id="data_services">
-                                <option value="Support client & téléopération">
-                                <option value="Web & Digital">
-                                <option value="Assistant polyvalent">
-                               
-                                                 
-                            </datalist>
-                            <p class="errors" style="display: none;" data-for="sujet"></p>
-                            <label >Message ou Commentaire</label>
-                            <textarea name="message" id="message" placeholder="Entrer votre message..." ></textarea>
-                            <p class="errors" style="display: none;" data-for="message"></p>
-                            <div class="contact_button">
-                                <button  type="submit" >envoyer le message</button>
+                        <form action="../services/contacts.php" method="post" id="form_contact">
+                            <div class="grid_inputs">
+                                <div class="inputs hidden">
+                                    <label >Nom <span>*</span></label>
+                                    <div class="input_info">
+                                        <ion-icon name="person-outline"></ion-icon>
+                                        <input type="text" placeholder=" ex: Jean" id="nom" name="nom" >
+                                    </div>
+                                   
+                                    <p class="errors" style="display: none;" data-for="nom"></p>
+                                </div>
+                                <div class="inputs hidden">
+                                    <label>Sujet <span>*</span></label>
+                                    <div class="input_info" >
+                                        <ion-icon name="pricetag-outline"></ion-icon>
+                                        <input type="text" placeholder="Support client & téléopération" id="sujet" list="data_services" name="sujet" >
+                                        <datalist id="data_services">
+                                            <option value="Support client & téléopération">
+                                            <option value="Web & Digital">
+                                            <option value="Assistant polyvalent">                    
+                                        </datalist>
+                                    </div>
+                                   
+                                    <p class="errors" style="display: none;" data-for="sujet"></p>
+
+                                </div>
+                                
                             </div>
+                            <div class="grid_inputs">
+                                <div class="grid_child">
+                                    <div class="inputs hidden">
+                                        <label >Prenom <span>*</span></label>
+                                        <div class="input_info" >
+                                            <ion-icon name="person-outline"></ion-icon>
+                                            <input type="text" placeholder=" ex: Luis" id="prenom" name="prenom">
+                                        </div>
+                                        
+                                        <p class="errors" style="display: none;" data-for="prenom"></p>
+    
+                                    </div>
+                                    <div class="inputs hidden">
+                                        <label >E-mail <span>*</span></label>
+                                        <div class="input_info" >
+                                            <ion-icon name="mail-outline"></ion-icon>
+                                            <input type="text" placeholder="jeanluis@example.com" id="email" name="email">
+                                        </div>
+                                       
+                                        <p class="errors" style="display: none;" data-for="email"></p>
+    
+                                    </div>
+
+                                </div>
+                               
+                                <div class="inputs hidden">
+                                    <label >Message ou Commentaire <span>*</span></label>
+                                    <div class="textarea_info">
+                                        <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                                        <textarea name="message" id="message" placeholder="Entrer votre message..." ></textarea>
+                                    </div>
+                                    
+                                    <p class="errors" style="display: none;" data-for="message"></p>
+
+                                </div>
+
+                            </div>
+                            <div class="contact_footer">
+                                <div class="item_title hidden">
+                                    <div class="footer_icon">
+                                        <ion-icon name="shield-checkmark-outline"></ion-icon>
+                                    </div>
+                                    
+                                    <aside>
+                                        <h3>Nous vous répondrons rapidement</h3>
+                                        <p>Notre équipe traite chaque demande avec attention.</p>
+                                    </aside>
+                                </div>
+                                <button type="submit" class="hidden">
+
+                                    <p>Envoyer le message</p>
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </button>
+
+                            </div>
+                           
                             
                         </form>
                     </div>
                    
                 </div>
                 
-           </div>
+        </div>
 
            <!-- pied de la page -->
         <footer>
@@ -107,14 +236,19 @@
                 <section class="section-3">
                     <h1>contact</h1>
                     <ul>
-                        <li style="display: flex; align-items: center; gap: 10px;">
-                            <ion-icon name="mail-outline" style="color:#4CB8C4 ;"></ion-icon>
-                            <p>info@acysteek.com</p>
+                        <li class="email_url">
+                            <ion-icon name="mail-outline" ></ion-icon>
+                            <a>info@acysteek.com</a>
                         </li>
                         <li>
-                            <ion-icon name="call-outline" style="color: #4CB8C4;"></ion-icon>
-                            <a id="whtsp_url">
+                            <ion-icon name="call-outline" ></ion-icon>
+                            <a class="whtsp_url">
                             +261 33 20 451 72 </a>
+                        </li>
+                        <li>
+                            <ion-icon name="location-outline"></ion-icon>
+                            <a>
+                            Antananarivo,Madagascar </a>
                         </li>
                     </ul>
                 </section>
@@ -156,6 +290,9 @@
                     </li>                    
                     </ul>
                 </section>
+                <section class="section-5">
+                    <h2>Votre succès, <br>notre priorité</h2>
+                </section>
             </div>
             <div class="politique" >
                 <p>&copy;<span id="droit"></span>Tous droits réservés</p>
@@ -164,13 +301,13 @@
         <!-- whatsapp -->
         <div class="whatsapp">
             <div class="whatsapp_content">
-                <a id="whtsp_urls" class="whatsapp">
+                <a  class="whatsapp whtsp_urls">
                     <ion-icon name="logo-whatsapp"></ion-icon>
                 </a>
             </div>
         </div>
            <!-- chat -->
-           <div class="chat">
+        <div class="chat">
             <button class="button_chat" id="button_chat">
                 <ion-icon name="chatbubble-ellipses-outline" ></ion-icon>
               
@@ -178,18 +315,36 @@
             <main id="chat_main">
                 <div  class="chat_content" id="chats_content">
                     <div class="header_chat">
-                        <h4>Avez-vous des questions ?</h4>
-                        <div class="online">
-                            <div class="point"></div>
-                            <h4>En ligne</h4>
+                        <img class="avatar" src="../image/avatar.png" alt="">
+                        <div class="header_text">
+                            <h4>Assistant AcySteek</h4>
+                           <div class="online"><span class="point"></span><span>En ligne</span></div>
                         </div>
                         <ion-icon name="close-outline" id="close_chat" ></ion-icon>
                     </div>
                     <div class="message" id="content_mes">
-                        <div class="mes">
-                            <p>Bonjour,en quoi puis-je vous accompagner aujourd'hui ?</p>
+                        <div class="msg_row bot">
+                            <img class="avatar sm" src="../image/avatar.png" alt="">
+                            <div class="bubble bot_block">
+                                <p>Bonjour ! ,je peux vous aider à trouver un assistant adapté à vos besoins. Souhaitez-vous plutôt un assistant pour :</p>
+                                <div class="chips">
+                                    <button type="button" class="chip" data-text="assistant polyvalent">
+                                        <ion-icon name="document-text-outline"></ion-icon>Assistant polyvalent
+
+                                    </button>
+                                    <button type="button" class="chip" data-text="support client & teleoperation">
+                                        <ion-icon name="headset-outline"></ion-icon>support client & téléoperation
+
+                                    </button>
+                                    <button type="button" class="chip" data-text="web & digital">
+                                        <ion-icon name="globe-outline"></ion-icon>Web & digital
+                                    </button>
+                                  
+                                </div>
+                            </div>
+                          
                         </div>
-                        <div id="user_message" class="user_mes"></div>
+                        <!-- formulaire de contact -->
                         <div class="first_mes" style="display: none;" id="first_mes">
                             <p>Veuillez remplir les champs afin que nous puissions vous répondre </p>
                         </div>
@@ -207,9 +362,8 @@
                                 </div>
                                 <textarea name="id_message" id="id_message" placeholder="Entrer votre message..." maxlength="100" ></textarea>
                                 <p class="errors" style="display: none;" data-for="id_message"></p>
-                                <button id="envoie_button" type="submit" >Envoyer</button>
+                                <button id="envoie_button" type="submit" ><span class="btn_text">Envoyer</span></button>
                             </form>
-                            <p id="countdown" style="color: red;margin: 10px;  text-align: center;"></p>
                         </div>
                     </div>
                     <div class="send_chat">

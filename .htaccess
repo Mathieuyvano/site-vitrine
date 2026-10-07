@@ -16,3 +16,10 @@ RewriteRule ^(.*)$ $1.html [NC,L]
 
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
 RewriteRule ^ /%1 [NC,L,R]
+<FilesMatch "^(\.env.*|composer\.(json|lock)|\.git.*)$">
+    Require all denied
+</FilesMatch>
+
+RedirectMatch 403 ^/vendor/
+
+Options -Indexes

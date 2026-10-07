@@ -7,7 +7,6 @@ import { scrolls } from "./JS/scrolls.js";
 import {linkAndNumber} from "./JS/linkAndNumber.js";
 window.scrolls = scrolls;
 document.addEventListener("DOMContentLoaded",() =>{
-    const abouts = document.querySelectorAll('.hidden');
     // module
     navigation();
     initmodal();
@@ -19,16 +18,14 @@ document.addEventListener("DOMContentLoaded",() =>{
    
     // mivoaka tsikelikely ny contenue page
     const mjr = new IntersectionObserver((entry) =>{
-        entry.forEach(entries =>{
-            if(entries.isIntersecting){
-                entries.target.classList.add('show');
-            }
+        const visibles = entry.filter((el) =>el.isIntersecting)
+        visibles.forEach((entries,index) =>{
+           entries.target.style.setProperty("--i",index);
+           entries.target.classList.add("show");
+           mjr.unobserve(entries.target);
         });
-    });
-    abouts.forEach(about =>{
-        mjr.observe(about)
-
-    })
+    },{threshold:0.2});
+    document.querySelectorAll(".hidden").forEach((el) => mjr.observe(el))
 // charge la page de contact dia aveo zffecter le valeur
     const subject = document.getElementById("sujet");
     if(subject){
