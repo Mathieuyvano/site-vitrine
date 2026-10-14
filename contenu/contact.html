@@ -14,7 +14,7 @@
         <nav class="navbar ">
             <div class="logo_nom " id="entreprise"> 
                 <img src="../image/Logo_acysteek.png"  class="nom_entreprise "  />
-                <h1>cysteek</h1>
+                <H3>cysteek</H3>
             </div>
             
             <div class="navigation " >
@@ -27,6 +27,7 @@
                     <li><a href="contact.html" class="active" >contact</a></li>
                 </ul>    
             </div>
+            <button id="navbar_button">Obtenir mon assistant</button>
             <div class="btn_burger">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>     
@@ -199,10 +200,11 @@
                                         <p>Notre équipe traite chaque demande avec attention.</p>
                                     </aside>
                                 </div>
-                                <button type="submit" class="hidden">
+                                <button id="contact_send" type="submit">
 
-                                    <p>Envoyer le message</p>
+                                    <span class="btn_text">Envoyer le message</span>
                                     <ion-icon name="arrow-forward-outline"></ion-icon>
+                                    <span class="loader"></span>
                                 </button>
 
                             </div>
@@ -231,25 +233,6 @@
                         <li><a href="contact.html">contact</a></li>
                         
                       
-                    </ul>
-                </section>
-                <section class="section-3">
-                    <h1>contact</h1>
-                    <ul>
-                        <li class="email_url">
-                            <ion-icon name="mail-outline" ></ion-icon>
-                            <a>info@acysteek.com</a>
-                        </li>
-                        <li>
-                            <ion-icon name="call-outline" ></ion-icon>
-                            <a class="whtsp_url">
-                            +261 33 20 451 72 </a>
-                        </li>
-                        <li>
-                            <ion-icon name="location-outline"></ion-icon>
-                            <a>
-                            Antananarivo,Madagascar </a>
-                        </li>
                     </ul>
                 </section>
                 <section class="section-4">
@@ -290,6 +273,26 @@
                     </li>                    
                     </ul>
                 </section>
+                <section class="section-3">
+                    <h1>contact</h1>
+                    <ul>
+                        <li class="email_url">
+                            <ion-icon name="mail-outline" ></ion-icon>
+                            <a>info@acysteek.com</a>
+                        </li>
+                        <li>
+                            <ion-icon name="call-outline" ></ion-icon>
+                            <a class="whtsp_url">
+                            +261 33 20 451 72 </a>
+                        </li>
+                        <li>
+                            <ion-icon name="location-outline"></ion-icon>
+                            <a>
+                            Antananarivo,Madagascar </a>
+                        </li>
+                    </ul>
+                </section>
+             
                 <section class="section-5">
                     <h2>Votre succès, <br>notre priorité</h2>
                 </section>
@@ -362,7 +365,10 @@
                                 </div>
                                 <textarea name="id_message" id="id_message" placeholder="Entrer votre message..." maxlength="100" ></textarea>
                                 <p class="errors" style="display: none;" data-for="id_message"></p>
-                                <button id="envoie_button" type="submit" ><span class="btn_text">Envoyer</span></button>
+                                <button id="envoie_button" type="submit" >
+                                    <span class="btn_text">Envoyer</span>
+                                    <span class="loader"></span>
+                                </button>
                             </form>
                         </div>
                     </div>

@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded",() =>{
            mjr.unobserve(entries.target);
         });
     },{threshold:0.2});
-    document.querySelectorAll(".hidden").forEach((el) => mjr.observe(el))
+    document.querySelectorAll(".hidden").forEach((el) => mjr.observe(el));
+
 // charge la page de contact dia aveo zffecter le valeur
     const subject = document.getElementById("sujet");
     if(subject){

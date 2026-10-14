@@ -1,74 +1,96 @@
 
-/* à propos */
-.propos_content .propos{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    flex-shrink: 0;
+
+.hero_container{
+    position: relative;
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 20px;
+    background: radial-gradient(circle at 0% 60%, rgba(76,184,196,0.18), transparent 45%),
+    radial-gradient(circle at 100% 20%, rgba(180,211,52,0.18), transparent 45%),
+    linear-gradient(180deg, #EAF8F6 0%, #F4FBF8 60%, #F7F8FA 100%);
+  
 }
-.propos_content .propos img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 4px 5px 10px 5px rgba(0, 0, 0, 0.4);
+
+.hero_container .propos_section{
+    display: grid ;
+    grid-template-columns: 2fr 1fr;
+    
 }
-.propos_content .propos .more_propos{
-    width: 100%;
+.propos_section aside{
+    z-index: 2;
 }
-.propos_content .propos .more_propos h1{
-    text-align: center;
-    background: linear-gradient(90deg,#4CB8C4,#B4D334);
+.hero_container .propos_section p:first-child{
+    font-size:var(--eyebrow) ;
+    font-weight: 700;
+    color: var(--green-primary);
+}
+.hero_container .propos_section p:last-child{
+    font-size: var(--fs-intro);
+}
+.hero_container .propos_section aside h1 span{
+    background: linear-gradient(to left,var(--blue-primary),var(--green-primary));
     background-clip: text;
-    -webkit-background-clip:text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
-.propos_content .propos .more_propos .info_propos .all_info{
-    display: flex;
-    justify-content: center;
-    margin: 10px 50px;
-    padding: 10px 10px;
+.hero_container .propos_section img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
-.propos_content .propos .more_propos .info_propos .all_info ion-icon{
+/* à propos */
+.propos_content .propos{
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.propos_content .propos{
+    width: 100%;
+}
+
+.propos_content .propos  .all_info ion-icon{
     display: flex;
     flex-shrink: 0;
-    font-size: 3.5rem;
-    color: var(--green-primary);
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 50%;
+    color: var(--icon_color);
+    background: var(--icon_background);
 }
-.propos_content .propos .more_propos .info_propos .all_info aside{
-    margin: 10px 20px;
-}
-.propos_content .propos .more_propos .info_propos .all_info aside h2{
+
+.propos_content .propos .all_info aside h2{
+    color: var(--blue-primary);
+    line-height: 1.3;
     font-weight: inherit;
 }
-.propos_content .propos .more_propos .info_propos .all_info aside p{
+.propos_content .propos  .all_info aside p{
     color: var(--paragraphes);
-    margin-top: 5px;
+    line-height: 1.8;
 }
-.propos_content .questions_content{
-    text-align: center;
-    background-color: var(--green-primary);
-    padding: 20px 0 ;
+.questions_content{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: var(--bg-section);
 }
-.propos_content .questions_content .questions{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+
+.questions_content .questions h2 span{
+    color: var(--blue-primary);
 }
-.propos_content .questions_content .questions h1{
-    color: #fff;
-}
-.propos_content .questions_content .questions p{
+.questions_content .questions p{
     margin: 10px 0;
     color: var(--paragraphes);
 }
-.propos_content .questions_content .questions button{
+.questions_content .questions button{
     background-color: var(--blue-primary);
     border: none;
-    margin: 20px;
     padding: 20px;
     width: 250px;
     color: #fff;
@@ -76,31 +98,82 @@
     border-radius: 20px;
     cursor: pointer;
 }
-.propos_content .questions_content .questions button:hover{
+.questions_content .questions button:hover{
     transform: scale(1.1);
     box-shadow: 0 5px 10px  rgba(0, 0, 0, 0.2);
     transition: all 0.5s ease;
 }
+.questions_content .origin_content{
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.questions_content .origin_content img{
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.questions_content .origin_content .origin_title{
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    padding: 20px;
+    background: rgba(255, 255, 255, .85);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+   
+}
+.questions_content .origin_content .origin_title h3{
+    font-size: var(--fs-h3);
+    line-height:1.4 ;
+}
+.origin_title p{
+    line-height: 1.8;
+    color: var(--paragraphes);
+}
+
+.origin_title button {
+    width: 200px;
+    margin: 10px 0 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 999px;
+    background: var(--blue-primary);
+    color: white;
+    font-size: var(--fs-card);
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+.origin_title button:hover {
+    transform: scale(1.05);
+}
 
 
 /* responsive */
-@media screen and (max-width:1200px) {
-    .propos_content .propos img{
-        align-self: center;
-        height: 100%;
-        width: 45%;
-    }
-    .propos_content .propos .more_propos .info_propos .all_info ion-icon{
-        margin:  10px auto;
-        font-size: 2.2rem;
-    }
-}
 @media screen and (max-width: 900px){
+    .hero_container .propos_section{
+        grid-template: 1fr / 1fr;
+    }
+    .hero_container .propos_section img{
+        display: none;
+    }
     .propos_content .propos{
         grid-template-columns: 1fr;
     }
     .propos_content .propos img{
         display: none;
+    }
+    .questions_content{
+        flex-direction: column;
     }
     
    

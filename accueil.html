@@ -12,13 +12,13 @@
 
 </head>
 <body>
-    <div id="content" >
+    <main id="content" >
         <!-- Header ny eto -->
        <nav class="navbar " id="navbars">
-        <div class="logo_nom " id="entreprise"> 
-            <img src="image/Logo_acysteek.png"  class="nom_entreprise "  />
-            <h1>cysteek</h1>
-        </div> 
+            <div class="logo_nom " id="entreprise"> 
+            <img src="image/Logo_acysteek.png"  class="nom_entreprise " />
+                <h3>cysteek</h3>
+            </div>  
             <div class="navigation " >
                 <ul >
                     <li> <a href="accueil.html" class="active" >accueil</a></li>
@@ -31,100 +31,44 @@
                     <li><a href="contenu/contact.html">contact</a></li>
                 </ul>    
             </div>
+            <button id="navbar_button">Obtenir mon assistant</button>
             <div class="btn_burger">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
        </nav>
 
-       <!-- accueil -->
+       <!-- hero section -->
 
         <section class="accueil_content">
             <div class="contenue">
-                <div class="prompt">
-                    <h1 class=" titres hidden">Externalisez vos <span class="gradient_text1">tâches</span> et <span class="gradient_text1">concentrez-vous</span> sur votre <span class="gradient_text2">croissance</span></h1>
-                    <p class="  paragraphe hidden">Des assistants virtuels qualifiés, pour vous faire gagner du temps et simplifier votre quotidien professionnel.</p>
-                    <div class="  buttons hidden">
-                        <button class=" button1" id="projet" ><span>Obtenir mon assistant</span></button>
-                        <button class=" button2"  onclick="scrolls()" ><span>Découvrez nos services</span></button>
+                    <div class="prompt">
+                        <p class="paragraphe hidden">Vôtre partenaire d'externalisation</p>
+                        <h1 class=" titres hidden">Externalisez vos tâches et concentrez-vous sur vôtre <span>croissance</span></h1>
+                        <p class="  paragraphe hidden">Des assistants virtuels qualifiés, pour vous faire gagner du temps et simplifier votre quotidien professionnel.</p>
+                        <div class="  buttons hidden">
+                            <button class=" button1" type="button" id="projet" ><span>Obtenir mon assistant</span></button>
+                            <button class=" button2" type="button"  onclick="scrolls()" ><span>Découvrez nos services</span></button>
+                        </div>
+                    
                     </div>
-                
-                </div>
-                <div class="image hidden">
-                    <img src="image/entrepreneuse.png" alt="" >
-                </div>
-        
-        </div> 
-    </section>
-        
-    <!--a propos -->
-        <div class="main_about ">
-            <div class="abouts ">
-                <div class="img_content hidden">
-                    <img src="image/team.png" alt="" >
-                </div>
-               
-                <div class="abouts_content">
-                    <h1 class="hidden">Qui somme-nous?</h1>
-                    <p class="hidden">AcySteek Inc accompagne les entreprises dans l’optimisation de leur organisation grâce à des solutions d’externalisation sur mesure.
-                    </p>
-                    <p class="hidden">
-                        Nous mettons à disposition des assistants virtuels dédiés, capables de gérer vos tâches administratives, commerciales et digitales avec rigueur et efficacité.
-                    </p>
-                    <p class="hidden">Implantée à Madagascar, notre structure nous permet d’allier exigence professionnelle et optimisation des coûts, sans compromis sur la qualité.</p>
-                    <p class="hidden"> <span style="font-weight: bold;">Notre objectif :</span> devenir un véritable partenaire dans le développement de votre activité.</p>
-                    <div class="more hidden">
-                        <ion-icon name="newspaper-outline" class="icons"></ion-icon>
-                        <h1 id="moreinfo" >Obtenir mon assistant</h1>
+                    <div class="image hidden">
+                        <img src="image/entrepreneuse.png" alt="img_hero_section" >
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- pourquoi -->
-     <div class="choice_content">
-        <div class="why_choose">
-            <h1>Pourquoi nous faire confiance ?</h1>
-            <p>Un accompagnement sérieux, centré sur la performance de votre activité</p>
-        </div>
-        <section>
-            <div class="choose hidden" id="chs1" >
-                <ion-icon name="wallet-outline"></ion-icon>
-                <h2>Un coût <span>maîtrisé</span></h2>
-                <p> Jusqu'à 60% <span>moins cher qu'un salarié.</span></p>
-            </div>
-            <div class="choose hidden">
-                <ion-icon name="shield-outline" class="icon_choose"></ion-icon>
-                <h2> Mise en place <span>rapide</span> </h2>
-                <p>Nos assistants sont opérationnels rapidement pour répondre à vos besoins sans délai. </p>
-            </div>
-            <div class="choose hidden" id="chs2">
-                <ion-icon name="checkmark-done-outline" class="icon_choose"></ion-icon>
-                <h2>Une équipe <span>francophone qualifiée</span></h2>
-                <p>Une sélection rigoureuse des profils capables d'intervenir avec professionnalisme et efficacité sur vos missions.</p>
-            </div>
-            <div class="choose hidden" >
-                <ion-icon name="people-outline" class="icon_choose"></ion-icon>
-                <h2>Flexibilité <span>du service</span> </h2>
-                <p>Une organisation flexible pensée pour s'adapter à votre contrainte et priorité. </p>
-            </div>
+            
+            </div> 
         </section>
-   </div>
-
         <!-- services -->
-        <div id="services" class="container_services">
+        <section id="services" class="container_services">
             <aside class="lines_services" >
-                <h1 class="hidden"> Nos activités </h1>
+                <h2 class="hidden"> Nos <span>activités</span> </h2>
+                <p class="hidden">Des assistants virtuels pour gérer vos tâches et vous faire gagner du temps au quotidien</p>
             </aside>
-            <div class="services_content " >
-                <div class="services_paragraphe hidden">
-                    <p>Des assistants virtuels pour gérer vos tâches et vous faire gagner du temps au quotidien</p>
-                </div>
-                
-                <main class="main_services">
+            <div class="services_content " >   
+                <div class="main_services">
                     <section>
-                        <div class="card hidden" id="card4" onclick="openmodal(this)">
-                            <img src="image/salla.png" alt="">
-                            <h2>Assistant <span>polyvalent</span></h2>
+                        <div class="hidden card" data-service="assistant" onclick="openmodal(this)">
+                            <ion-icon name="person-outline"></ion-icon>
+                            <h3>Assistant <span>polyvalent</span></h3>
                             <p>Un assistant capable de s’adapter à vos besoins : administratif, comptabilité et autres missions selon votre activité.</p>
                             <div style="display: none;" >
                                 <p class="idprix">À partir de <span>10€</span></p>
@@ -134,15 +78,14 @@
                                     </p>
                             </div>
                             <div class="details">
-                                <ion-icon name="newspaper-outline" class="iconadmin"></ion-icon>
-                                <h3 class="openModal" onclick="openmodal(this)">Obtenir mon assistant</h3>
+                                <h4 class="openModal" onclick="openmodal(this)">Obtenir mon assistant</h4>
                             </div>
                             
                         </div>
-                       
-                        <div class="card hidden" onclick="openmodal(this)">
-                            <img src="image/assistant_client.jpg" alt="assistant_commerciale"  >
-                            <h2>Support client & téléopération</h2>
+                    
+                        <div class="card hidden" data-service="support" onclick="openmodal(this)">
+                            <ion-icon name="headset-outline"></ion-icon>
+                            <h3>Support client & téléopération</h3>
                             <p> Confiez la gestion de vos appels, de votre service client et de vos relances pour améliorer votre relation client.</p>
                             <div style="display: none;" >
                                 <h3 class="idprix">À partir de <span>10€</span></h3>
@@ -150,118 +93,214 @@
                                 <p id="p_content2">Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.Des clients mieux suivis, plus satisfaits et plus fidèles.</p>
                             </div>
                             <div class="details">
-                                <ion-icon name="newspaper-outline" class="iconadmin"></ion-icon>
-                                <h3 class="openModal" onclick="openmodal(this)">Obtenir mon assistant</h3>
+                                <h4 class="openModal" onclick="openmodal(this)">Obtenir mon assistant</h4>
                             </div>
                             
                         </div>
-                        <div class="card hidden" onclick="openmodal(this)">
-                            <img src="image/devsweb.jpg" alt="">
-                            <h2>Web & Digital</h2>
+                        <div class="card hidden" data-service="web" onclick="openmodal(this)">
+                            <ion-icon name="code-slash-outline"></ion-icon>
+                            <h3>Web & Digital</h3>
                             <p>Développez votre présence en ligne avec un site professionnel, du contenu optimisé et une meilleure visibilité.</p>
                             <div style="display: none;" >
                                 <p class="idprix">Sur <span class="color_price">devis</span></p>
                                 <p id="p_content1">Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance.
-                  
+                
                                 </p>
                                 <p id="p_content2">Plus de visibilité, plus de prospects, plus de résultats.
-                                     </p>
+                                    </p>
                             </div>
                             <div class="details">
-                                <ion-icon name="newspaper-outline" class="iconadmin"></ion-icon>
-                                <h3 class="openModal" onclick="openmodal(this)">Obtenir mon assistant</h3>
+                                <h4 class="openModal" onclick="openmodal(this)">Obtenir mon assistant</h4>
                             </div>  
                         </div>  
                     </section>      
-                </main>
+                </div>
             </div>
-        </div>
+        </section>
+            
+    <!--a propos -->
+        <section class="main_about ">
+            <div class="abouts ">
+                
+                <div class="abouts_content">
+                    <h2 class="hidden">Qui somme-<span>nous  ?</span></h2>
+                    <p class="hidden">AcySteek Inc accompagne les entreprises dans l’optimisation de leur organisation grâce à des solutions d’externalisation sur mesure.</p>
+                    <p class="hidden">
+                        Nous mettons à disposition des assistants virtuels dédiés, capables de gérer vos tâches administratives, commerciales et digitales avec rigueur et efficacité.
+                    </p>
+                    <p class="hidden">Implantée à Madagascar, notre structure nous permet d’allier exigence professionnelle et optimisation des coûts, sans compromis sur la qualité.</p>
+                    <p class="hidden"> <strong>Notre objectif :</strong> devenir un véritable partenaire dans le développement de votre activité.</p>
+                    <button class="more hidden" id="moreinfo" >
+                        <h3 >Découvrir AcySteek</h3>
+                    </button>
+                </div>
+                    <div class="img_content hidden">
+                        <img src="image/team.png" alt="img_about_team" >
+                    </div>
+            </div>
+        </section>
+
+        <!-- pourquoi -->
+        <section class="choice_content">
+            <div class="why_choose">
+                <h2>Pourquoi nous faire <span>confiance ?</span></h2>
+                <p>Un accompagnement sérieux, centré sur la performance de votre activité</p>
+            </div>
+            <section>
+                <div class="choose hidden" >
+                    <ion-icon name="wallet-outline"></ion-icon>
+                    <h3>Un coût <span>maîtrisé</span></h3>
+                    <p> Jusqu'à 60% <span>moins cher qu'un salarié.</span></p>
+                </div>
+                <div class="choose hidden">
+                    <ion-icon name="shield-outline" class="icon_choose"></ion-icon>
+                    <h3> Mise en place <span>rapide</span> </h3>
+                    <p>Nos assistants sont opérationnels rapidement pour répondre à vos besoins sans délai. </p>
+                </div>
+                <div class="choose hidden">
+                    <ion-icon name="checkmark-done-outline" class="icon_choose"></ion-icon>
+                    <h3>Une équipe <span>francophone qualifiée</span></h3>
+                    <p>Une sélection rigoureuse des profils capables d'intervenir avec professionnalisme et efficacité sur vos missions.</p>
+                </div>
+                <div class="choose hidden" >
+                    <ion-icon name="people-outline" class="icon_choose"></ion-icon>
+                    <h3>Flexibilité <span>du service</span> </h3>
+                    <p>Une organisation flexible pensée pour s'adapter à votre contrainte et priorité. </p>
+                </div>
+            </section>
+        </section>
+        <section class="walk_content">
+            <div class="walk_header">
+                    <h2 class="hidden">Comment ça <span>marche ?</span></h2>
+                    <p class="hidden">Un processus simple et transparent pour vous accompagner</p>
+            </div>
+            <div class="walk_body">
+                    <article class="hidden">
+                        <span>01</span>
+                        <aside>
+                            <h3>Définissez vos besoins</h3>
+                        <p>Nous échangons avec vous pour bien comprendre</p>
+                        </aside>
+                    </article>
+                    <article class="hidden">
+                        <span>02</span>
+                        <aside>
+                            <h3>Nous trouvons la solution</h3>
+                            <p>Nous échangons avec vous pour bien comprendre</p>
+                        </aside>
+                    
+                    </article>
+                    <article class="hidden">
+                        <span>03</span>
+                        <aside>
+                            <h3>Vôtre assistant commence</h3>
+                        <p>Nous échangons avec vous pour bien comprendre</p>
+                        </aside>
+                        
+                    </article>
+                
+                </div>
+        </section>
+        <section class="container_expert">
+            <div class="expert_content">
+                <aside>
+                    <ion-icon name="paper-plane-outline"></ion-icon>
+                    <div  class="expert_title">
+                        <h2>Prêt à deleguer vos tâches ?</h2>
+                        <p>Rejoignez des entreprises qui nous font confiance</p>
+                    </div>
+                   
+                </aside>
+                <button type="button"><h3>Parler avec un expert</h3></button>
+            </div>
+        </section>
+      
       
        <!-- pied de la page eto -->
-       <footer>
-        <div class="footer_content">
-            <section class="sections-1">
-                <h1>ACYSTEEK INC</h1>
-                <p>Externalisez vos tâches et concentrez-vous sur votre croissance</p>
-            </section>
-            <section class="sections-2">
-                <h1>Navigation</h1>
-                <ul>
-                    <li><a href="accueil.html">accueil</a></li>
-                    <li><a href="contenu/propos.html">à propos</a></li>
-                    <li><a href="contenu/tarifs.html" >tarifs</a></li>
-                    <li><a href="contenu/contact.html" >contact</a></li>
-            
-                </ul>
-            </section>
-            <section class="section-3">
-                <h1>contact</h1>
-                <ul>
-                    <li class="email_url">
-                        <ion-icon name="mail-outline"></ion-icon>
-                        <a>info@acysteek.com</a>
-                    </li>
-                    <li>
-                        <ion-icon name="call-outline"></ion-icon>
-                        <a class="whtsp_url">
-                        +261 33 20 451 72 </a>
-                    </li>
-                    <li>
-                        <ion-icon name="location-outline"></ion-icon>
-                        <a>
-                        Antananarivo,Madagascar </a>
-                    </li>
-                </ul>
-            </section>
-           
-            <section class="section-3">
-                <h1>services</h1>
-                <ul>
-                    <li><a  class="openlink" 
-                        data-img="image/salla.png"
-                        data-title="Assistant polyvalent"
-                        data-price="À partir de <span>10€</span>"
-                        data-p="Un assistant capable de s’adapter à vos besoins et de prendre en charge différentes missions selon votre activité."
-                        data-p2="Administratif, commercial, support client ou autres tâches : vous déléguez ce qui vous ralentit.
-                        Une solution flexible pour avancer plus vite sans vous disperser.
-                        "
-                        onclick="openmodal(this)"
-                        >Assistant polyvalent
-                        </a>
-                    </li>
-                    <li><a  class="openlink" 
-                            data-img="image/assistant_client.jpg"
-                            data-title="Support client & téléopération"
+        <footer>
+            <div class="footer_content">
+                <section class="sections-1">
+                    <h1>ACYSTEEK INC</h1>
+                    <p>Externalisez vos tâches et concentrez-vous sur votre croissance</p>
+                </section>
+                <section class="sections-2">
+                    <h1>Navigation</h1>
+                    <ul>
+                        <li><a href="accueil.html">accueil</a></li>
+                        <li><a href="contenu/propos.html">à propos</a></li>
+                        <li><a href="contenu/tarifs.html" >tarifs</a></li>
+                        <li><a href="contenu/contact.html" >contact</a></li>
+                
+                    </ul>
+                </section>
+                <section class="section-4">
+                    <h1>services</h1>
+                    <ul>
+                        <li><a  class="openlink" 
+                            data-service="assistant"
+                            data-title="Assistant polyvalent"
                             data-price="À partir de <span>10€</span>"
-                            data-p="Améliorez votre relation client et ne laissez plus aucune opportunité passée."
-                            data-p2="Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.
-                            Des clients mieux suivis, plus satisfaits et plus fidèles.
+                            data-p="Un assistant capable de s’adapter à vos besoins et de prendre en charge différentes missions selon votre activité."
+                            data-p2="Administratif, commercial, support client ou autres tâches : vous déléguez ce qui vous ralentit.
+                            Une solution flexible pour avancer plus vite sans vous disperser.
                             "
-                            onclick="openmodal(this)">Support client & téléopération
-                        </a>
-                    </li>
-                    <li><a  class="openlink" 
-                            data-img="image/devsweb.jpg"
-                            data-title="Web & digital"
-                            data-price='Sur <span class="color_price">devis</span>'
-                            data-p="Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance."
-                            data-p2="Plus de visibilité, plus de prospects, plus de résultats."
                             onclick="openmodal(this)"
-                        >Web & digital
-                        </a>
-                    </li>
-                   
-                </ul>
-            </section>
-            <section class="section-5">
-                <h2>Votre succès, <br>notre priorité</h2>
-            </section>
-        </div>
-        <div class="politique" >
-            <p>&copy;<span id="droit"></span>Tous droits réservés</p>
-        </div>      
-       </footer>
-       <!-- whatsapp -->
+                            >Assistant polyvalent
+                            </a>
+                        </li>
+                        <li><a  class="openlink" 
+                                data-service="support"
+                                data-title="Support client & téléopération"
+                                data-price="À partir de <span>10€</span>"
+                                data-p="Améliorez votre relation client et ne laissez plus aucune opportunité passée."
+                                data-p2="Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.
+                                Des clients mieux suivis, plus satisfaits et plus fidèles.
+                                "
+                                onclick="openmodal(this)">Support client & téléopération
+                            </a>
+                        </li>
+                        <li><a  class="openlink" 
+                                data-service="web"
+                                data-title="Web & digital"
+                                data-price='Sur <span class="color_price">devis</span>'
+                                data-p="Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance."
+                                data-p2="Plus de visibilité, plus de prospects, plus de résultats."
+                                onclick="openmodal(this)"
+                            >Web & digital
+                            </a>
+                        </li>
+                    
+                    </ul>
+                </section>
+                <section class="section-3">
+                    <h1>contact</h1>
+                    <ul>
+                        <li class="email_url">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <a>info@acysteek.com</a>
+                        </li>
+                        <li>
+                            <ion-icon name="call-outline"></ion-icon>
+                            <a class="whtsp_url">
+                            +261 33 20 451 72 </a>
+                        </li>
+                        <li>
+                            <ion-icon name="location-outline"></ion-icon>
+                            <a>
+                            Antananarivo, Madagascar </a>
+                        </li>
+                    </ul>
+                </section>
+            
+                <section class="section-5">
+                    <h2>Votre succès, <br>notre priorité</h2>
+                </section>
+            </div>
+            <div class="politique" >
+                <p>&copy;<span id="droit"></span>Tous droits réservés</p>
+            </div>      
+        </footer>
+        <!-- whatsapp -->
         <div class="whatsapp">
             <div class="whatsapp_content">
                 <a  class="whatsapp whtsp_url">
@@ -326,7 +365,10 @@
                                 </div>
                                 <textarea name="id_message" id="id_message" placeholder="Entrer votre message..." maxlength="100" ></textarea>
                                 <p class="errors" style="display: none;" data-for="id_message"></p>
-                                <button id="envoie_button" type="submit" ><span class="btn_text">Envoyer</span></button>
+                                <button id="envoie_button" type="submit" >
+                                    <span class="btn_text">Envoyer</span>
+                                    <span class="loader"></span>
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -365,7 +407,7 @@
            
         </div>  
        
-    </div>
+    </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script type="module" src="app.js" defer></script>

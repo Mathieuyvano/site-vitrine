@@ -1,12 +1,36 @@
+const SERVICE_IMAGES ={
+    assistant:"/image/assistant_polyvalent.png",
+    support:"/image/assistant_client.jpg",
+    web:"/image/devsweb.jpg"
+}
+function getImage(key){
+    return SERVICE_IMAGES[key];
+}
+
+Object.values(SERVICE_IMAGES).forEach((src) =>{
+    const image = new Image();
+    image.src = src;
+})
+
 export function initmodal(){
     const closebtn  =document.querySelector(".icon_close");
     const modalImg = document.getElementById("modalimg");
     const modal = document.getElementById("mymodal");
-    const h2 = document.getElementById("modaltitres");
+    const h3 = document.getElementById("modaltitres");
     const p = document.getElementById("paragraphes_content");
     const p2 = document.getElementById("paragraphes_content2"); 
     const btnmodal = document.getElementById("buttons_modal");
     const whatsapp = document.getElementById("whtp");
+
+    function c(){
+        const modalContent = modal.querySelector(".modal_content");
+        modalContent.classList.add("closing");
+
+        modalContent.addEventListener("animationend",() =>{
+            modal.style.display = "none";
+            modalContent.classList.remove("closing");
+        },{once:true});
+    }
     document.getElementById("buttons_modal").addEventListener('click', function(){
         const service = h2.textContent.trim();
         window.location.href = window.location.origin + "/contenu/contact.html?service=" + encodeURIComponent(service);  
@@ -14,20 +38,19 @@ export function initmodal(){
     window.openmodal = function(btn){
         const card = btn.closest(".card");
             if(card){
-                const image = card.querySelector("img")?.src;
-                const texttitres = card.querySelector("h2")?.textContent;
-                const paragraphestext = card.querySelector("div > #p_content1 ")?.innerHTML;
-                const paragraphestext2 = card.querySelector("#p_content2")?.innerHTML;
+                const texttitres = card.querySelector("h3")?.textContent;
+                const pt = card.querySelector("div > #p_content1 ")?.innerHTML;
+                const pt2 = card.querySelector("#p_content2")?.innerHTML;
                 const prixmodal = card.querySelector(".idprix")?.innerHTML;
-                modalImg.src = image;
-                h2.textContent = texttitres;
-                p.innerHTML = paragraphestext;
-                p2.innerHTML = paragraphestext2;
+                modalImg.src = getImage(card.dataset.service);
+                h3.textContent = texttitres;
+                p.innerHTML = pt;
+                p2.innerHTML = pt2;
                 prix.innerHTML = prixmodal;
                 modal.style.display = "block";
             }  
             else{
-                const image = btn.dataset.img;
+                const image = btn.dataset.service;
                 const texttitres = btn.dataset.title;
                 const paragraphestext = btn.dataset.p;
                 const ptext2 = btn.dataset.p2;
@@ -35,8 +58,8 @@ export function initmodal(){
                 const formatted = prixmodal.replace(/\d+/g, match =>{
                     return `<span class="color_number">${match}</span>`;
                  })
-                modalImg.src = image;
-                h2.textContent = texttitres;
+                modalImg.src = getImage(image);
+                h3.textContent = texttitres;
                 p.innerHTML = paragraphestext;
                 p2.innerHTML = ptext2;
                 prix.innerHTML = formatted;
@@ -62,30 +85,14 @@ export function initmodal(){
                 })
             }
             if(closebtn){
-                closebtn.addEventListener('click',(e)=>{
+                closebtn.addEventListener("click",(e)=>{
                     e.preventDefault();
-                    // const link = document.querySelectorAll("#service_p ul li a").forEach(l =>{
-                    //     l.classList.remove("active");
-                    // })
-                    const modalContent = modal.querySelector(".modal .modal_content");
-                    modalContent.classList.add("closing");
-        
-                    modalContent.addEventListener("animationend",() =>{
-                        modal.style.display = "none";
-                        modalContent.classList.remove("closing");
-                    },{once:true});
-                    
-                    
-                            
-                });
+                    c()
+                })
+               
                 window.addEventListener('click',(e) =>{
                     if(e.target === modal){
-                        const modalContent = modal.querySelector(".modal .modal_content");
-                        modalContent.classList.add("closing");
-                        modalContent.addEventListener("animationend",() =>{
-                            modal.style.display = "none";
-                            modalContent.classList.remove("closing");
-                        },{once:true});      
+                       c()    
                     }
                 });
             }

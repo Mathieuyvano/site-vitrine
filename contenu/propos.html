@@ -14,7 +14,7 @@
         <nav class="navbar ">
             <div class="logo_nom " id="entreprise"> 
                 <img src="../image/Logo_acysteek.png"  class="nom_entreprise "  />
-                <h1>cysteek</h1>
+                <h3>cysteek</h3>
             </div>
             
             <div class="navigation " >
@@ -28,58 +28,72 @@
                     <li><a href="contact.html"  >contact</a></li>
                 </ul>    
             </div>
+            <button id="navbar_button">Obtenir mon assistant</button>
             <div class="btn_burger">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>   
         </nav>
-
+        
+        <section class="hero_container">
+            <div class="propos_section">
+                <aside>
+                    <p class="hidden">À propos</p>
+                    <h1 class="hidden">Une assistance pensée pour votre <span>entreprise</span></h1> 
+                    <p class="hidden">AcySteek est une entreprise d'externalisation de service basée a Madagascar.<br>Nous mettons à votre disposition des talents, compétents et engagés, pour vous accompagner dans votre projet</p>
+                </aside>
+                <img src="../image/backoffice.jpg" class="hidden" alt="about_us">
+            </div>
+        </section>
           <div class="propos_content">
                 <div class="propos">
-                    <img src="../image/backoffice.jpg" class="hidden" alt="about_us">
-                    <div class="more_propos">
-                        <h1 class="hidden">À propos</h1>
-                        <div class="info_propos">
-                            <div class="all_info hidden">
-                                <ion-icon name="stats-chart-outline"></ion-icon>
-                                <aside>
-                                    <h2>Notre mission</h2>
-                                    <p>Permettre aux professionnels de déléguer leurs tâches efficacement afin de libérer du temps et se concentrer sur l’essentiel : le développement de leur activité.</p>
-                                </aside>
-                            </div>
-                            <div class="all_info hidden">
-                                <ion-icon name="heart-outline"></ion-icon>
-                                <aside>
-                                    <h2>Notre vision</h2>
-                                    <p>Construire des collaborations durables en devenant un partenaire fiable sur lequel vous pouvez vous appuyer au quotidien.</p>
-                                </aside>
-                            </div>
-                            <div class="all_info hidden">
-                                <ion-icon name="bulb-outline"></ion-icon>
-                                <aside>
-                                    <h2>Notre engagement</h2>
-                                    <p>Offrir une solution simple, réactive et facile à mettre en place, sans les contraintes ni la complexité d’un recrutement classique.</p>
-                                </aside>
-                            </div>
-                            <div class="all_info hidden">
-                                <ion-icon name="people-outline"></ion-icon>
-                                <aside>
-                                    <h2>Notre équipe</h2>
-                                    <p>Des assistants expérimentés, sélectionnés pour leur sérieux et leur capacité à s’intégrer rapidement à votre organisation.</p>
-                                </aside>
-                            </div>
-                        </div>
-                        
+                   
+                    <div class="all_info hidden">
+                        <ion-icon name="stats-chart-outline"></ion-icon>
+                        <aside>
+                            <h2>Notre mission</h2>
+                            <p>Permettre aux professionnels de déléguer leurs tâches efficacement afin de libérer du temps et se concentrer sur l’essentiel : le développement de leur activité.</p>
+                        </aside>
                     </div>
-                </div>
-                <div class="questions_content">
-                    <div class="questions">
-                        <h1 class="hidden">Pourquoi nous ?</h1>
-                        <p class="hidden">Basés à Madagascar, nous vous permettons de bénéficier d’un service professionnel à un coût optimisé, sans compromis sur la qualité.</p>
-                        <p class="hidden">Une solution simple pour déléguer sans recruter et avancer plus vite.</p>
-                        <button onclick="window.location.href='contact.html'" class="hidden">Obtenir mon assistant</button>  
+                    <div class="all_info hidden">
+                        <ion-icon name="heart-outline"></ion-icon>
+                            <aside>
+                                <h2>Notre vision</h2>
+                                <p>Construire des collaborations durables en devenant un partenaire fiable sur lequel vous pouvez vous appuyer au quotidien.</p>
+                            </aside>
+                    </div>
+                    <div class="all_info hidden">
+                        <ion-icon name="bulb-outline"></ion-icon>
+                            <aside>
+                                <h2>Notre engagement</h2>
+                                <p>Offrir une solution simple, réactive et facile à mettre en place, sans les contraintes ni la complexité d’un recrutement classique.</p>
+                            </aside>
+                    </div>
+                    <div class="all_info hidden">
+                        <ion-icon name="people-outline"></ion-icon>
+                            <aside>
+                                <h2>Notre équipe</h2>
+                                <p>Des assistants expérimentés, sélectionnés pour leur sérieux et leur capacité à s’intégrer rapidement à votre organisation.</p>
+                            </aside>
                     </div>
                 </div>
           </div>
+          <section class="questions_content">
+                <div class="questions">
+                    <h2 class="hidden">Pourquoi <span>AcySteek ?</span></h2>
+                    <p class="hidden">Basés à Madagascar, nous vous permettons de bénéficier d’un service professionnel à un coût optimisé, sans compromis sur la qualité.</p>
+                    <p class="hidden">Une solution simple pour déléguer sans recruter et avancer plus vite.</p>
+                   
+                </div>
+                <div class="origin_content">
+                    <img src="../image/Antananarivo.png" alt="Antananarivo">
+                    <div class="origin_title">
+                        <h3>Une équipe basée à Madagascar</h3>
+                        <p>Des talents locaux, une qualité de service internationale.</p>
+                        <button type="button">Obtenir mon assistant</button>
+                    </div>
+                </div>
+               
+          </section>
         <!-- footer -->
         <footer>
             <div class="footer_content">
@@ -97,6 +111,45 @@
                 
                     </ul>
                 </section>
+                <section class="section-4">
+                    <h1>services</h1>
+                    <ul>
+                        <li><a  class="openlink" 
+                            data-service="assistant"
+                            data-title="Assistant polyvalent"
+                            data-price="À partir de <span>10€</span>"
+                            data-p="Un assistant capable de s’adapter à vos besoins et de prendre en charge différentes missions selon votre activité."
+                            data-p2="Administratif, commercial, support client ou autres tâches : vous déléguez ce qui vous ralentit.
+                            Une solution flexible pour avancer plus vite sans vous disperser.
+                            "
+                            onclick="openmodal(this)"
+                            >Assistant polyvalent
+                            </a>
+                        </li> 
+                    <li><a  class="openlink" 
+                            data-service="support"
+                            data-title="Support client & téléopération"
+                            data-price="À partir de <span>10€</span>"
+                            data-p="Améliorez votre relation client et ne laissez plus aucune opportunité passée."
+                            data-p2="Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.
+                            Des clients mieux suivis, plus satisfaits et plus fidèles.
+                            "
+                            onclick="openmodal(this)">Support client & téléopération
+                        </a>
+                    </li>
+                    <li><a  class="openlink" 
+                            data-service="web"
+                            data-title="Web & digital"
+                            data-price="Sur devis"
+                            data-p="Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance."
+                            data-p2="Plus de visibilité, plus de prospects, plus de résultats."
+                            onclick="openmodal(this)"
+                        >Web & digital
+                        </a>
+                    </li>
+                   
+                    </ul>
+                </section>
                 <section class="section-3">
                     <h1>contact</h1>
                     <ul>
@@ -112,48 +165,8 @@
                         <li>
                             <ion-icon name="location-outline"></ion-icon>
                             <a>
-                            Antananarivo,Madagascar </a>
+                            Antananarivo, Madagascar </a>
                         </li>
-                    </ul>
-                </section>
-               
-                <section class="section-4">
-                    <h1>services</h1>
-                    <ul>
-                        <li><a  class="openlink" 
-                            data-img="../image/salla.png"
-                            data-title="Assistant polyvalent"
-                            data-price="À partir de <span>10€</span>"
-                            data-p="Un assistant capable de s’adapter à vos besoins et de prendre en charge différentes missions selon votre activité."
-                            data-p2="Administratif, commercial, support client ou autres tâches : vous déléguez ce qui vous ralentit.
-                            Une solution flexible pour avancer plus vite sans vous disperser.
-                            "
-                            onclick="openmodal(this)"
-                            >Assistant polyvalent
-                            </a>
-                        </li> 
-                    <li><a  class="openlink" 
-                            data-img="../image/assistant_client.jpg"
-                            data-title="Support client & téléopération"
-                            data-price="À partir de <span>10€</span>"
-                            data-p="Améliorez votre relation client et ne laissez plus aucune opportunité passée."
-                            data-p2="Nous gérons vos appels, votre service client et vos relances pour vous garantir un suivi professionnel et constant.
-                            Des clients mieux suivis, plus satisfaits et plus fidèles.
-                            "
-                            onclick="openmodal(this)">Support client & téléopération
-                        </a>
-                    </li>
-                    <li><a  class="openlink" 
-                            data-img="../image/devsweb.jpg"
-                            data-title="Web & digital"
-                            data-price="Sur devis"
-                            data-p="Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance."
-                            data-p2="Plus de visibilité, plus de prospects, plus de résultats."
-                            onclick="openmodal(this)"
-                        >Web & digital
-                        </a>
-                    </li>
-                   
                     </ul>
                 </section>
                 <section class="section-5">
@@ -228,7 +241,10 @@
                                 </div>
                                 <textarea name="id_message" id="id_message" placeholder="Entrer votre message..." maxlength="100" ></textarea>
                                 <p class="errors" style="display: none;" data-for="id_message"></p>
-                                <button id="envoie_button" type="submit" ><span class="btn_text">Envoyer</span></button>
+                                <button id="envoie_button" type="submit" >
+                                    <span class="btn_text">Envoyer</span>
+                                    <span class="loader"></span>
+                                </button>
                             </form>
                         </div>
                     </div>

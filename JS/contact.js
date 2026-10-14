@@ -95,7 +95,10 @@ export function contact(){
             }
             
             const verif =  document.querySelectorAll("#form_contact .input_info,#form_contact .textarea_info");
+            const button = document.querySelector("#contact_send");
             if(!Iserror){
+                button.classList.add("loading");
+                button.disabled = true;
                try{
                     const formeData = new FormData(form);
                     const response = await fetch(form.action,{
@@ -114,6 +117,9 @@ export function contact(){
                }catch(e){
                     afficherpopup(false,"Erreur de connexion coté serveur");
                     console.err(e);
+               }finally{
+                    button.classList.remove("loading");
+                    button.disabled = false;
                }
                 
             }

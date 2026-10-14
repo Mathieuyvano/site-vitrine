@@ -5,6 +5,7 @@ export function navigation(){
     const btnburger = document.querySelector('.btn_burger');
     const menu = document.querySelector('.navigation');
     const iconburger = document.querySelector('.btn_burger ion-icon');
+    const nav_button = document.getElementById("navbar_button");
     const links = {
         "projet":"contenu/contact.html",
         "moreinfo":"contenu/contact.html",     
@@ -47,5 +48,10 @@ export function navigation(){
             this.classList.add('active');
         })
     })   
+    if(nav_button){
+        nav_button.addEventListener("click",()=>{
+            window.location.href = "/contenu/contact.html";
+        })
+    }
             
 }

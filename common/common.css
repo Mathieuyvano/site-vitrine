@@ -22,6 +22,7 @@ body{
     --green_secondary2:#F4FCF8;
     --wave1:#E9F2C2;
     --body:#F7F8FA;
+    --bg-section:#DDF3F6;
     --icon_color:#08B8C5;
     --icon_background:#E1F7EE;
     --inputs:#D0D7DE;
@@ -34,19 +35,62 @@ body{
     --muted:#8a96a6;
     --accent:#0aaec8;
     --ok:#2fb45a;
+    --fs_h1_hero:clamp(1.875rem, 1.305rem + 2.431vw, 3.25rem);
+    --fs-h2:clamp(1.375rem, 1.116rem + 1.105vw, 2rem); 
+    --fs-h3:clamp(1rem, 0.896rem + 0.442vw, 1.25rem);    
+    --eyebrow:clamp(0.8125rem,0.636rem + 0.221vw,1rem);
+
+    --fs_paragraph:clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
+    --fs-intro:    clamp(0.875rem, 0.771rem + 0.442vw, 1.125rem);
+    --fs-body:     clamp(0.875rem, 0.823rem + 0.221vw, 1rem);      
+    --fs-card:     clamp(0.8125rem, 0.787rem + 0.11vw, 0.875rem); 
+    --fs-price:    clamp(0.8125rem, 0.761rem + 0.221vw, 0.9375rem);
+    --fs-btn:      clamp(0.875rem, 0.849rem + 0.11vw, 0.9375rem);
+    --fs-btn-sm:   clamp(0.75rem, 0.724rem + 0.11vw, 0.8125rem);
+        
 }
+ h1{
+    font-size: var(--fs_h1_hero);
+    line-height: 1.2;
+}
+
 
 .hidden{
     opacity: 0;
-    transform: translateY(-30px);
 }
 .hidden.show{
-    animation: apparition .7s ease forwards;
+    opacity: 1;
+    transform: none;
+    animation: apparition .7s ease backwards;
     animation-delay: calc(var(--i,0) * 0.15s);
 }
-
-
-
+.blob--left{
+    width: 190px;
+    height: 340px;
+    left: -80px;
+    top: 40px;
+    opacity: 0;
+    background: linear-gradient(160deg,var(--blue-primary));
+    animation: blob_motions_left .6s forwards;
+}
+.blob--right1{
+    width: 140px;
+    height: 380px;
+    right: -30px;
+    top: -90px;
+    opacity: 0;
+    background: linear-gradient(160deg,var(--green_secondary),var(--green-primary));
+    animation: blob_motions_right .6s forwards;
+}
+.blob--right2{
+    width: 120px;
+    height: 300px;
+    right: 90px;
+    top: -120px;
+    opacity: 0;
+    background: linear-gradient(160deg,var(--wave1),var(--green_secondary));
+    animation: blob_motions_right .6s forwards;
+}
 
 /* style navigation */
 nav{
@@ -54,7 +98,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 20px;
+    padding:10px;
     border-radius: 5px;
     width: 100%;
     top: 0;
@@ -64,33 +108,32 @@ nav{
 
 }
 .navbar .logo_nom{
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
     cursor: pointer;
 }
-
-.navbar .logo_nom .nom_entreprise{
-    position: absolute;
-    top: 0;
-    left: 20px;
-    width: 100px;
+.logo_nom img{
+    height: 80px;
+    width: auto;
+    display: block;
 }
-.navbar .logo_nom  h1{
-    display: flex;
-    font-size: 1.6rem;
+
+.navbar .logo_nom  h3{
+    
+    margin: 0 0 7px -22px;
     font-weight: bold;
     background: linear-gradient(to right,#4CB8C4,#B4D334);
     background-clip: text;
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    margin: 22px 0 0 72px;
 }
 
 
 nav .navigation{
     display: flex;
-    gap: 30px;
-    margin-right: 50px;
-    padding: 10px 0;
+    align-items: center;
    
 }
 nav .navigation ul{
@@ -117,6 +160,20 @@ nav .navigation ul li  a.active {
     border-left: 0;
     border-right: 0;
 
+}
+.navbar button{
+    padding: 20px;
+    background: linear-gradient(to left,var(--green-primary),var(--blue-primary));
+    color: white;
+    border: none;
+    outline: none;
+    border-radius:50px;
+    cursor: pointer;
+    transition: transform 0.6s ease;
+}
+.navbar button:hover{
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 #service_p  ul li{
@@ -412,6 +469,9 @@ nav .navigation ul li a:hover{
     color: var(--error);
 }
 .chat .second_mes form button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 6px;
     padding: 10px;
     background: var(--accent);
@@ -443,8 +503,14 @@ nav .navigation ul li a:hover{
 .chat .second_mes form button.loading .btn_text{
     display: none;
 }
+/* contact spin */
+#contact_send.loading .btn_text,#contact_send.loading ion-icon {
+    display: none;
+}
 
- 
+#contact_send.loading .loader {
+    display: block;
+}
  
 /* ===== Barre d'envoi ===== */
 .chat .send_chat{
@@ -510,8 +576,7 @@ footer::after{
 }
 footer .footer_content{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    margin: 0 25px;
+    grid-template-columns: repeat(auto-fit,minmax(220px,auto));
   
     /* border-bottom: 1px solid white; */
 }
@@ -642,6 +707,7 @@ footer .politique span{
    justify-content: flex-end;
    padding: 10px 20px;
    margin: 20px;
+   gap: 10px;
 
    
 }
@@ -664,9 +730,10 @@ footer .politique span{
    /* font-size: 40px; */
    cursor: pointer;
    border: none;
-   padding: 10px 20px;
+   padding: 20px;
    border-radius: 10px;
    color: white;
+   transition: all .5s ease;
    
 }
 .modal .modal_content .buttons_modal .demand{
@@ -675,6 +742,9 @@ footer .politique span{
     align-items: center;
     justify-content: center;
     gap: 10px;
+ }
+ .modal .modal_content .buttons_modal .demand ion-icon{
+    font-size: 1.5rem;
  }
 .modal .modal_content .buttons_modal .demand:hover,.contact_modal:hover{
    transform: scale(1.1);
@@ -744,9 +814,26 @@ footer .politique span{
      
   }
   @keyframes apparition {
+    from{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
     to{
         opacity: 1;
         transform: translateY(0);
+    }
+}
+/* animations */
+@keyframes blob_motions_left{
+    to{
+        opacity: .6;
+        transform: rotate(35deg);
+    }
+}
+@keyframes blob_motions_right{
+    to{
+        opacity: .75;
+        transform: rotate(40deg);
     }
 }
 
@@ -759,6 +846,7 @@ footer .politique span{
         animation: none;
     }
 }
+
 /* responsive */
 
 @media screen and (max-width: 900px){
@@ -809,6 +897,9 @@ footer .politique span{
     }
     .navbar .navigation ul li a:hover{
         color: var(--blue-primary);
+    }
+    nav button{
+        display: none;
     }
 
     .contenue{
