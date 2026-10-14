@@ -16,18 +16,13 @@ header{
     background: radial-gradient(circle at 0% 60%, rgba(76,184,196,0.18), transparent 45%),
     radial-gradient(circle at 100% 20%, rgba(180,211,52,0.18), transparent 45%),
     linear-gradient(180deg, #EAF8F6 0%, #F4FBF8 60%, #F7F8FA 100%);
-    padding: 1.2rem 6vw 2.5rem;
+    padding: 20px;
 }
 
-header .blob{
-    position: absolute;
-    border-radius: 999px;
-    z-index: 1;
-}
 
 .header_content{
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 2fr 1fr;
     place-items: center;
 }
 .header_contact{
@@ -43,20 +38,16 @@ header .blob{
     font-size: clamp(1rem,3vw,1.5rem);
     color: var(--blue-primary);
 }
-.header_contact .icon_contact h3{
-    font-size: clamp(1rem,3vw,1.5rem);
+.header_contact p:first-child{
+    font-size: var(--eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 2px;
     font-weight: 600;
-    background: linear-gradient(90deg,var(--blue-primary),var(--green-primary));
-    background-clip: text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: var(--green-primary);
 }
-.header_contact .header_text h2{
-    font-size: clamp(1.5rem,3vw,2.5rem);
-}
-.header_contact .header_text h2 span{
-    font-weight: 600;
+
+.header_contact .header_text h1 span{
+
     background: linear-gradient(90deg,var(--blue-primary),var(--green-primary));
     background-clip: text;
     -webkit-background-clip:text;
@@ -65,7 +56,7 @@ header .blob{
 
 }
 .header_contact .header_text p{
-    font-size: clamp(1rem,0.5vw + 0.9rem,1.25rem);
+    font-size: var(--fs-intro);
     color: var(--paragraphes);
     margin: 10px 0;
 }
@@ -79,9 +70,9 @@ header .blob{
     z-index: 2;
 }
 .slogan h2{
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-size: var(--fs-h2);
     line-height: 1.05;
-    background: linear-gradient(to right,var(--blue-primary),var(--green-primary));
+    background: linear-gradient(to left,var(--blue-primary),var(--green-primary));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -119,20 +110,16 @@ header .blob{
     height: 100%;
 }
 .contact_content .info_contact .coordonnees .head_coordonnees h2{
-    font-size: clamp(1.5rem, 1.1rem + 1.8vw, 2.25rem);
-    line-height: 1.2;
+    font-size:var(--fs-h2);
+    line-height: 1.3;
 }
 .contact_content .info_contact .coordonnees .head_coordonnees p{
-    font-size: clamp(1rem,0.5vw + 0.9rem,1.25rem);
+    font-size:var(--fs-body);
     color: var(--paragraphes);
+    line-height: 1.8;
 }
 .contact_content .info_contact .coordonnees .head_coordonnees h2 span{
-
-    background:  linear-gradient(90deg,#4CB8C4,#B4D334);
-    background-clip: text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: var(--blue-primary);
 }
 .contact_content .info_contact .coordonnees .coordonnees_item{
     display: flex;
@@ -149,10 +136,10 @@ header .blob{
     padding: 15px 0;
 }
 .contact_content .info_contact .coordonnees .coordonnees_item .item_contact h3{
-    font-size: clamp(1.15rem, 1rem + 0.8vw, 1.5rem);
+    font-size: var(--fs-h3);
 }
 .contact_content .info_contact .coordonnees .coordonnees_item .item_contact p{
-    font-size: clamp(0.7rem,0.5vw + 0.9rem,1rem);
+    font-size: var(--fs-body);
     color: var(--paragraphes);
 }
 
@@ -173,7 +160,7 @@ header .blob{
     border-radius: 10px;
 }
 .contact_content .info_contact .coordonnees .coordonnees_item .item_contact:last-child h3{
-    font-size: clamp(1.15rem, 1rem + 0.8vw, 1.5rem);
+    font-size: var(--fs-h3);
     color: var(--icon_color);
 }
 .contact_content .info_contact .coordonnees .coordonnees_item .item_contact:last-child p{
@@ -231,37 +218,28 @@ header .blob{
     margin:10px;
 }
 
-.contact_content .form_contact .title_contact aside .title_icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
+.contact_content .form_contact .title_contact aside ion-icon{
+    font-size: 2rem;
     background: var(--icon_background);
     color: var(--icon_color);
     border-radius: 50%;
    
     padding: 12px;
 }
-
-.contact_content .form_contact .title_contact aside .title_icon ion-icon{
-    font-size: clamp(1rem,3vw,1.5rem);
-    transform: rotate(-35deg);
-}
 .contact_content .form_contact .title_contact aside p{
     color: var(--paragraphes);
-    font-size: clamp(1rem,0.5vw + 0.9rem,1.25rem);
+    font-size:var(--fs-body);
 
 }
-.contact_content .form_contact .title_contact h1 span{
-    background: linear-gradient(90deg,#4CB8C4,#B4D334);
-    background-clip: text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+.contact_content .form_contact .title_contact h2{
+    font-size: var(--fs-h2);
+}
+.contact_content .form_contact .title_contact h2 span{
+    color: var(--blue-primary);
 
 }
 .contact_content form label,input{
-    margin: 0 10px 0 10px;
+    margin: 0 10px 0;
 }
 .contact_content form label{
     margin-top:25px;
@@ -364,11 +342,11 @@ header .blob{
     color: var(--icon_color);
 }
 .contact_footer .item_title h3{
-    font-size: clamp(1.15rem, 1rem + 0.8vw, 1.5rem); 
+    font-size: var(--fs-h3); 
     color: var(--icon_color);
 }
 .contact_footer .item_title p{
-    font-size: clamp(0.7rem,0.5vw + 0.9rem,1rem);
+    font-size: var(--fs-body);
     color: var(--paragraphes);
 }
 .contact_content form button{

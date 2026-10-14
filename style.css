@@ -73,7 +73,6 @@
     font-weight: bold;
     text-align: left;
     color: white;
-    margin:0 0 20px 0;
 }
 
 .contenue .image{
@@ -94,7 +93,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
-    margin-top: 40px;
+    margin-top: 20px;
 
 }
 .contenue .buttons button{
@@ -551,8 +550,14 @@
      .services_content .main_services .card:last-child{
         grid-column: 1 / -1;
     } 
+    .choice_content .why_choose{
+        text-align: center;
+    }
     .walk_content .walk_body{
         grid-template-columns: 1fr;
+    }
+    .container_expert .expert_content aside ion-icon{
+        display: none;
     }
 
 }
@@ -561,16 +566,8 @@
     .accueil_content::before{
         filter: blur(2.5px);
     }
-    .contenue .prompt .titres{
-        margin: 0 0 40px 0;
-        font-size: 1.8rem;
-    }
-    .contenue .prompt .paragraphe{
-        margin: 10px 10px;
-        font-size: 1.3rem;
-    }
     .contenue .buttons{
-        margin: 20px 0 0 0;
+        margin: 20px 0 0;
     }
     .container_expert .expert_content{
         gap: 5px;

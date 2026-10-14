@@ -1,7 +1,9 @@
+import { url } from "../config.js";
+
 const SERVICE_IMAGES ={
-    assistant:"/image/assistant_polyvalent.png",
-    support:"/image/assistant_client.jpg",
-    web:"/image/devsweb.jpg"
+    assistant:"image/assistant_polyvalent.png",
+    support:"image/assistant_client.jpg",
+    web:"image/devsweb.jpg"
 }
 function getImage(key){
     return SERVICE_IMAGES[key];
@@ -32,8 +34,8 @@ export function initmodal(){
         },{once:true});
     }
     document.getElementById("buttons_modal").addEventListener('click', function(){
-        const service = h2.textContent.trim();
-        window.location.href = window.location.origin + "/contenu/contact.html?service=" + encodeURIComponent(service);  
+        const service = h3.textContent.trim();
+        window.location.href = url("contenu/contact.html?service=") + encodeURIComponent(service);  
     })
     window.openmodal = function(btn){
         const card = btn.closest(".card");
@@ -68,7 +70,7 @@ export function initmodal(){
             } 
             if(whatsapp){
                 whatsapp.addEventListener('click', () =>{
-                    const titre = h2.textContent.trim();
+                    const titre = h3.textContent.trim();
                     const message=`Bonjour, je souhaite planifier un appel concernant l'activité "${titre}" `;
                     const encodeMg = encodeURIComponent(message);
                     const num="261332045172";
@@ -80,8 +82,8 @@ export function initmodal(){
             if(btnmodal){
                 btnmodal.addEventListener('click',function(){
 
-                    const service = h2.textContent.trim();
-                    window.location.href = window.location.origin + "/contenu/contact.html?service=" + encodeURIComponent(service);  
+                    const service = h3.textContent.trim();
+                    window.location.href = url("contenu/contact.html?service=") + encodeURIComponent(service);  
                 })
             }
             if(closebtn){

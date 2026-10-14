@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../common/common.css">
-    <link rel="stylesheet" href="style/contact.css">
-    <link rel="shortcut icon" href="../image/Logo_acysteek.png" type="image/x-icon">
+    <base href="/acysteek/">
+    <link rel="stylesheet" href="common/common.css">
+    <link rel="stylesheet" href="contenu/style/contact.css">
+    <link rel="shortcut icon" href="image/Logo_acysteek.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
     <title>Contact | AcySteek Inc</title>
 </head>
@@ -13,18 +14,18 @@
     <div id="content">
         <nav class="navbar ">
             <div class="logo_nom " id="entreprise"> 
-                <img src="../image/Logo_acysteek.png"  class="nom_entreprise "  />
+                <img src="image/Logo_acysteek.png"  class="nom_entreprise "  />
                 <H3>cysteek</H3>
             </div>
             
             <div class="navigation " >
                 <ul >
-                    <li> <a href="../accueil.html"  >accueil</a></li>
-                    <li> <a href="propos.html">à propos</a></li>
+                    <li> <a href="accueil.html"  >accueil</a></li>
+                    <li> <a href="contenu/propos.html">à propos</a></li>
                     <li id="service_p">
-                            <a href="tarifs.html" >tarifs</a>  
+                            <a href="contenu/tarifs.html" >tarifs</a>  
                     </li>
-                    <li><a href="contact.html" class="active" >contact</a></li>
+                    <li><a href="contenu/contact.html" class="active" >contact</a></li>
                 </ul>    
             </div>
             <button id="navbar_button">Obtenir mon assistant</button>
@@ -36,17 +37,11 @@
         
         <div class="container_contact">
             <header>
-                <span class="blob blob--left "></span>
-                <span class="blob blob--right1 "></span>
-                <span class="blob blob--right2 "></span>
                 <div class="header_content">
-                    <div class="header_contact">
-                        <div class="icon_contact hidden">
-                            <ion-icon name="send-outline"></ion-icon>
-                            <h3>Contactez-nous</h3>
-                        </div>
+                    <div class="header_contact">    
+                        <p class="hidden">Contactez-nous</p>
                         <div class="header_text hidden">
-                            <h2>Une question ? <br>Nous sommes là <span>pour vous !</span></h2>
+                            <h1>Une question ? <br>Nous sommes là <span>pour vous !</span></h1>
                             <p> Notre équipe est à votre ecoute pour répondre a toute vos questions ,vous accompagner et vous aider dans vos démarches</p>
                         </div>
                     </div>
@@ -93,7 +88,7 @@
                                     
                                     <aside>
                                         <h3>Localisation</h3>
-                                        <p >Antananarivo,Madagascar</p>
+                                        <p >Antananarivo, Madagascar</p>
                                     </aside>   
                                 </div> 
                                 <div class="item_contact hidden">
@@ -112,19 +107,17 @@
                     <div class="form_contact hidden">
                         <div class="title_contact hidden">
                             <aside>
-                                <div class="title_icon">
-                                    <ion-icon name="send-outline"></ion-icon>
-                                </div>   
+                                <ion-icon name="paper-plane-outline"></ion-icon>  
                                 <div>
-                                    <h1>Ecrivez-<span>nous</span></h1>    
-                                    <p>Remplisser le formulaire ci-dessous et nous vous répondrons dans les plus brefs delai</p>
+                                    <h2>Ecrivez-<span>nous</span></h2>    
+                                    <p>Remplisser le formulaire ci-dessous et nous vous répondrons dans les plus <br>brefs delai</p>
                                 </div>
                                 
                             </aside>
                           
                         </div>
                         
-                        <form action="../services/contacts.php" method="post" id="form_contact">
+                        <form action="services/contacts.php" method="post" id="form_contact">
                             <div class="grid_inputs">
                                 <div class="inputs hidden">
                                     <label >Nom <span>*</span></label>
@@ -227,10 +220,10 @@
                 <section class="sections-2">
                     <h1>Navigation</h1>
                     <ul>
-                        <li><a href="../accueil.html">accueil</a></li>
-                        <li><a href="propos.html" >à propos</a></li>
-                        <li><a href="tarifs.html" >tarifs</a></li>
-                        <li><a href="contact.html">contact</a></li>
+                        <li><a href="accueil.html">accueil</a></li>
+                        <li><a href="contenu/propos.html" >à propos</a></li>
+                        <li><a href="contenu/tarifs.html" >tarifs</a></li>
+                        <li><a href="contenu/contact.html">contact</a></li>
                         
                       
                     </ul>
@@ -239,7 +232,7 @@
                     <h1>services</h1>
                     <ul>
                         <li><a  class="openlink" 
-                            data-img="../image/salla.png"
+                            data-service="assistant"
                             data-title="Assistant polyvalent"
                             data-price="À partir de <span>10€</span>"
                             data-p="Un assistant capable de s’adapter à vos besoins et de prendre en charge différentes missions selon votre activité."
@@ -251,7 +244,7 @@
                             </a>
                         </li> 
                     <li><a  class="openlink" 
-                            data-img="../image/assistant_client.jpg"
+                            data-service="support"
                             data-title="Support client & téléopération"
                             data-price="À partir de <span>10€</span>"
                             data-p="Améliorez votre relation client et ne laissez plus aucune opportunité passée."
@@ -262,7 +255,7 @@
                         </a>
                     </li>
                     <li><a  class="openlink" 
-                            data-img="../image/devsweb.jpg"
+                            data-service="web"
                             data-title="Web & digital"
                             data-price="Sur devis"
                             data-p="Création de site, optimisation SEO et gestion de votre visibilité : nous vous aidons à transformer votre présence en ligne en véritable levier de croissance."
@@ -318,7 +311,7 @@
             <main id="chat_main">
                 <div  class="chat_content" id="chats_content">
                     <div class="header_chat">
-                        <img class="avatar" src="../image/avatar.png" alt="">
+                        <img class="avatar" src="image/avatar.png" alt="">
                         <div class="header_text">
                             <h4>Assistant AcySteek</h4>
                            <div class="online"><span class="point"></span><span>En ligne</span></div>
@@ -327,7 +320,7 @@
                     </div>
                     <div class="message" id="content_mes">
                         <div class="msg_row bot">
-                            <img class="avatar sm" src="../image/avatar.png" alt="">
+                            <img class="avatar sm" src="image/avatar.png" alt="">
                             <div class="bubble bot_block">
                                 <p>Bonjour ! ,je peux vous aider à trouver un assistant adapté à vos besoins. Souhaitez-vous plutôt un assistant pour :</p>
                                 <div class="chips">
@@ -352,7 +345,7 @@
                             <p>Veuillez remplir les champs afin que nous puissions vous répondre </p>
                         </div>
                         <div class="second_mes" id="seconds_m" style="display: none;">
-                            <form action="../services/message.php" method="post" id="formchat">
+                            <form action="services/message.php" method="post" id="formchat">
                                 <label >Nom Complet</label>
                                 <input type="text" placeholder="Nom et prénom" id="chat_nom" name="chat_nom" >
                                 <p class="errors" style="display: none;" data-for="chat_nom"></p>
@@ -409,6 +402,6 @@
     </div> 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script type="module" src="../app.js" defer></script>   
+    <script type="module" src="app.js" defer></script>   
 </body>
 </html>

@@ -4,7 +4,6 @@ import { initmodal } from "./JS/modal.js";
 import { chat } from "./JS/chat.js";
 import { scrolls } from "./JS/scrolls.js";
 
-import {linkAndNumber} from "./JS/linkAndNumber.js";
 window.scrolls = scrolls;
 document.addEventListener("DOMContentLoaded",() =>{
     // module
@@ -12,10 +11,7 @@ document.addEventListener("DOMContentLoaded",() =>{
     initmodal();
     chat();
     contact();
-    linkAndNumber();
 
-
-   
     // mivoaka tsikelikely ny contenue page
     const mjr = new IntersectionObserver((entry) =>{
         const visibles = entry.filter((el) =>el.isIntersecting)
@@ -31,7 +27,7 @@ document.addEventListener("DOMContentLoaded",() =>{
     const subject = document.getElementById("sujet");
     if(subject){
         const urlParams = new URLSearchParams(location.search);
-        const serviceP = urlParams.get("service");
+        const serviceP = (urlParams.get("service") || urlParams.get("tarif") || "");
         if(serviceP){
             subject.value = serviceP;
         }

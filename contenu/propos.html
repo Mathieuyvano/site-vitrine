@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../common/common.css">
-    <link rel="stylesheet" href="style/propos.css">
+    <base href="/acysteek/">
+    <link rel="stylesheet" href="common/common.css">
+    <link rel="stylesheet" href="contenu/style/propos.css">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="../image/Logo_acysteek.png" type="image/x-icon">
+    <link rel="shortcut icon" href="image/Logo_acysteek.png" type="image/x-icon">
     <title>A propos | AcySteek Inc </title>
 </head>
 <body>
     <div id="content">
         <nav class="navbar ">
             <div class="logo_nom " id="entreprise"> 
-                <img src="../image/Logo_acysteek.png"  class="nom_entreprise "  />
+                <img src="image/Logo_acysteek.png"  class="nom_entreprise "  />
                 <h3>cysteek</h3>
             </div>
             
             <div class="navigation " >
                 <ul >
-                    <li> <a href="../accueil.html"  >accueil</a></li>
-                    <li> <a href="propos.html" class="active" >à propos</a></li>
+                    <li> <a href="accueil.html"  >accueil</a></li>
+                    <li> <a href="contenu/propos.html" class="active" >à propos</a></li>
                     <li id="service_p">
                         
-                         <a href="tarifs.html" >tarifs</a>
+                         <a href="contenu/tarifs.html" >tarifs</a>
                     </li>
-                    <li><a href="contact.html"  >contact</a></li>
+                    <li><a href="contenu/contact.html"  >contact</a></li>
                 </ul>    
             </div>
             <button id="navbar_button">Obtenir mon assistant</button>
@@ -41,7 +42,7 @@
                     <h1 class="hidden">Une assistance pensée pour votre <span>entreprise</span></h1> 
                     <p class="hidden">AcySteek est une entreprise d'externalisation de service basée a Madagascar.<br>Nous mettons à votre disposition des talents, compétents et engagés, pour vous accompagner dans votre projet</p>
                 </aside>
-                <img src="../image/backoffice.jpg" class="hidden" alt="about_us">
+                <img src="image/backoffice.jpg" class="hidden" alt="about_us">
             </div>
         </section>
           <div class="propos_content">
@@ -85,11 +86,11 @@
                    
                 </div>
                 <div class="origin_content">
-                    <img src="../image/Antananarivo.png" alt="Antananarivo">
+                    <img src="image/Antananarivo.png" alt="Antananarivo">
                     <div class="origin_title">
                         <h3>Une équipe basée à Madagascar</h3>
                         <p>Des talents locaux, une qualité de service internationale.</p>
-                        <button type="button">Obtenir mon assistant</button>
+                        <button type="button" class="projet">Obtenir mon assistant</button>
                     </div>
                 </div>
                
@@ -104,7 +105,7 @@
                 <section class="sections-2">
                     <h1>Navigation</h1>
                     <ul>
-                        <li><a href="../accueil.html">accueil</a></li>
+                        <li><a href="accueil.html">accueil</a></li>
                         <li><a href="propos.html">propos</a></li>
                         <li><a href="tarifs.html" >tarifs</a></li>
                         <li><a href="contact.html" >contact</a></li>
@@ -194,7 +195,7 @@
             <main id="chat_main">
                 <div  class="chat_content" id="chats_content">
                     <div class="header_chat">
-                        <img class="avatar" src="../image/avatar.png" alt="">
+                        <img class="avatar" src="image/avatar.png" alt="">
                         <div class="header_text">
                             <h4>Assistant AcySteek</h4>
                         <div class="online"><span class="point"></span><span>En ligne</span></div>
@@ -203,7 +204,7 @@
                     </div>
                     <div class="message" id="content_mes">
                         <div class="msg_row bot">
-                            <img class="avatar sm" src="../image/avatar.png" alt="">
+                            <img class="avatar sm" src="image/avatar.png" alt="">
                             <div class="bubble bot_block">
                                 <p>Bonjour ! ,je peux vous aider à trouver un assistant adapté à vos besoins. Souhaitez-vous plutôt un assistant pour :</p>
                                 <div class="chips">
@@ -228,7 +229,7 @@
                             <p>Veuillez remplir les champs afin que nous puissions vous répondre </p>
                         </div>
                         <div class="second_mes" id="seconds_m" style="display: none;">
-                            <form action="../services/message.php" method="post" id="formchat">
+                            <form action="services/message.php" method="post" id="formchat">
                                 <label >Nom Complet</label>
                                 <input type="text" placeholder="Nom et prénom" id="chat_nom" name="chat_nom" >
                                 <p class="errors" style="display: none;" data-for="chat_nom"></p>
@@ -287,6 +288,6 @@
      
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script type="module" src="../app.js" defer></script>
+    <script type="module" src="app.js" defer></script>
 </body>
 </html>
