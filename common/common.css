@@ -731,7 +731,7 @@ footer .politique span{
    cursor: pointer;
    border: none;
    padding: 20px;
-   border-radius: 10px;
+   border-radius: 50px;
    color: white;
    transition: all .5s ease;
    
@@ -747,7 +747,7 @@ footer .politique span{
     font-size: 1.5rem;
  }
 .modal .modal_content .buttons_modal .demand:hover,.contact_modal:hover{
-   transform: scale(1.1);
+   transform: scale(1.03);
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
    
 }

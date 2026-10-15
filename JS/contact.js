@@ -105,18 +105,19 @@ export function contact(){
                         method:"POST",
                         body:formeData
                     });
-                    const data = await response.json();
+                    const raw = await response.text();
 
-                    afficherpopup(data.success,data.message);
-                    if(data.success){
-                        form.reset();
-                        verif.forEach(e =>{
-                            e.classList.remove("invalid","valid");
-                        })
+                    let data;
+                    try {
+                        data = JSON.parse(raw);
+                    } catch {
+                        console.error("Statut :", response.status, "| Réponse :", JSON.stringify(raw));
+                        data = { success: false, message: "Erreur serveur (code " + response.status + ")" };
                     }
+                    afficherpopup(data.success, data.message);
                }catch(e){
                     afficherpopup(false,"Erreur de connexion coté serveur");
-                    console.err(e);
+                    console.error(e);
                }finally{
                     button.classList.remove("loading");
                     button.disabled = false;

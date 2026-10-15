@@ -12,7 +12,8 @@ export function navigation(){
         email,
         assist,
         whtsp,
-        button_t
+        button_t,
+        about,
     }={
          link:document.querySelectorAll('nav .navigation ul li a'),
          accueil:document.getElementById("entreprise"),
@@ -24,16 +25,22 @@ export function navigation(){
         email:document.querySelectorAll(".email_url"),
         assist:document.getElementById("assist"),
         whtsp: document.querySelectorAll(".whtsp_url"),
-        button_t:document.querySelectorAll(".tarif_button")
+        button_t:document.querySelectorAll(".tarif_button"),
+        about:document.getElementById("moreinfo")
     }
   
     if(projet){
         projet.forEach((p)=>{
             p.addEventListener("click",()=>{
-                window.location.href = url("contenu/contact.html")
+                window.location.href = url("contenu/contact.html");
             })
         })
 
+    }
+    if(about){
+        about.addEventListener("click",()=>{
+            window.location.href = url("contenu/propos.html");
+        })
     }
 
     if(accueil){

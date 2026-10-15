@@ -121,7 +121,7 @@
     font-weight: 600;
     font-size: 1.5rem;
 }
-.section_tarif .info_tarif ion-icon[name="person-outline"]{
+.section_tarif .info_tarif ion-icon:first-child{
     font-size: 2rem;
     padding: 12px;
     border-radius: 50%;
@@ -167,7 +167,7 @@
 }
 .tarif_contact ion-icon{
     font-size: 3rem;
-    padding: 12px;
+    padding: 10px;
     border-radius: 50%;
     background-color: var(--blue-primary);
     color: white;

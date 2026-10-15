@@ -9,7 +9,7 @@ const BOT_RULES = [
     },
     {
         keywords:["support client","support","teleoperation","support client & teleoperation"],
-        answer:"Notre assistant support client & teleopération répond a vos clients rapidement 24h/24.Voulez-vous en savoir plus ?",
+        answer:"Notre assistant support client & téléopération répond a vos clients rapidement 24h/24.Voulez-vous en savoir plus ?",
         ships:["oui, être rappelé","Voir le tarif"]
     },
     {
@@ -395,15 +395,16 @@ export function chat(){
                             method:"POST",
                             body:formeData
                           });
-                    const data = await response.json();
-              
-                        afficherpopup(data.success,data.message);
-                        if(data.success){
-                            form.reset();
-                              verif.forEach(e =>{
-                                 e.classList.remove("invalid","valid");
-                              })
-                        }
+                          const raw = await response.text();
+
+                          let data;
+                          try {
+                              data = JSON.parse(raw);
+                          } catch {
+                              console.error("Statut :", response.status, "| Réponse :", JSON.stringify(raw));
+                              data = { success: false, message: "Erreur serveur (code " + response.status + ")" };
+                          }
+                          afficherpopup(data.success, data.message);
                 }catch(e){
                     afficherpopup(false,"Erreur de connexion cote serveur");
                 }

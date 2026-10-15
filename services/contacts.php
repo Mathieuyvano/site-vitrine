@@ -3,14 +3,21 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-    require __DIR__.'/vendor/autoload.php';
-    require_once __DIR__.'/helpers.php';
-    
-
-
-    $dotenv =Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
+ 
+    try {
+        $base = file_exists(__DIR__ . '/vendor/autoload.php') ? __DIR__ : dirname(__DIR__,2);
+        require $base .'/vendor/autoload.php';
+        require_once __DIR__.'/helpers.php';
+        $dotenv = Dotenv\Dotenv::createImmutable($base);
+        $dotenv->load();
+        $dotenv->required(['SMTP_HOST','SMTP_USER','SMTP_PWD','SMTP_SECURE','SMTP_PORT']);
+    } catch (\Throwable $e) {
+        error_log("Dotenv error: " . $e->getMessage());
+        http_response_code(500);
+        header('Content-Type: application/json');
+        echo json_encode(["success" => false, "message" => "Erreur de configuration"]);
+        exit;
+    }
         if($_SERVER["REQUEST_METHOD"]!== "POST"){
             http_response_code(405);
             header('Allow: POST');
@@ -70,7 +77,7 @@ use PHPMailer\PHPMailer\Exception;
 
             $mail->send();
 
-            repondre(true,"Vôtre message a été bien envoyé",200);
+            repondre(true,"Message envoyé avec succès, nous répondrons dans les plus bref délai",200);
         }catch(Exception $e){
              error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
              repondre(false,"Une erreur est survenue veuillez reessayer",500);
